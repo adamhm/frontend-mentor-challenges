@@ -18,13 +18,23 @@
         <link rel="stylesheet" href="styles/index.css" />
         <title>Frontend Mentor | QR code component</title>
     </head>
-    <body>
+    <body
+        class="w-screen h-screen m-0 flex justify-center items-center bg-back font-sans"
+    >
         <main>
-            <article>
-                <img src="images/image-qr-code.png" alt="QR Code" />
-                <h1>Improve your front-end skills by building projects</h1>
-                <p>
-                    Scan the QR code to visit Frontend Mentor and take your
+            <article
+                class="w-[320px] flex flex-col justify-center p-4 text-center bg-white rounded-[20px]"
+            >
+                <img
+                    src="images/image-qr-code.png"
+                    alt="QR Code"
+                    class="rounded-[10px]"
+                />
+                <h1 class="m-0 mt-6 font-bold text-2xl text-title">
+                    Improve your front-end skills by building projects
+                </h1>
+                <p class="m-0 p-4 font-normal text-desc">
+                    Scan the QR code to visit front-end Mentor and take your
                     coding skills to the next level
                 </p>
             </article>
