@@ -65,8 +65,7 @@ body {
 
 .card__product__title {
     margin-top: 26px;
-    font: 500 32px "Fraunces", serif;
-    line-height: 32px;
+    font: 500 32px/32px "Fraunces", serif;
     color: var(--color-title);
 }
 
@@ -108,7 +107,4 @@ body {
 
 .card__button:hover {
     background-color: hsl(156, 42%, 18%);
-}
-
-.card__button__image {
 }
