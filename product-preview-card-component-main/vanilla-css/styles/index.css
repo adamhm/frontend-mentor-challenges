@@ -1,0 +1,114 @@
+:root {
+    box-sizing: border-box;
+
+    --color-desktop: hsl(30, 38%, 92%);
+    --color-title: hsl(212, 21%, 14%);
+    --color-category: hsl(228, 12%, 48%);
+    --color-description: hsl(228, 12%, 48%);
+    --color-button: hsl(158, 36%, 37%);
+    --color-price-current: hsl(158, 36%, 37%);
+    --color-price-original: hsl(228, 12%, 48%);
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body,
+div,
+p,
+h1 {
+    margin: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-desktop);
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    border-radius: 1em;
+}
+
+.container {
+    width: 600px;
+    height: 450px;
+}
+
+.card__image {
+    width: 50%;
+    border-radius: 10px 0 0 10px;
+}
+
+.card__product {
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    background-color: white;
+    border-radius: 0 10px 10px 0;
+}
+
+.card__product__category {
+    font: 12px "Montserrat", sans-serif;
+    color: var(--color-category);
+    text-transform: uppercase;
+    letter-spacing: 0.25rem;
+}
+
+.card__product__title {
+    margin-top: 26px;
+    font: 500 32px "Fraunces", serif;
+    line-height: 32px;
+    color: var(--color-title);
+}
+
+.card__product__description {
+    margin: 24px 0;
+    font: 14px/22px "Montserrat", sans-serif;
+    color: var(--color-description);
+}
+
+.card__product__prices {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.card__product__prices__current {
+    font: 32px "Fraunces", serif;
+    color: var(--color-price-current);
+}
+
+.card__product__prices__original {
+    font: 13px "Montserrat", sans-serif;
+    color: var(--color-price-original);
+    text-decoration: line-through;
+}
+
+.card__button {
+    margin-top: auto;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: 700 14px "Montserrat", sans-serif;
+    background-color: var(--color-button);
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.card__button:hover {
+    background-color: hsl(156, 42%, 18%);
+}
+
+.card__button__image {
+}
