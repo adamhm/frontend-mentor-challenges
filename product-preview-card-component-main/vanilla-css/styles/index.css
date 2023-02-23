@@ -44,11 +44,14 @@ body {
 }
 
 .card__image {
-    width: 50%;
+    flex: 0 0 50%;
+    background: var(--color-desktop) url("../images/image-product-desktop.jpg")
+        center / cover no-repeat;
     border-radius: 10px 0 0 10px;
 }
 
 .card__product {
+    flex: 0 0 50%;
     display: flex;
     flex-direction: column;
     padding: 32px;
@@ -64,7 +67,7 @@ body {
 }
 
 .card__product__title {
-    margin-top: 26px;
+    margin-top: 22px;
     font: 500 32px/32px "Fraunces", serif;
     color: var(--color-title);
 }
@@ -93,7 +96,7 @@ body {
 }
 
 .card__button {
-    margin-top: auto;
+    margin-top: 26px;
     height: 48px;
     display: flex;
     justify-content: center;
