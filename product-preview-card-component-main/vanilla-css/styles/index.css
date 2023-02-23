@@ -131,7 +131,7 @@ body {
 
     .card__product {
         border-radius: 0 0 10px 10px;
-        padding: 26px 32px;
+        padding: 26px 24px;
     }
 
     .card__product__title {
@@ -143,6 +143,10 @@ body {
     }
 
     .card__product__prices {
-        margin: 18px;
+        margin: 19px;
+    }
+
+    .card__button {
+        margin-top: auto;
     }
 }
