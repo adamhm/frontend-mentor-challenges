@@ -71,7 +71,7 @@ body {
 
 .card__product__description {
     margin: 24px 0;
-    font: 14px/22px "Montserrat", sans-serif;
+    font: 14px/23px "Montserrat", sans-serif;
     color: var(--color-description);
 }
 
@@ -107,4 +107,40 @@ body {
 
 .card__button:hover {
     background-color: hsl(156, 42%, 18%);
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+        height: 100%;
+        padding: 28px 16px;
+    }
+
+    .card {
+        flex-direction: column;
+    }
+
+    .card__image {
+        width: 100%;
+        height: 240px;
+        object-fit: cover;
+        border-radius: 10px 10px 0 0;
+    }
+
+    .card__product {
+        border-radius: 0 0 10px 10px;
+        padding: 26px 32px;
+    }
+
+    .card__product__title {
+        margin: 10px 0;
+    }
+
+    .card__product__description {
+        margin: 6px 0 0;
+    }
+
+    .card__product__prices {
+        margin: 18px;
+    }
 }
