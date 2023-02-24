@@ -1,0 +1,15 @@
+{
+    "name": "product-preview-card-component-tailwind",
+    "version": "1.0.0",
+    "description": "Frontend Mentor Product Preview Card Component - Tailwind version",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx tailwindcss -i ./src/index.css -o ./styles/index.css --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "adamhm",
+    "license": "MIT",
+    "devDependencies": {
+        "tailwindcss": "^3.2.7"
+    }
+}

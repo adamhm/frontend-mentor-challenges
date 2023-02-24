@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --color-desktop: hsl(30, 38%, 92%);
+        --color-title: hsl(212, 21%, 14%);
+        --color-category: hsl(228, 12%, 48%);
+        --color-description: hsl(228, 12%, 48%);
+        --color-button: hsl(158, 36%, 37%);
+        --color-price-current: hsl(158, 36%, 37%);
+        --color-price-original: hsl(228, 12%, 48%);
+    }
+}
