@@ -3,7 +3,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
-    content: [],
+    content: ["./index.html"],
     theme: {
         extend: {
             fontFamily: {
@@ -16,8 +16,13 @@ module.exports = {
                 category: "hsl(var(--color-category))",
                 description: "hsl(var(--color-description))",
                 button: "hsl(var(--color-button))",
-                currentPrice: "hsl(var(--color-price-current))",
-                originalPrice: "hsl(var(--color-price-original))",
+                "button-hover": "hsl(var(--color-button-hover))",
+                "price-current": "hsl(var(--color-price-current))",
+                "price-original": "hsl(var(--color-price-original))",
+            },
+            backgroundImage: {
+                "img-desktop": "url('../images/image-product-desktop.jpg')",
+                "img-mobile": "url('../images/image-product-mobile.jpg')",
             },
         },
     },
