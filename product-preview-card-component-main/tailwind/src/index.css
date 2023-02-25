@@ -4,12 +4,13 @@
 
 @layer base {
     :root {
-        --color-desktop: hsl(30, 38%, 92%);
-        --color-title: hsl(212, 21%, 14%);
-        --color-category: hsl(228, 12%, 48%);
-        --color-description: hsl(228, 12%, 48%);
-        --color-button: hsl(158, 36%, 37%);
-        --color-price-current: hsl(158, 36%, 37%);
-        --color-price-original: hsl(228, 12%, 48%);
+        --color-desktop: 30, 38%, 92%;
+        --color-title: 212, 21%, 14%;
+        --color-category: 228, 12%, 48%;
+        --color-description: 228, 12%, 48%;
+        --color-button: 158, 36%, 37%;
+        --color-button-hover: 156, 42%, 18%;
+        --color-price-current: 158, 36%, 37%;
+        --color-price-original: 228, 12%, 48%;
     }
 }
