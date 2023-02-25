@@ -1,11 +1,13 @@
 :root {
     box-sizing: border-box;
+    font-size: 16px;
 
     --color-desktop: hsl(30, 38%, 92%);
     --color-title: hsl(212, 21%, 14%);
     --color-category: hsl(228, 12%, 48%);
     --color-description: hsl(228, 12%, 48%);
     --color-button: hsl(158, 36%, 37%);
+    --color-button-hover: hsl(156, 42%, 18%);
     --color-price-current: hsl(158, 36%, 37%);
     --color-price-original: hsl(228, 12%, 48%);
 }
@@ -35,7 +37,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    border-radius: 1em;
 }
 
 .container {
@@ -47,45 +48,45 @@ body {
     flex: 0 0 50%;
     background: var(--color-desktop) url("../images/image-product-desktop.jpg")
         center / cover no-repeat;
-    border-radius: 10px 0 0 10px;
+    border-radius: 0.75rem 0 0 0.75rem;
 }
 
 .card__product {
     flex: 0 0 50%;
     display: flex;
     flex-direction: column;
-    padding: 32px;
+    padding: 2rem;
     background-color: white;
-    border-radius: 0 10px 10px 0;
+    border-radius: 0 0.75rem 0.75rem 0;
 }
 
 .card__product__category {
-    font: 12px "Montserrat", sans-serif;
+    font: 0.75rem "Montserrat", sans-serif;
     color: var(--color-category);
     text-transform: uppercase;
     letter-spacing: 0.25rem;
 }
 
 .card__product__title {
-    margin-top: 22px;
-    font: 500 32px/32px "Fraunces", serif;
+    margin-top: 1.375rem;
+    font: 500 2rem/2rem "Fraunces", serif;
     color: var(--color-title);
 }
 
 .card__product__description {
-    margin: 24px 0;
-    font: 14px/23px "Montserrat", sans-serif;
+    margin: 1.5rem 0;
+    font: 0.875rem/23px "Montserrat", sans-serif;
     color: var(--color-description);
 }
 
 .card__product__prices {
     display: flex;
     align-items: center;
-    column-gap: 20px;
+    column-gap: 1.25rem;
 }
 
 .card__product__prices__current {
-    font: 32px "Fraunces", serif;
+    font: 2rem "Fraunces", serif;
     color: var(--color-price-current);
 }
 
@@ -96,27 +97,27 @@ body {
 }
 
 .card__button {
-    margin-top: 26px;
+    margin-top: 1.625rem;
     height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
-    font: 700 14px "Montserrat", sans-serif;
+    font: 700 0.875rem "Montserrat", sans-serif;
     background-color: var(--color-button);
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 .card__button:hover {
-    background-color: hsl(156, 42%, 18%);
+    background-color: var(--color-button-hover);
 }
 
 @media screen and (max-width: 768px) {
     .container {
         width: 100%;
         height: 100%;
-        padding: 28px 16px;
+        padding: 1.75rem 1rem;
     }
 
     .card {
@@ -126,27 +127,27 @@ body {
     .card__image {
         flex: 0 0 240px;
         background-image: url("../images/image-product-mobile.jpg");
-        border-radius: 10px 10px 0 0;
+        border-radius: 0.75rem 0.75rem 0 0;
     }
 
     .card__product {
-        border-radius: 0 0 10px 10px;
-        padding: 26px 24px;
+        border-radius: 0 0 0.75rem 0.75rem;
+        padding: 1.625rem 1.5rem 1.5rem;
     }
 
     .card__product__title {
-        margin: 10px 0;
+        margin-top: 0.625rem;
     }
 
     .card__product__description {
-        margin: 6px 0 0;
+        margin: 1rem 0;
     }
 
     .card__product__prices {
-        margin: 19px;
+        margin-top: 5px;
     }
 
     .card__button {
-        margin-top: auto;
+        margin-top: 1rem;
     }
 }
