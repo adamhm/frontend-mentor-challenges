@@ -21,23 +21,52 @@
         <link rel="stylesheet" href="styles/index.css" />
         <title>Frontend Mentor | Product preview card component</title>
     </head>
-    <body>
-        <main>
-            <article>
-                <div></div>
-                <div>
-                    <p>perfume</p>
-                    <h1>Gabrielle Essence Eau De Parfum</h1>
-                    <p>
+    <body class="h-screen flex justify-center items-center bg-desktop">
+        <main class="w-full h-full md:w-[600px] md:h-[450px] px-4 py-7 md:p-0">
+            <article
+                class="flex flex-col md:flex-row justify-center items-stretch"
+            >
+                <div
+                    class="grow-0 shrink-0 basis-[240px] md:basis-1/2 bg-desktop bg-img-mobile md:bg-img-desktop bg-center bg-cover bg-no-repeat rounded-t-xl md:rounded-l-xl"
+                ></div>
+                <div
+                    class="grow-0 shrink-0 md:basis-1/2 flex flex-col px-6 pt-[1.625rem] pb-6 md:p-8 bg-white rounded-b-xl md:rounded-r-xl"
+                >
+                    <p
+                        class="font-sans text-[0.75rem] leading-[normal] text-category uppercase tracking-[0.25rem]"
+                    >
+                        perfume
+                    </p>
+                    <h1
+                        class="mt-[0.625rem] md:mt-[1.375rem] font-serif font-medium text-[2rem] leading-8"
+                    >
+                        Gabrielle Essence Eau De Parfum
+                    </h1>
+                    <p
+                        class="mx-0 my-4 md:my-6 text-[0.875rem] leading-[23px] font-sans text-description"
+                    >
                         A floral, solar and voluptuous interpretation composed
                         by Olivier Polge, Perfumer-Creator for the House of
                         CHANEL.
                     </p>
-                    <div>
-                        <p>$149.99</p>
-                        <p>$169.99</p>
+                    <div
+                        class="flex items-center gap-x-[1.25rem] mt-[5px] md:mt-0"
+                    >
+                        <p
+                            class="text-[2rem] leading-[normal] font-serif text-price-current"
+                        >
+                            $149.99
+                        </p>
+                        <p
+                            class="text-[13px] font-sans text-price-original line-through"
+                        >
+                            $169.99
+                        </p>
                     </div>
-                    <button type="button">
+                    <button
+                        type="button"
+                        class="mt-4 md:mt-[1.625rem] h-[48px] flex justify-center items-center font-bold text-[0.875rem] font-sans bg-button text-white border-0 rounded-lg hover:bg-button-hover"
+                    >
                         <img src="images/icon-cart.svg" alt="cart icon" />&nbsp;
                         Add to Cart
                     </button>
