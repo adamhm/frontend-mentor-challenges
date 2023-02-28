@@ -25,5 +25,22 @@ p {
 }
 
 body {
-    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        to bottom,
+        var(--color-gradient-soft-violet),
+        var(--color-gradient-soft-blue)
+    );
+    font-family: "Kumbh Sans", sans-serif;
+}
+
+.container {
+    width: 920px;
+    height: 509px;
+    border-radius: 1rem;
+    background-color: var(--color-card-bg);
+}
 }
