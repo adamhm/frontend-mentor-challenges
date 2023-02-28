@@ -43,4 +43,32 @@ body {
     border-radius: 1rem;
     background-color: var(--color-card-bg);
 }
+
+.card {
+    height: 100%;
+    display: flex;
+    box-shadow: 0 1rem 4rem -1rem rgb(0, 0, 0, 0.4);
+}
+
+.card__image {
+    flex-grow: 1;
+    background-color: var(--color-card-bg), var(--color-card-bg);
+    background-image: url("../images/illustration-woman-online-desktop.svg"),
+        url("../images/bg-pattern-desktop.svg");
+    background-position: -85px, -580px -300px;
+    background-repeat: no-repeat, no-repeat;
+}
+
+.card__image::before {
+    content: "";
+    position: relative;
+    top: 210px;
+    left: -93px;
+    display: inline-block;
+    width: 191px;
+    height: 184px;
+    background: url("../images/illustration-box-desktop.svg") center / cover
+        no-repeat;
+}
+
 }
