@@ -1,5 +1,13 @@
 :root {
     box-sizing: border-box;
+
+    --color-gradient-soft-violet: hsl(273, 75%, 66%);
+    --color-gradient-soft-blue: hsl(240, 73%, 65%);
+    --color-card-bg: #fff;
+    --color-divider: hsl(240, 5%, 91%);
+    --color-text1: hsl(237, 12%, 33%);
+    --color-text2: hsl(240, 6%, 50%);
+    --color-hover: hsl(14, 88%, 65%);
 }
 
 *,
