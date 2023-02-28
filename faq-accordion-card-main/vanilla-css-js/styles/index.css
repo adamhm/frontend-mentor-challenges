@@ -71,4 +71,72 @@ body {
         no-repeat;
 }
 
+.card__faqlist {
+    flex-basis: 50%;
+    padding: 4rem 6rem 0 1.25rem;
+    color: var(--color-text1);
+}
+
+.card__faqlist__title {
+    margin-bottom: 1.25rem;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.card__faqlist__question {
+    border-bottom: thin solid var(--color-divider);
+    font-size: 14px;
+}
+
+.card__faqlist__question button {
+    width: 100%;
+    border: none;
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    background-color: transparent;
+}
+
+.card__faqlist__question button[aria-expanded="true"] {
+    font-weight: 700;
+}
+
+.card__faqlist__question button[aria-expanded="false"]:hover {
+    color: var(--color-hover);
+}
+
+.card__faqlist__question button::after {
+    content: "";
+    width: 10px;
+    height: 7px;
+    margin-left: auto;
+    margin-right: 0.9rem;
+    background: white url("../images/icon-arrow-down.svg") center / cover
+        no-repeat;
+}
+
+.card__faqlist__question button[aria-expanded="true"]::after {
+    transform: rotate(180deg);
+}
+
+.card__faqlist__question > section {
+    padding-bottom: 1rem;
+    display: none;
+    line-height: 1.1rem;
+    color: var(--color-text2);
+}
+
+@supports (selector(:has(*))) {
+    h2:has(button[aria-expanded="true"]) ~ section {
+        display: block;
+        font-size: 12px;
+    }
+}
+
+@supports not (selector(:has(*))) {
+    section[data-open="true"] {
+        display: block;
+        font-size: 12px;
+    }
 }
