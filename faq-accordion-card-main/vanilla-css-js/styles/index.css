@@ -122,9 +122,11 @@ body {
 
 .card__faqlist__question > section {
     padding-bottom: 1rem;
+    padding-right: 1.75rem;
     display: none;
     line-height: 1.1rem;
     color: var(--color-text2);
+    text-align: justify;
 }
 
 @supports (selector(:has(*))) {
