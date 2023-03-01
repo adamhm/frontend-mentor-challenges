@@ -144,3 +144,42 @@ body {
         font-size: 12px;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 4rem 1.5rem 0;
+        height: 537px;
+    }
+
+    .card {
+        flex-direction: column;
+    }
+
+    .card__image {
+        flex-grow: 0;
+        height: 120px;
+        background-color: var(--color-card-bg);
+        background-image: url("../images/bg-pattern-mobile.svg");
+        background-position: center top;
+        border-radius: 1rem;
+    }
+
+    .card__image::before {
+        content: "";
+        display: inline-block;
+        background-image: url("../images/illustration-woman-online-mobile.svg");
+        left: calc(50% - 237px / 2);
+        top: -108px;
+        width: 237px;
+        height: 180px;
+    }
+
+    .card__accordion {
+        padding: 0.75rem 1.5rem 0;
+    }
+
+    .card__accordion__title {
+        text-align: center;
+        margin-bottom: 0.85rem;
+    }
+}
