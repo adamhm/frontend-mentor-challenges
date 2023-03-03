@@ -3,8 +3,8 @@
 @tailwind utilities;
 @layer base {
     :root {
-        --color-gradient-soft-violet: 273, 75%, 66%;
-        --color-gradient-soft-blue: 240, 73%, 65%;
+        --color-soft-violet: 273, 75%, 66%;
+        --color-soft-blue: 240, 73%, 65%;
         --color-card-bg: #fff;
         --color-divider: 240, 5%, 91%;
         --color-text1: 237, 12%, 33%;
