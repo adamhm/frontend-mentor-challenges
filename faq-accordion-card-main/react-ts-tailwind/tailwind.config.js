@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 
-const defaultTheme = require("tailwindcss/defaultTheme")
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
@@ -18,8 +18,16 @@ module.exports = {
                 text2: "hsl(var(--color-text2))",
                 hover: "hsl(var(--color-hover))",
             },
-            backgroundImage: {},
+            backgroundImage: {
+                arrow: "url(images/icon-arrow-down.svg)",
+                desktop:
+                    "url(images/illustration-woman-online-desktop.svg), url(images/bg-pattern-desktop.svg)",
+                "box-desktop": "url(images/illustration-box-desktop.svg)",
+            },
+            backgroundPosition: {
+                "pos-desktop": "-85px, -580px -300px",
+            },
         },
     },
     plugins: [],
-}
+};
