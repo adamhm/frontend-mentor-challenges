@@ -23,9 +23,14 @@ module.exports = {
                 desktop:
                     "url(images/illustration-woman-online-desktop.svg), url(images/bg-pattern-desktop.svg)",
                 "box-desktop": "url(images/illustration-box-desktop.svg)",
+                "pattern-mobile": "url(images/bg-pattern-mobile.svg)",
+                mobile: "url(images/illustration-woman-online-mobile.svg)",
             },
             backgroundPosition: {
                 "pos-desktop": "-85px, -580px -300px",
+            },
+            data: {
+                open: "open='true'",
             },
         },
     },
