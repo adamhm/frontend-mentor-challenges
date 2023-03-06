@@ -94,7 +94,7 @@ body {
     padding: 1.1rem 0;
     display: flex;
     align-items: center;
-    font-weight: 400;
+    font: 400 13.333px "Kumbh Sans", sans-serif;
     background-color: transparent;
     cursor: pointer;
 }
@@ -122,8 +122,8 @@ body {
 }
 
 .card__accordion__item > section {
-    margin-top: -0.4rem;
-    padding-bottom: 1.1rem;
+    margin-top: -0.5rem;
+    padding-bottom: 1rem;
     padding-right: 1.75rem;
     display: none;
     line-height: 1.1rem;
@@ -135,6 +135,7 @@ body {
     h2:has(button[aria-expanded="true"]) ~ section {
         display: block;
         font-size: 12px;
+        padding-bottom: 1rem;
     }
 }
 
@@ -142,6 +143,7 @@ body {
     section[data-open="true"] {
         display: block;
         font-size: 12px;
+        padding-bottom: 1rem;
     }
 }
 
