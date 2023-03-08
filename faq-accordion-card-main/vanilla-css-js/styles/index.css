@@ -88,6 +88,10 @@ body {
     font-size: 14px;
 }
 
+.card__accordion__item:focus-within {
+    outline: black solid 2px;
+}
+
 .card__accordion__item button {
     width: 100%;
     border: none;
@@ -97,6 +101,7 @@ body {
     font: 400 13.333px "Kumbh Sans", sans-serif;
     background-color: transparent;
     cursor: pointer;
+    outline: none;
 }
 
 .card__accordion__item button[aria-expanded="true"] {
