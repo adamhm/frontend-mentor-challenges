@@ -1,0 +1,19 @@
+{
+    "name": "fm-testimonials-grid-section",
+    "version": "1.0.0",
+    "description": "FrontendMentor testimonials grid section with vanilla css",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "adamhm",
+    "license": "MIT",
+    "devDependencies": {
+        "gulp": "^4.0.2",
+        "gulp-print": "^5.0.2",
+        "gulp-sass": "^5.1.0",
+        "postcss": "^8.4.21",
+        "prettier-plugin-css-order": "^1.3.0",
+        "sass": "^1.58.3"
+    }
+}
