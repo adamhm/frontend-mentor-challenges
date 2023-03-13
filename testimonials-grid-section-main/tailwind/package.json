@@ -1,0 +1,15 @@
+{
+    "name": "fm-testimonials-grid-section-tailwind",
+    "version": "1.0.0",
+    "description": "FrontendMentor testimonials grid section with tailwindcss",
+    "main": "index.js",
+    "scripts": {
+        "start": "npx tailwindcss -i ./src/index.css -o ./styles/index.css --watch",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "adamhm",
+    "license": "MIT",
+    "devDependencies": {
+        "tailwindcss": "^3.2.7"
+    }
+}
