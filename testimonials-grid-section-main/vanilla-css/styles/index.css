@@ -170,6 +170,7 @@ body {
 }
 .testimonials__item__details > h3 {
     margin-top: 1.25rem;
+    font-size: 1.2rem;
 }
 .testimonials__item__details > p {
     margin-top: 1.5rem;
