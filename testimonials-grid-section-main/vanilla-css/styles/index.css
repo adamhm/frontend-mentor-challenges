@@ -72,12 +72,13 @@ body {
 }
 .testimonials__item:first-child {
     grid-column: 1/span 2;
-    background-color: var(--color-bg1);
+    background: var(--color-bg1) url("../images/bg-pattern-quotation.svg") 350px top no-repeat;
     color: var(--color-text-light);
 }
 @media screen and (max-width: 768px) {
     .testimonials__item:first-child {
         grid-column: 1;
+        background-position: 200px top;
     }
 }
 .testimonials__item:first-child p {
