@@ -122,10 +122,6 @@ body {
             color: var(--color-text-dark);
             box-shadow: $box-shadow;
 
-            @media screen and (max-width: 768px) {
-                    grid-column: 1;
-                }
-
             & p {
                     color: var(--color-item3);
                 }
