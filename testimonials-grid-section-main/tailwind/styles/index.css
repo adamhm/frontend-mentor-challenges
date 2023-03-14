@@ -795,6 +795,10 @@ video {
     height: 100vh;
   }
 
+  .md\:h-\[574px\] {
+    height: 574px;
+  }
+
   .md\:w-\[1110px\] {
     width: 1110px;
   }
