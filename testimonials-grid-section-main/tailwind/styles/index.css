@@ -657,14 +657,6 @@ video {
   background-image: url('../images/bg-pattern-quotation.svg');
 }
 
-.bg-top {
-  background-position: top;
-}
-
-.bg-\[350px_top\] {
-  background-position: 350px top;
-}
-
 .bg-\[200px_top\] {
   background-position: 200px top;
 }
@@ -714,6 +706,22 @@ video {
 
 .text-\[13px\] {
   font-size: 13px;
+}
+
+.text-\[1\.2rem\] {
+  font-size: 1.2rem;
+}
+
+.text-\[1\.13rem\] {
+  font-size: 1.13rem;
+}
+
+.text-\[18\.7px\] {
+  font-size: 18.7px;
+}
+
+.text-\[1\.17rem\] {
+  font-size: 1.17rem;
 }
 
 .font-bold {
