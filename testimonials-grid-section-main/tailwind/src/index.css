@@ -2,4 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 @layer base {
+    :root {
+        --color-desktop: 210, 46%, 95%;
+        --color-bg1: 263, 55%, 52%;
+        --color-bg2: 217, 19%, 35%;
+        --color-bg3: 0, 0%, 100%;
+        --color-bg4: 219, 29%, 14%;
+        --color-text-light: 0, 0%, 100%;
+        --color-text-dark: 217, 19%, 35%;
+        --color-item1: 263, 49%, 72%;
+        --color-item2: 223, 10%, 70%;
+        --color-item3: 223, 10%, 65%;
+        --color-item4: 280, 0%, 60%;
+    }
 }
