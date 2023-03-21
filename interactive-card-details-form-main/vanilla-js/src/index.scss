@@ -1,1 +1,187 @@
+$color-body: #f0f0f0;
+$color-bg: white;
+$color-card-front: white;
+$color-card-back: white;
+$color-error: red;
+$image-main-desktop: url("../images/bg-main-desktop.png");
+$image-card-front: url("../images/bg-card-front.png");
+$image-card-back: url("../images/bg-card-back.png");
+$image-card-logo: url("../images/card-logo.svg");
 
+:root {
+    --color-body: #{$color-body};
+    --color-bg: #{$color-bg};
+    --color-card-front: #{$color-card-front};
+    --color-card-back: #{$color-card-back};
+    --color-error: #{$color-error};
+    --image-main-desktop: #{$image-main-desktop};
+    --image-card-front: #{$image-card-front};
+    --image-card-back: #{$image-card-back};
+    --image-card-logo: #{$image-card-logo};
+    box-sizing: border-box;
+    font-family: "Space Grotesk", sans-serif;
+}
+
+*,
+::before,
+::after {
+    box-sizing: inherit;
+}
+
+body,
+main,
+article,
+section,
+div {
+    margin: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-body);
+    height: 100vh;
+}
+
+form,
+label,
+input,
+button {
+    display: block;
+}
+
+.container {
+    width: 1440px;
+    height: 900px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    background-color: var(--color-bg);
+    height: 100%;
+
+    &__image {
+        position: relative;
+        flex: 1;
+        background: var(--image-main-desktop) no-repeat;
+
+        &__front {
+            position: absolute;
+            top: 187px;
+            left: 164px;
+            background: var(--image-card-logo) no-repeat 30px 26px,
+                var(--image-card-front) no-repeat;
+            padding: 140px 2rem 0;
+            width: 447px;
+            height: 245px;
+            color: var(--color-card-front);
+            text-transform: uppercase;
+
+            &__number {
+                font-size: 1.75rem;
+                letter-spacing: 0.2rem;
+            }
+
+            & > div:nth-child(2) {
+                display: flex;
+                padding-top: 1.75rem;
+                font-size: 14px;
+                letter-spacing: 0.125rem;
+            }
+
+            &__expiration {
+                margin-left: auto;
+            }
+        }
+
+        &__back {
+            position: absolute;
+            top: 479px;
+            left: 256px;
+            background: var(--image-card-back) no-repeat;
+            width: 447px;
+            height: 245px;
+            color: var(--color-card-back);
+
+            &__cvc {
+                position: relative;
+                top: 110px;
+                left: 357px;
+                font-size: 0.875rem;
+            }
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex: 1;
+        align-items: center;
+        padding-left: 224px;
+        font-size: 12px;
+
+        &__form {
+            width: 381px;
+
+            & label {
+                margin-top: 1.75rem;
+                margin-bottom: 0.5rem;
+                font-weight: bold;
+                letter-spacing: 2px;
+                text-transform: uppercase;
+            }
+
+            & > label:first-child {
+                margin-top: 0;
+            }
+
+            & input {
+                border: 1px solid lightgrey;
+                border-radius: 8px;
+                padding: 0 1rem;
+                width: 100%;
+                height: 45px;
+                font-size: 18px;
+
+                &::placeholder {
+                    color: lightgray;
+                }
+            }
+
+            & .error {
+                display: none;
+            }
+
+            & > div {
+                display: flex;
+                column-gap: 20px;
+            }
+
+            &__exp > div {
+                display: flex;
+                column-gap: 10px;
+
+                & > input {
+                    display: inline-block;
+                    width: 80px;
+                }
+            }
+
+            & > button {
+                margin-top: 2.5rem;
+                border-radius: 8px;
+                background-color: black;
+                width: 100%;
+                height: 53px;
+                color: #fff;
+                font-size: 16px;
+            }
+        }
+
+        &__completed {
+            display: none;
+        }
+    }
+}
