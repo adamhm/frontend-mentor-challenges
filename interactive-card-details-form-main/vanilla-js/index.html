@@ -1,97 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- displays site properly based on user's device -->
 
-        <link
-            rel="icon"
-            type="image/png"
-            sizes="32x32"
-            href="./images/favicon-32x32.png"
-        />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap"
-            rel="stylesheet"
-        />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="./styles/index.css" />
         <title>Frontend Mentor | Interactive card details form</title>
     </head>
+
     <body>
         <main class="container">
             <article class="card">
                 <section class="card__image" aria-hidden="true">
                     <div class="card__image__front">
-                        <div class="card__image__front__number">
+                    <div id="card_number" class="card__image__front__number">
                             0000 0000 0000 0000
                         </div>
                         <div>
-                            <div class="card__image__front_name">
+                        <div id="card_name" class="card__image__front_name">
                                 Jane Appleseed
                             </div>
-                            <div class="card__image__front__expiration">
+                        <div id="card_expiration" class="card__image__front__expiration">
                                 00/00
                             </div>
                         </div>
                     </div>
                     <div class="card__image__back">
-                        <div class="card__image__back__cvc">000</div>
+                    <div id="card_cvc" class="card__image__back__cvc">000</div>
                     </div>
                 </section>
                 <section class="card__details">
-                    <form action="" class="card__details__form">
+                <form id="card_form" action="" class="card__details__form">
                         <label>Cardholder Name</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            placeholder="e.g. Jane Appleseed"
-                        />
+                    <input type="text" id="name" name="name" placeholder="e.g. Jane Appleseed" />
                         <span class="error">Error</span>
                         <label for="cardnumber">Card Number</label>
-                        <input
-                            type="text"
-                            id="cardnumber"
-                            name="cardnumber"
-                            maxlength="19"
-                            placeholder="e.g. 1234 5678 9123 0000"
-                        />
+                    <input type="text" id="cardnumber" name="cardnumber" maxlength="19"
+                        placeholder="e.g. 1234 5678 9123 0000" />
                         <span class="error">Error</span>
                         <div>
                             <div class="card__details__form__exp">
                                 <label for="month">Exp. Date (MM/YY)</label>
                                 <div>
-                                    <input
-                                        type="text"
-                                        id="month"
-                                        name="month"
-                                        maxlength="2"
-                                        placeholder="MM"
-                                        aria-label="expiration month"
-                                    />
-                                    <input
-                                        type="text"
-                                        id="year"
-                                        name="year"
-                                        maxlength="2"
-                                        placeholder="YY"
-                                        aria-label="expiration year"
-                                    />
+                                <input type="text" id="month" name="month" maxlength="2" placeholder="MM"
+                                    aria-label="expiration month" />
+                                <input type="text" id="year" name="year" maxlength="2" placeholder="YY"
+                                    aria-label="expiration year" />
                                 </div>
                                 <span class="error">Error</span>
                             </div>
                             <div class="card__details__form__cvc">
                                 <label for="cvc">CVC</label>
-                                <input
-                                    type="text"
-                                    id="cvc"
-                                    name="cvc"
-                                    maxlength="3"
-                                    placeholder="e.g. 123"
-                                />
+                            <input type="text" id="cvc" name="cvc" maxlength="3" placeholder="e.g. 123" />
                                 <span class="error">Error</span>
                             </div>
                         </div>
@@ -99,12 +65,7 @@
                     </form>
                     <!-- Completed state start -->
                     <div class="card__details__completed">
-                        <img
-                            src="images/icon-complete.svg"
-                            width="82"
-                            height="82"
-                            alt=""
-                        />
+                    <img src="images/icon-complete.svg" width="82" height="82" alt="" />
                         <p>Thank you!</p>
                         <p>We've added your card details</p>
                         <button type="button">Continue</button>
