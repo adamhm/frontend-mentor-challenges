@@ -83,9 +83,10 @@ button {
             &__number {
                 font-size: 1.75rem;
                 letter-spacing: 0.2rem;
+                min-height: 36px;
             }
 
-            & > div:nth-child(2) {
+            &>div:nth-child(2) {
                 display: flex;
                 padding-top: 1.75rem;
                 font-size: 14px;
@@ -133,7 +134,7 @@ button {
                 text-transform: uppercase;
             }
 
-            & > label:first-child {
+            &>label:first-child {
                 margin-top: 0;
             }
 
@@ -154,22 +155,22 @@ button {
                 display: none;
             }
 
-            & > div {
+            &>div {
                 display: flex;
                 column-gap: 20px;
             }
 
-            &__exp > div {
+            &__exp>div {
                 display: flex;
                 column-gap: 10px;
 
-                & > input {
+                &>input {
                     display: inline-block;
                     width: 80px;
                 }
             }
 
-            & > button {
+            &>button {
                 margin-top: 2.5rem;
                 border-radius: 8px;
                 background-color: black;
