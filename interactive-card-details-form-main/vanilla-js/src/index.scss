@@ -149,10 +149,19 @@ button {
                 &::placeholder {
                     color: lightgray;
                 }
+
+                &[aria-invalid="true"] {
+                    border-color: var(--color-error);
+
+                    &+span.error {
+                        display: block;
+                    }
+                }
             }
 
             & .error {
                 display: none;
+                color: var(--color-error);
             }
 
             &>div {
@@ -168,6 +177,10 @@ button {
                     display: inline-block;
                     width: 80px;
                 }
+            }
+
+            & div:has(input[aria-invalid="true"])+span.error {
+                display: block;
             }
 
             &>button {

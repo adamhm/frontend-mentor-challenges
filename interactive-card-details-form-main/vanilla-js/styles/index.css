@@ -129,8 +129,15 @@ button {
 .card__details__form input::placeholder {
     color: lightgray;
 }
+.card__details__form input[aria-invalid=true] {
+    border-color: var(--color-error);
+}
+.card__details__form input[aria-invalid=true] + span.error {
+    display: block;
+}
 .card__details__form .error {
     display: none;
+    color: var(--color-error);
 }
 .card__details__form > div {
     display: flex;
@@ -143,6 +150,9 @@ button {
 .card__details__form__exp > div > input {
     display: inline-block;
     width: 80px;
+}
+.card__details__form div:has(input[aria-invalid=true]) + span.error {
+    display: block;
 }
 .card__details__form > button {
     margin-top: 2.5rem;
