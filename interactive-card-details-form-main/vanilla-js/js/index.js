@@ -54,6 +54,40 @@
             );
         }
     }
+
+    function setExpDateError() {
+        const monthCondition = /(0[1-9])|(1[0-2])/;
+        const yearCondition = /\d{2}/;
+        const month = cardForm.month.value.trim();
+        const year = cardForm.year.value.trim();
+
+        let monthErrorMessage = getErrorMessage(month, 2, monthCondition);
+        let yearErrorMessage = getErrorMessage(year, 2, yearCondition);
+
+        if (monthErrorMessage) {
+            let errorField =
+                cardForm.month.parentElement.parentElement.querySelector(
+                    ".error"
+                );
+            setErrorProperties(cardForm.month, errorField, monthErrorMessage);
+        }
+
+        if (yearErrorMessage) {
+            let errorField =
+                cardForm.year.parentElement.parentElement.querySelector(
+                    ".error"
+                );
+
+            setErrorProperties(cardForm.year, errorField, yearErrorMessage);
+        }
+
+        if (
+            (monthErrorMessage || yearErrorMessage) &&
+            !isHasSelectorSupported()
+        ) {
+            errorField.style.display = "block";
+        }
+    }
     function getErrorMessage(value, expectedLength, condition) {
         if (value === "") {
             return errorMessages.cantBeBlank;
