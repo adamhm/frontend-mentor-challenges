@@ -1,4 +1,10 @@
 (function () {
+    const errorMessages = {
+        cantBeBlank: "Can't be blank",
+        wrongFormat: "Wrong format",
+        wrongFormatNumbersOnly: "Wrong format, numbers only",
+    };
+
     const cardForm = document.getElementById("card_form");
     const cardNumberField = document.getElementById("card_number");
     const cardNameField = document.getElementById("card_name");
@@ -32,5 +38,17 @@
         }
 
         return formattedNumber.toUpperCase();
+    }
+
+    function getErrorMessage(value, expectedLength, condition) {
+        if (value === "") {
+            return errorMessages.cantBeBlank;
+        } else if (value.length < expectedLength) {
+            return errorMessages.wrongFormat;
+        } else if (!condition.test(value)) {
+            return errorMessages.wrongFormatNumbersOnly;
+        }
+
+        return null;
     }
 })();
