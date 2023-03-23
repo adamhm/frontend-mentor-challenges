@@ -51,4 +51,23 @@
 
         return null;
     }
+
+    function setErrorProperties(inputElement, errorField, message) {
+        inputElement.setAttribute("aria-invalid", "true");
+        errorField.innerText = message;
+    }
+
+    function removeErrors() {
+        formElements.forEach((elem) => elem.removeAttribute("aria-invalid"));
+
+        if (!isHasSelectorSupported()) {
+            for (const spanElement of cardForm.querySelectorAll("span.error")) {
+                spanElement.style.display = "none";
+            }
+        }
+    }
+
+    function isHasSelectorSupported() {
+        return CSS.supports("selector(div:has(input))");
+    }
 })();
