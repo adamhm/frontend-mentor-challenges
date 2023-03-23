@@ -88,6 +88,21 @@
             errorField.style.display = "block";
         }
     }
+
+    function setCvcError() {
+        const condition = /\d{3}/;
+        const cvc = cardForm.cvc.value.replaceAll(" ", "");
+        let errorMessage = getErrorMessage(cvc, 3, condition);
+
+        if (errorMessage !== null) {
+            setErrorProperties(
+                cardForm.cvc,
+                cardForm.cvc.nextElementSibling,
+                errorMessage
+            );
+        }
+    }
+
     function getErrorMessage(value, expectedLength, condition) {
         if (value === "") {
             return errorMessages.cantBeBlank;
