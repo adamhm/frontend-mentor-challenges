@@ -14,6 +14,11 @@
     const formElements = Array.from(cardForm.elements);
     formElements.forEach((elem) => elem.addEventListener("input", update));
 
+    document.getElementById("confirm").addEventListener("click", function () {
+        removeErrors();
+        setErrors();
+    });
+
     function update() {
         cardForm.cardnumber.value = formatCardNumber(cardForm.cardnumber.value);
         cardNumberField.innerText = cardForm.cardnumber.value;
@@ -40,6 +45,11 @@
         return formattedNumber.toUpperCase();
     }
 
+    function setErrors() {
+        setCardNumberError();
+        setExpDateError();
+        setCvcError();
+    }
 
     function setCardNumberError() {
         const condition = /\d{16}/;
