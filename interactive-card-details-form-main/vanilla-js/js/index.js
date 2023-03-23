@@ -40,6 +40,20 @@
         return formattedNumber.toUpperCase();
     }
 
+
+    function setCardNumberError() {
+        const condition = /\d{16}/;
+        const cardNumber = cardForm.cardnumber.value.replaceAll(" ", "");
+        let errorMessage = getErrorMessage(cardNumber, 16, condition);
+
+        if (errorMessage !== null) {
+            setErrorProperties(
+                cardForm.cardnumber,
+                cardForm.cardnumber.nextElementSibling,
+                errorMessage
+            );
+        }
+    }
     function getErrorMessage(value, expectedLength, condition) {
         if (value === "") {
             return errorMessages.cantBeBlank;
