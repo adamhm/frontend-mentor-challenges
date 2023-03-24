@@ -1,3 +1,5 @@
+@use './reset.scss';
+
 $color-body: #f0f0f0;
 $color-bg: white;
 $color-card-front: white;
@@ -26,22 +28,7 @@ $image-card-logo: url("../images/card-logo.svg");
     --image-card-front: #{$image-card-front};
     --image-card-back: #{$image-card-back};
     --image-card-logo: #{$image-card-logo};
-    box-sizing: border-box;
     font-family: "Space Grotesk", sans-serif;
-}
-
-*,
-::before,
-::after {
-    box-sizing: inherit;
-}
-
-body,
-main,
-article,
-section,
-div {
-    margin: 0;
 }
 
 body {
