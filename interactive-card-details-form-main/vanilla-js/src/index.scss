@@ -81,7 +81,7 @@ button {
                 min-height: 36px;
             }
 
-            &>div:nth-child(2) {
+            & > div:nth-child(2) {
                 display: flex;
                 padding-top: 1.75rem;
                 font-size: 14px;
@@ -129,7 +129,7 @@ button {
                 text-transform: uppercase;
             }
 
-            &>label:first-child {
+            & > label:first-child {
                 margin-top: 0;
             }
 
@@ -148,7 +148,7 @@ button {
                 &[aria-invalid="true"] {
                     border-color: var(--color-error);
 
-                    &+span.error {
+                    & + span.error {
                         display: block;
                     }
                 }
@@ -159,22 +159,22 @@ button {
                 color: var(--color-error);
             }
 
-            &>div {
+            & > div {
                 display: flex;
                 column-gap: 20px;
             }
 
-            &__exp>div {
+            &__exp > div {
                 display: flex;
                 column-gap: 10px;
 
-                &>input {
+                & > input {
                     display: inline-block;
                     width: 80px;
                 }
             }
 
-            & div:has(input[aria-invalid="true"])+span.error {
+            & div:has(input[aria-invalid="true"]) + span.error {
                 display: block;
             }
 
