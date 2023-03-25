@@ -51,6 +51,16 @@ button {
     height: 900px;
 }
 
+%button {
+    border-radius: 8px;
+    background-color: var(--color-button);
+    width: 100%;
+    height: 53px;
+    color: var(--color-button-text);
+    font-family: inherit;
+    font-size: 18px;
+}
+
 .card {
     display: flex;
     justify-content: center;
@@ -178,19 +188,35 @@ button {
                 display: block;
             }
 
-            &>button {
+            & > button {
+                @extend %button;
                 margin-top: 2.5rem;
-                border-radius: 8px;
-                background-color: black;
-                width: 100%;
-                height: 53px;
-                color: #fff;
-                font-size: 16px;
             }
         }
 
         &__completed {
             display: none;
+            width: 381px;
+            text-align: center;
+
+            & p:first-of-type {
+                font-size: 28px;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+                margin-top: 2rem;
+                margin-bottom: 1rem;
+                color: var(--color-completed-text-1);
+            }
+
+            & p:last-of-type {
+                font-size: 18px;
+                color: var(--color-completed-text-2);
+            }
+
+            & button {
+                @extend %button;
+                margin-top: 3rem;
+            }
         }
     }
 }

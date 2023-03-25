@@ -16,8 +16,15 @@
 
     document.getElementById("confirm").addEventListener("click", function () {
         removeErrors();
-        setErrors();
+        if (setErrors() === 0) {
+            cardForm.style.display = "none";
+            document.getElementById("completed").style.display = "block";
+        }
     });
+
+    document
+        .querySelector("#completed button")
+        .addEventListener("click", () => location.reload());
 
     function update() {
         cardForm.cardnumber.value = formatCardNumber(cardForm.cardnumber.value);
@@ -46,9 +53,9 @@
     }
 
     function setErrors() {
-        setCardNumberError();
-        setExpDateError();
-        setCvcError();
+        return setCardNumberError() || setExpDateError() || setCvcError()
+            ? 1
+            : 0;
     }
 
     function setCardNumberError() {
@@ -62,7 +69,11 @@
                 cardForm.cardnumber.nextElementSibling,
                 errorMessage
             );
+
+            return 1;
         }
+
+        return 0;
     }
 
     function setExpDateError() {
@@ -97,6 +108,8 @@
         ) {
             errorField.style.display = "block";
         }
+
+        return monthErrorMessage || yearErrorMessage ? 1 : 0;
     }
 
     function setCvcError() {
@@ -110,7 +123,11 @@
                 cardForm.cvc.nextElementSibling,
                 errorMessage
             );
+
+            return 1;
         }
+
+        return 0;
     }
 
     function getErrorMessage(value, expectedLength, condition) {

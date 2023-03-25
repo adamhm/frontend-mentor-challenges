@@ -1,15 +1,5 @@
 :root {
-    --color-body: #f0f0f0;
-    --color-bg: white;
-    --color-card-front: white;
-    --color-card-back: white;
-    --color-error: red;
-    --image-main-desktop: url("../images/bg-main-desktop.png");
-    --image-card-front: url("../images/bg-card-front.png");
-    --image-card-back: url("../images/bg-card-back.png");
-    --image-card-logo: url("../images/card-logo.svg");
     box-sizing: border-box;
-    font-family: "Space Grotesk", sans-serif;
 }
 
 *,
@@ -18,12 +8,32 @@
     box-sizing: inherit;
 }
 
-body,
-main,
-article,
-section,
-div {
+* {
     margin: 0;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+:root {
+    --color-body: #f0f0f0;
+    --color-bg: white;
+    --color-card-front: white;
+    --color-card-back: white;
+    --color-error: hsl(0, 100%, 66%);
+    --color-button: hsl(278, 68%, 11%);
+    --color-button-text: hsl(270, 3%, 87%);
+    --color-completed-text-1: hsl(278, 68%, 11%);
+    --color-completed-text-2: hsl(279, 6%, 55%);
+    --image-main-desktop: url("../images/bg-main-desktop.png");
+    --image-card-front: url("../images/bg-card-front.png");
+    --image-card-back: url("../images/bg-card-back.png");
+    --image-card-logo: url("../images/card-logo.svg");
+    font-family: "Space Grotesk", sans-serif;
 }
 
 body {
@@ -44,6 +54,16 @@ button {
 .container {
     width: 1440px;
     height: 900px;
+}
+
+.card__details__completed button, .card__details__form > button {
+    border-radius: 8px;
+    background-color: var(--color-button);
+    width: 100%;
+    height: 53px;
+    color: var(--color-button-text);
+    font-family: inherit;
+    font-size: 18px;
 }
 
 .card {
@@ -156,13 +176,24 @@ button {
 }
 .card__details__form > button {
     margin-top: 2.5rem;
-    border-radius: 8px;
-    background-color: black;
-    width: 100%;
-    height: 53px;
-    color: #fff;
-    font-size: 16px;
 }
 .card__details__completed {
     display: none;
+    width: 381px;
+    text-align: center;
+}
+.card__details__completed p:first-of-type {
+    font-size: 28px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--color-completed-text-1);
+}
+.card__details__completed p:last-of-type {
+    font-size: 18px;
+    color: var(--color-completed-text-2);
+}
+.card__details__completed button {
+    margin-top: 3rem;
 }
