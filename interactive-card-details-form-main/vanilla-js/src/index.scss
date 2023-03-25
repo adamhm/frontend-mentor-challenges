@@ -1,14 +1,6 @@
-@use './reset.scss';
+@import 'reset';
+@import 'colors';
 
-$color-body: #f0f0f0;
-$color-bg: white;
-$color-card-front: white;
-$color-card-back: white;
-$color-error: hsl(0, 100%, 66%);
-$color-button: hsl(278, 68%, 11%);
-$color-button-text: hsl(270, 3%, 87%);
-$color-completed-text-1: hsl(278, 68%, 11%);
-$color-completed-text-2: hsl(279, 6%, 55%);
 $image-main-desktop: url("../images/bg-main-desktop.png");
 $image-card-front: url("../images/bg-card-front.png");
 $image-card-back: url("../images/bg-card-back.png");
@@ -19,6 +11,9 @@ $image-card-logo: url("../images/card-logo.svg");
     --color-bg: #{$color-bg};
     --color-card-front: #{$color-card-front};
     --color-card-back: #{$color-card-back};
+    --color-label: #{$color-label};
+    --color-input-border: #{$color-input-border};
+    --color-input-placeholder: #{$color-input-placeholder};
     --color-error: #{$color-error};
     --color-button: #{$color-button};
     --color-button-text: #{$color-button-text};
@@ -135,6 +130,7 @@ button {
                 margin-top: 1.75rem;
                 margin-bottom: 0.5rem;
                 font-weight: bold;
+                color: var(--color-label);
                 letter-spacing: 2px;
                 text-transform: uppercase;
             }
@@ -144,7 +140,7 @@ button {
             }
 
             & input {
-                border: 1px solid lightgrey;
+                border: 1px solid var(--color-input-border);
                 border-radius: 8px;
                 padding: 0 1rem;
                 width: 100%;
@@ -152,7 +148,7 @@ button {
                 font-size: 18px;
 
                 &::placeholder {
-                    color: lightgray;
+                    color: var(--color-input-placeholder);
                 }
 
                 &[aria-invalid="true"] {

@@ -21,9 +21,12 @@ select {
 
 :root {
     --color-body: #f0f0f0;
-    --color-bg: white;
-    --color-card-front: white;
-    --color-card-back: white;
+    --color-bg: hsl(0, 0%, 100%);
+    --color-card-front: hsl(0, 0%, 100%);
+    --color-card-back: hsl(0, 0%, 100%);
+    --color-label: hsl(278, 68%, 11%);
+    --color-input-border: hsl(270, 3%, 87%);
+    --color-input-placeholder: hsl(270, 3%, 87%);
     --color-error: hsl(0, 100%, 66%);
     --color-button: hsl(278, 68%, 11%);
     --color-button-text: hsl(270, 3%, 87%);
@@ -132,6 +135,7 @@ button {
     margin-top: 1.75rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
+    color: var(--color-label);
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -139,7 +143,7 @@ button {
     margin-top: 0;
 }
 .card__details__form input {
-    border: 1px solid lightgrey;
+    border: 1px solid var(--color-input-border);
     border-radius: 8px;
     padding: 0 1rem;
     width: 100%;
@@ -147,7 +151,7 @@ button {
     font-size: 18px;
 }
 .card__details__form input::placeholder {
-    color: lightgray;
+    color: var(--color-input-placeholder);
 }
 .card__details__form input[aria-invalid=true] {
     border-color: var(--color-error);
