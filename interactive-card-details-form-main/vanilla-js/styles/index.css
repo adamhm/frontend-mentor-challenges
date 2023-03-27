@@ -108,7 +108,7 @@ button {
 }
 .card__image__back {
     position: absolute;
-    top: 479px;
+    top: 470px;
     left: 256px;
     background: var(--image-card-back) no-repeat;
     width: 447px;
@@ -125,15 +125,15 @@ button {
 .card__details {
     display: flex;
     flex: 1;
-    align-items: center;
     padding-left: 224px;
     font-size: 12px;
 }
 .card__details__form {
     width: 381px;
+    margin-top: 275px;
 }
 .card__details__form label {
-    margin-top: 1.75rem;
+    margin-top: 1.65rem;
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: var(--color-label);
@@ -163,6 +163,7 @@ button {
 .card__details__form .error {
     display: none;
     color: var(--color-error);
+    margin-top: 0.6rem;
 }
 .card__details__form > div {
     display: flex;
@@ -185,6 +186,7 @@ button {
 .card__details__completed {
     display: none;
     width: 381px;
+    margin-top: 300px;
     text-align: center;
 }
 .card__details__completed p:first-of-type {
