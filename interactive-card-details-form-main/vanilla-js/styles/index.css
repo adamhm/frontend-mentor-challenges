@@ -119,6 +119,7 @@ button {
     position: relative;
     top: 110px;
     left: 357px;
+    max-width: 50px;
     font-size: 0.875rem;
 }
 .card__details {
