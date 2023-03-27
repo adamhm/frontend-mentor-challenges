@@ -11,7 +11,7 @@
 
     document.getElementById("confirm").addEventListener("click", function () {
         removeErrors();
-        if (setErrors() === null) {
+        if (setErrors() === false) {
             cardForm.style.display = "none";
             document.getElementById("completed").style.display = "block";
         }
@@ -63,12 +63,20 @@
     }
 
     function setErrors() {
-        return (
-            setNameError() ||
-            setCardNumberError() ||
-            setExpDateError() ||
-            setCvcError()
-        );
+        const errorSetters = [
+            setNameError,
+            setCardNumberError,
+            setExpDateError,
+            setCvcError,
+        ];
+        let hasError = false;
+
+        errorSetters.forEach((setter) => {
+            const message = setter();
+            hasError ||= message;
+        });
+
+        return !!hasError;
     }
 
     function setNameError() {
