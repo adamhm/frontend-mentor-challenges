@@ -6,17 +6,12 @@
     };
 
     const cardForm = document.getElementById("card_form");
-    const cardNumberField = document.getElementById("card_number");
-    const cardNameField = document.getElementById("card_name");
-    const cardExpirationField = document.getElementById("card_expiration");
-    const cvcField = document.getElementById("card_cvc");
-
     const formElements = Array.from(cardForm.elements);
     formElements.forEach((elem) => elem.addEventListener("input", update));
 
     document.getElementById("confirm").addEventListener("click", function () {
         removeErrors();
-        if (setErrors() === 0) {
+        if (setErrors() === null) {
             cardForm.style.display = "none";
             document.getElementById("completed").style.display = "block";
         }
@@ -27,11 +22,26 @@
         .addEventListener("click", () => location.reload());
 
     function update() {
-        cardForm.cardnumber.value = formatCardNumber(cardForm.cardnumber.value);
-        cardNumberField.innerText = cardForm.cardnumber.value;
-        cardNameField.innerText = cardForm.name.value;
-        cardExpirationField.innerText = `${cardForm.month.value}/${cardForm.year.value}`;
-        cvcField.innerText = cardForm.cvc.value;
+        const targetField = document.getElementById(this.dataset.target);
+
+        switch (this) {
+            case cardForm.name:
+                targetField.innerText = this.value;
+                break;
+            case cardForm.number:
+                const start = this.selectionStart;
+                this.value = formatCardNumber(this.value);
+                this.setSelectionRange(start + 1, start + 1);
+                targetField.innerText = this.value;
+                break;
+            case cardForm.month:
+            case cardForm.year:
+                targetField.innerText = `${cardForm.month.value}/${cardForm.year.value}`;
+                break;
+            default:
+                targetField.innerText = this.value;
+                break;
+        }
     }
 
     function formatCardNumber(cardNumber) {
@@ -53,27 +63,24 @@
     }
 
     function setErrors() {
-        return setCardNumberError() || setExpDateError() || setCvcError()
-            ? 1
-            : 0;
+        return setCardNumberError() || setExpDateError() || setCvcError();
     }
 
     function setCardNumberError() {
-        const condition = /\d{16}/;
-        const cardNumber = cardForm.cardnumber.value.replaceAll(" ", "");
-        let errorMessage = getErrorMessage(cardNumber, 16, condition);
+        const length = 16;
+        const condition = new RegExp(`\\d{${length}}`);
+        const cardNumber = cardForm.number.value.replaceAll(" ", "");
+        const errorMessage = getErrorMessage(cardNumber, length, condition);
 
-        if (errorMessage !== null) {
+        if (errorMessage) {
             setErrorProperties(
-                cardForm.cardnumber,
-                cardForm.cardnumber.nextElementSibling,
+                cardForm.number,
+                cardForm.number.nextElementSibling,
                 errorMessage
             );
-
-            return 1;
         }
 
-        return 0;
+        return errorMessage;
     }
 
     function setExpDateError() {
@@ -109,25 +116,24 @@
             errorField.style.display = "block";
         }
 
-        return monthErrorMessage || yearErrorMessage ? 1 : 0;
+        return monthErrorMessage || yearErrorMessage;
     }
 
     function setCvcError() {
-        const condition = /\d{3}/;
+        const length = 3;
+        const condition = new RegExp(`\\d{${length}}`);
         const cvc = cardForm.cvc.value.replaceAll(" ", "");
-        let errorMessage = getErrorMessage(cvc, 3, condition);
+        const errorMessage = getErrorMessage(cvc, length, condition);
 
-        if (errorMessage !== null) {
+        if (errorMessage) {
             setErrorProperties(
                 cardForm.cvc,
                 cardForm.cvc.nextElementSibling,
                 errorMessage
             );
-
-            return 1;
         }
 
-        return 0;
+        return errorMessage;
     }
 
     function getErrorMessage(value, expectedLength, condition) {
