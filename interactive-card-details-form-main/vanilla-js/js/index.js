@@ -123,7 +123,7 @@
         let yearErrorMessage = getErrorMessage(year, 2, yearCondition);
 
         if (monthErrorMessage) {
-            let errorField =
+            const errorField =
                 cardForm.month.parentElement.parentElement.querySelector(
                     ".error"
                 );
@@ -131,19 +131,12 @@
         }
 
         if (yearErrorMessage) {
-            let errorField =
+            const errorField =
                 cardForm.year.parentElement.parentElement.querySelector(
                     ".error"
                 );
 
             setErrorProperties(cardForm.year, errorField, yearErrorMessage);
-        }
-
-        if (
-            (monthErrorMessage || yearErrorMessage) &&
-            !isHasSelectorSupported()
-        ) {
-            errorField.style.display = "block";
         }
 
         return monthErrorMessage || yearErrorMessage;
@@ -181,6 +174,10 @@
     function setErrorProperties(inputElement, errorField, message) {
         inputElement.setAttribute("aria-invalid", "true");
         errorField.innerText = message;
+
+        if (!isHasSelectorSupported()) {
+            errorField.style.display = "block";
+        }
     }
 
     function removeErrors() {
