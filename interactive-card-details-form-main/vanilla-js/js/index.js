@@ -63,7 +63,29 @@
     }
 
     function setErrors() {
-        return setCardNumberError() || setExpDateError() || setCvcError();
+        return (
+            setNameError() ||
+            setCardNumberError() ||
+            setExpDateError() ||
+            setCvcError()
+        );
+    }
+
+    function setNameError() {
+        const minLength = 1;
+        const condition = /.+/;
+        const name = cardForm.name.value.trim();
+        const errorMessage = getErrorMessage(name, minLength, condition);
+
+        if (errorMessage) {
+            setErrorProperties(
+                cardForm.name,
+                cardForm.name.nextElementSibling,
+                errorMessage
+            );
+        }
+
+        return errorMessage;
     }
 
     function setCardNumberError() {
