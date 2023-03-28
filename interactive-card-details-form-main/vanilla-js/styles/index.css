@@ -37,6 +37,7 @@ select {
     --image-card-front: url("../images/bg-card-front.png");
     --image-card-back: url("../images/bg-card-back.png");
     --image-card-logo: url("../images/card-logo.svg");
+    --image-main-mobile: url("../images/bg-main-mobile.png");
     font-family: "Space Grotesk", sans-serif;
 }
 
@@ -207,4 +208,65 @@ button {
 }
 .card__details__completed button {
     margin-top: 3rem;
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 375px;
+        height: 704px;
+    }
+    .card {
+        flex-direction: column;
+    }
+    .card__image {
+        flex: 0 0 240px;
+        background-image: var(--image-main-mobile);
+    }
+    .card__image__front {
+        background-size: 55px, 286px 157px;
+        background: var(--image-card-logo) no-repeat 18px 16px/55px, var(--image-card-front) top left/286px 157px no-repeat;
+        top: 121px;
+        left: 16px;
+        width: 286px;
+        height: 157px;
+        z-index: 1;
+        padding: 85px 18px 0;
+    }
+    .card__image__front__number {
+        font-size: 1.05rem;
+    }
+    .card__image__front > div:nth-child(2) {
+        padding-top: 5px;
+        font-size: 10px;
+        letter-spacing: 0.05rem;
+    }
+    .card__image__back {
+        background-size: 286px 157px;
+        top: 32px;
+        left: 73px;
+        width: 286px;
+        height: 157px;
+    }
+    .card__image__back__cvc {
+        top: 70px;
+        left: 225px;
+        font-size: 10px;
+    }
+    .card__details {
+        flex: 1;
+        padding: 0 1.5rem;
+    }
+    .card__details__form {
+        margin-top: 90px;
+    }
+    .card__details__form .error {
+        margin-top: 0.1rem;
+    }
+    .card__details__form > button {
+        font-size: 1rem;
+        margin-top: 1.25rem;
+    }
+    .card__details__completed {
+        margin-top: 90px;
+    }
 }

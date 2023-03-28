@@ -20,6 +20,7 @@
     --image-card-front: #{$image-card-front};
     --image-card-back: #{$image-card-back};
     --image-card-logo: #{$image-card-logo};
+    --image-main-mobile: #{$image-main-mobile};
     font-family: "Space Grotesk", sans-serif;
 }
 
@@ -219,4 +220,8 @@ button {
             }
         }
     }
+}
+
+@media screen and (max-width: 768px) {
+    @import 'mobile';
 }

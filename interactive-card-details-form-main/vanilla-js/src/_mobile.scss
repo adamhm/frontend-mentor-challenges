@@ -1,0 +1,75 @@
+.container {
+    width: 375px;
+    height: 704px;
+}
+
+.card {
+    flex-direction: column;
+
+    &__image {
+        $width: 286px;
+        $height: 157px;
+
+        flex: 0 0 240px;
+
+        background-image: var(--image-main-mobile);
+
+        &__front {
+            background-size: 55px, $width $height;
+            background: var(--image-card-logo) no-repeat 18px 16px / 55px,
+                var(--image-card-front) top left / $width $height no-repeat;
+            top: 121px;
+            left: 16px;
+            width: $width;
+            height: $height;
+            z-index: 1;
+            padding: 85px 18px 0;
+
+            &__number {
+                font-size: 1.05rem;
+            }
+
+            & > div:nth-child(2) {
+                padding-top: 5px;
+                font-size: 10px;
+                letter-spacing: 0.05rem;
+            }
+        }
+
+        &__back {
+            background-size: $width $height;
+            top: 32px;
+            left: 73px;
+            width: $width;
+            height: $height;
+
+            &__cvc {
+                top: 70px;
+                left: 225px;
+                font-size: 10px;
+            }
+        }
+    }
+
+    &__details {
+        flex: 1;
+        padding: 0 1.5rem;
+
+        &__form {
+            margin-top: 90px;
+
+            & .error {
+                margin-top: 0.1rem;
+            }
+
+            & > button {
+                font-size: 1rem;
+                margin-top: 1.25rem;
+            }
+        }
+
+        &__completed {
+            margin-top: 90px;
+        }
+    }
+}
