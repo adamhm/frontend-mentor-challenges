@@ -27,6 +27,7 @@ select {
     --color-label: hsl(278, 68%, 11%);
     --color-input-border: hsl(270, 3%, 87%);
     --color-input-placeholder: hsl(270, 3%, 87%);
+    --color-input-focus: hsl(278, 68%, 11%);
     --color-error: hsl(0, 100%, 66%);
     --color-button: hsl(278, 68%, 11%);
     --color-button-text: hsl(270, 3%, 87%);
@@ -150,6 +151,9 @@ button {
     width: 100%;
     height: 45px;
     font-size: 18px;
+}
+.card__details__form input:focus-visible {
+    outline-color: var(--color-input-focus);
 }
 .card__details__form input::placeholder {
     color: var(--color-input-placeholder);
