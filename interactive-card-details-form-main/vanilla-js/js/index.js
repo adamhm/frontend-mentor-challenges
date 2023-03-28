@@ -22,7 +22,9 @@
         .addEventListener("click", () => location.reload());
 
     function update() {
-        const targetField = document.getElementById(this.dataset.target);
+        const targetField = document.getElementById(
+            "card_" + this.dataset.target
+        );
 
         switch (this) {
             case cardForm.name:
@@ -86,11 +88,7 @@
         const errorMessage = getErrorMessage(name, minLength, condition);
 
         if (errorMessage) {
-            setErrorProperties(
-                cardForm.name,
-                cardForm.name.nextElementSibling,
-                errorMessage
-            );
+            setErrorProperties(cardForm.name, errorMessage);
         }
 
         return errorMessage;
@@ -103,11 +101,7 @@
         const errorMessage = getErrorMessage(cardNumber, length, condition);
 
         if (errorMessage) {
-            setErrorProperties(
-                cardForm.number,
-                cardForm.number.nextElementSibling,
-                errorMessage
-            );
+            setErrorProperties(cardForm.number, errorMessage);
         }
 
         return errorMessage;
@@ -123,20 +117,11 @@
         let yearErrorMessage = getErrorMessage(year, 2, yearCondition);
 
         if (monthErrorMessage) {
-            const errorField =
-                cardForm.month.parentElement.parentElement.querySelector(
-                    ".error"
-                );
-            setErrorProperties(cardForm.month, errorField, monthErrorMessage);
+            setErrorProperties(cardForm.month, monthErrorMessage);
         }
 
         if (yearErrorMessage) {
-            const errorField =
-                cardForm.year.parentElement.parentElement.querySelector(
-                    ".error"
-                );
-
-            setErrorProperties(cardForm.year, errorField, yearErrorMessage);
+            setErrorProperties(cardForm.year, yearErrorMessage);
         }
 
         return monthErrorMessage || yearErrorMessage;
@@ -149,11 +134,7 @@
         const errorMessage = getErrorMessage(cvc, length, condition);
 
         if (errorMessage) {
-            setErrorProperties(
-                cardForm.cvc,
-                cardForm.cvc.nextElementSibling,
-                errorMessage
-            );
+            setErrorProperties(cardForm.cvc, errorMessage);
         }
 
         return errorMessage;
@@ -171,8 +152,11 @@
         return null;
     }
 
-    function setErrorProperties(inputElement, errorField, message) {
+    function setErrorProperties(inputElement, message) {
         inputElement.setAttribute("aria-invalid", "true");
+        const errorField = document.getElementById(
+            "error_" + inputElement.dataset.target
+        );
         errorField.innerText = message;
 
         if (!isHasSelectorSupported()) {

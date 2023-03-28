@@ -38,29 +38,28 @@
             <section class="card__details">
                 <form id="card_form" action="" class="card__details__form">
                     <label>Cardholder Name</label>
-                    <input type="text" id="name" name="name" data-target="card_name"
-                        placeholder="e.g. Jane Appleseed" />
-                    <span class="error">Error</span>
+                    <input type="text" id="name" name="name" data-target="name" placeholder="e.g. Jane Appleseed" />
+                    <span id="error_name" class="error">Error</span>
                     <label for="number">Card Number</label>
-                    <input type="text" id="number" name="number" data-target="card_number" maxlength="19"
+                    <input type="text" id="number" name="number" data-target="number" maxlength="19"
                         placeholder="e.g. 1234 5678 9123 0000" />
-                    <span class="error">Error</span>
+                    <span id="error_number" class="error">Error</span>
                     <div>
                         <div class="card__details__form__exp">
                             <label for="month">Exp. Date (MM/YY)</label>
                             <div>
                                 <input type="text" id="month" name="month" maxlength="2" placeholder="MM"
-                                    data-target="card_expiration" aria-label="expiration month" />
+                                    data-target="expiration" aria-label="expiration month" />
                                 <input type="text" id="year" name="year" maxlength="2" placeholder="YY"
-                                    data-target="card_expiration" aria-label="expiration year" />
+                                    data-target="expiration" aria-label="expiration year" />
                             </div>
-                            <span class="error">Error</span>
+                            <span id="error_expiration" class="error">Error</span>
                         </div>
                         <div class="card__details__form__cvc">
                             <label for="cvc">CVC</label>
-                            <input type="text" id="cvc" name="cvc" data-target="card_cvc" maxlength="3"
+                            <input type="text" id="cvc" name="cvc" data-target="cvc" maxlength="3"
                                 placeholder="e.g. 123" />
-                            <span class="error">Error</span>
+                            <span id="error_cvc" class="error">Error</span>
                         </div>
                     </div>
                     <button id="confirm" type="button">Confirm</button>
