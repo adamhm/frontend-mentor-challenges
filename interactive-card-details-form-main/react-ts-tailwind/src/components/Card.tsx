@@ -3,7 +3,7 @@ import CardForm from "./CardForm";
 
 function Card() {
     return (
-        <article>
+        <article className="flex h-full justify-center bg-card">
             <ImagePanel />
             <CardForm />
         </article>
