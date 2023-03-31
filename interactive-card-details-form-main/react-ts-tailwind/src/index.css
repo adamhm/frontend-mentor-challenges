@@ -1,4 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@layer base {}
+@layer base {
+    :root {
+        --color-body: #f0f0f0;
+        --color-card: hsl(0, 0%, 100%);
+        --color-card-front: hsl(0, 0%, 100%);
+        --color-card-back: hsl(0, 0%, 100%);
+        --color-label: hsl(278, 68%, 11%);
+        --color-input-border: hsl(270, 3%, 87%);
+        --color-input-placeholder: hsl(270, 3%, 87%);
+        --color-input-focus: hsl(278, 68%, 11%);
+        --color-error: hsl(0, 100%, 66%);
+        --color-button: hsl(278, 68%, 11%);
+        --color-button-text: hsl(270, 3%, 87%);
+        --color-completed-text-1: hsl(278, 68%, 11%);
+        --color-completed-text-2: hsl(279, 6%, 55%);
+        --image-main-desktop: url("images/bg-main-desktop.png");
+        --image-card-front: url("images/bg-card-front.png");
+        --image-card-back: url("images/bg-card-back.png");
+        --image-card-logo: url("images/card-logo.svg");
+        --image-main-mobile: url("images/bg-main-mobile.png");
+    }
+
+    * {
+        margin: 0;
+    }
+
+    form,
+    label,
+    input,
+    button {
+        display: block;
+    }
+
+    input,
+    button,
+    textarea,
+    select {
+        font: inherit;
+    }
+
+    .bg-repeat-both {
+        background-repeat: no-repeat, no-repeat;
+    }
+
+    form div:has(input[aria-invalid="true"]) + span.error {
+        display: block;
+    }
+}
