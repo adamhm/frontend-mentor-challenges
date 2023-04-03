@@ -1,4 +1,6 @@
-function ImagePanel() {
+import { BankCard } from "../shared/BankCard";
+
+function ImagePanel({ bankCard }: { bankCard: BankCard }) {
     return (
         <section
             className="relative shrink-0 grow basis-0 bg-main-desktop bg-no-repeat"
@@ -9,12 +11,12 @@ function ImagePanel() {
                     id="card_number"
                     className="min-h-[36px] text-[1.75rem] leading-[normal] tracking-[0.2rem]"
                 >
-                    0000 0000 0000 0000
+                    {bankCard.number}
                 </div>
                 <div className="flex pt-7 text-[14px] leading-[normal] tracking-[0.125rem]">
-                    <div id="card_name">Jane Appleseed</div>
+                    <div id="card_name">{bankCard.name}</div>
                     <div id="card_expiration" className="ml-auto">
-                        00/00
+                        {`${bankCard.month}/${bankCard.year}`}
                     </div>
                 </div>
             </div>
@@ -23,7 +25,7 @@ function ImagePanel() {
                     id="card_cvc"
                     className="relative left-[357px] top-[110px] max-w-[50px] text-[0.875rem] leading-[normal]"
                 >
-                    000
+                    {bankCard.cvc}
                 </div>
             </div>
         </section>
