@@ -223,7 +223,6 @@ button {
         background-image: var(--image-main-mobile);
     }
     .card__image__front {
-        background-size: 55px, 286px 157px;
         background: var(--image-card-logo) no-repeat 18px 16px/55px, var(--image-card-front) top left/286px 157px no-repeat;
         top: 121px;
         left: 16px;
@@ -253,7 +252,6 @@ button {
         font-size: 10px;
     }
     .card__details {
-        flex: 1;
         padding: 0 1.5rem;
     }
     .card__details__form {

@@ -15,7 +15,6 @@
         background-image: var(--image-main-mobile);
 
         &__front {
-            background-size: 55px, $width $height;
             background: var(--image-card-logo) no-repeat 18px 16px / 55px,
                 var(--image-card-front) top left / $width $height no-repeat;
             top: 121px;
@@ -52,7 +51,6 @@
     }
 
     &__details {
-        flex: 1;
         padding: 0 1.5rem;
 
         &__form {
