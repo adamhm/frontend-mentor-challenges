@@ -1,7 +1,9 @@
+import { ReactComponent as CompleteIcon } from "../images/icon-complete.svg";
+
 function CompletedPanel() {
     return (
-        <div id="completed" className="mt-[300px] hidden w-[381px] text-center">
-            <img src="images/icon-complete.svg" width="82" height="82" alt="" />
+        <div id="completed" className="mt-[300px] w-[381px] text-center">
+            <CompleteIcon className="m-auto block" />
             <p className="text-completed-text mb-4 mt-8 text-[28px] uppercase leading-[normal] tracking-[3px]">
                 Thank you!
             </p>
