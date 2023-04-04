@@ -32,12 +32,18 @@ module.exports = {
             },
             backgroundPosition: {
                 "position-front": "30px 26px, top left",
+                "position-front-mobile": "18px 16px, top left",
+            },
+            backgroundSize: {
+                "size-front-mobile": "55px, 286px 157px",
             },
             width: {
                 container: "1440px",
+                "container-mobile": "375px",
             },
             height: {
                 container: "900px",
+                "container-mobile": "704px",
             },
         },
     },

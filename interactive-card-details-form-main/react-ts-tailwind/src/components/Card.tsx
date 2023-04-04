@@ -22,7 +22,7 @@ function Card() {
     };
 
     return (
-        <article className="flex h-full justify-center bg-card">
+        <article className="flex h-full flex-col justify-center bg-card md:flex-row">
             <ImagePanel bankCard={bankCard} />
             <CardForm onDataChange={handleDataChange} />
         </article>

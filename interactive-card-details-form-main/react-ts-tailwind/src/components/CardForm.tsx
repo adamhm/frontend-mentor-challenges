@@ -60,23 +60,23 @@ function CardForm({ onDataChange }: Props) {
             <ErrorMessage
                 name="month"
                 component="span"
-                className="mt-[0.6rem] block text-error"
+                className="mt-[0.1rem] block text-error md:mt-[0.6rem]"
             />
         ) : formik.touched.year && formik.errors.year ? (
             <ErrorMessage
                 name="year"
                 component="span"
-                className="mt-[0.6rem] block text-error"
+                className="mt-[0.1rem] block text-error md:mt-[0.6rem]"
             />
         ) : null;
 
     return (
-        <section className="flex shrink-0 grow basis-0 pl-[224px] text-[12px] leading-[normal]">
+        <section className="flex shrink-0 grow basis-0 px-6 text-[12px] leading-[normal] md:pl-[224px] md:pr-0">
             {!completed && (
                 <FormikProvider value={formik}>
                     <Form
                         id="card_form"
-                        className="mt-[275px] w-[381px]"
+                        className="mt-[90px] w-[381px] md:mt-[275px]"
                         onChange={handleChange}
                     >
                         <label className="mb-2 mt-0 font-bold uppercase tracking-[2px] text-label">
@@ -93,7 +93,7 @@ function CardForm({ onDataChange }: Props) {
                         <ErrorMessage
                             name="name"
                             component="span"
-                            className="mt-[0.6rem] block text-error"
+                            className="mt-[0.1rem] block text-error md:mt-[0.6rem]"
                         />
                         <label
                             className="mb-2 mt-[1.65rem] font-bold uppercase tracking-[2px] text-label"
@@ -113,7 +113,7 @@ function CardForm({ onDataChange }: Props) {
                         <ErrorMessage
                             name="number"
                             component="span"
-                            className="mt-[0.6rem] block text-error"
+                            className="mt-[0.1rem] block text-error md:mt-[0.6rem]"
                         />
                         <div className="flex gap-x-[20px]">
                             <div>
@@ -166,14 +166,14 @@ function CardForm({ onDataChange }: Props) {
                                 <ErrorMessage
                                     name="cvc"
                                     component="span"
-                                    className="mt-[0.6rem] block text-error"
+                                    className="mt-[0.1rem] block text-error md:mt-[0.6rem]"
                                 />
                             </div>
                         </div>
                         <button
                             id="confirm"
                             type="submit"
-                            className="mt-10 h-[53px] w-full rounded-[8px] bg-button text-[18px] leading-[normal] text-button-text"
+                            className="mt-5 h-[53px] w-full rounded-[8px] bg-button text-[1rem] leading-[normal] text-button-text md:mt-10 md:text-[18px]"
                         >
                             Confirm
                         </button>
