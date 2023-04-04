@@ -13,6 +13,7 @@ function CompletedPanel() {
             <button
                 type="button"
                 className="mt-12 h-[53px] w-full rounded-[8px] bg-button text-[18px] leading-[normal] text-button-text"
+                onClick={() => window.location.reload()}
             >
                 Continue
             </button>
