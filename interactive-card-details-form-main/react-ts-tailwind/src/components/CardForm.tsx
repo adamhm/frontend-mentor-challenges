@@ -1,8 +1,16 @@
 import { FormEvent } from "react";
-import { Form, FormikHelpers, Field, useFormik, FormikProvider } from "formik";
+import {
+    Form,
+    FormikHelpers,
+    Field,
+    useFormik,
+    FormikProvider,
+    ErrorMessage,
+} from "formik";
 
 import CompletedPanel from "./CompletedPanel";
 import { BankCard } from "../shared/BankCard";
+import cardSchema from "../shared/cardSchema";
 import formatCardNumber from "../shared/formatCardNumber";
 
 type Props = {
@@ -26,7 +34,13 @@ function CardForm({ onDataChange }: Props) {
         console.log(actions);
     };
 
-    const formik = useFormik({ initialValues, onSubmit: handleSubmit });
+    const formik = useFormik({
+        initialValues,
+        onSubmit: handleSubmit,
+        validateOnBlur: false,
+        validateOnChange: false,
+        validationSchema: cardSchema,
+    });
 
     const handleChange = (event: FormEvent) => {
         const target = event.target as HTMLInputElement;
@@ -39,6 +53,22 @@ function CardForm({ onDataChange }: Props) {
 
         onDataChange?.(event);
     };
+
+    const expirationError =
+        formik.touched.month && formik.errors.month ? (
+            <ErrorMessage
+                name="month"
+                component="span"
+                className="mt-[0.6rem] block text-error"
+            />
+        ) : formik.touched.year && formik.errors.year ? (
+            <ErrorMessage
+                name="year"
+                component="span"
+                className="mt-[0.6rem] block text-error"
+            />
+        ) : null;
+    console.log("Expiration:: " + expirationError);
 
     return (
         <section className="flex shrink-0 grow basis-0 pl-[224px] text-[12px] leading-[normal]">
@@ -55,16 +85,15 @@ function CardForm({ onDataChange }: Props) {
                         type="text"
                         id="name"
                         name="name"
-                        data-target="name"
+                        aria-invalid={formik.errors.name}
                         placeholder="e.g. Jane Appleseed"
                         className="placeholder peer h-[45px] w-full rounded-[8px] border border-solid border-input-border px-4 py-0 text-[18px] leading-[normal] placeholder:text-input-placeholder focus-visible:outline-input-focus aria-[invalid]:border-error"
                     />
-                    <span
-                        id="error_name"
-                        className="mt-[0.6rem] hidden text-error peer-aria-[invalid]:block"
-                    >
-                        Error
-                    </span>
+                    <ErrorMessage
+                        name="name"
+                        component="span"
+                        className="mt-[0.6rem] block text-error"
+                    />
                     <label
                         className="mb-2 mt-[1.65rem] font-bold uppercase tracking-[2px] text-label"
                         htmlFor="number"
@@ -75,17 +104,16 @@ function CardForm({ onDataChange }: Props) {
                         type="text"
                         id="number"
                         name="number"
-                        data-target="number"
+                        aria-invalid={formik.errors.number}
                         maxLength={19}
                         placeholder="e.g. 1234 5678 9123 0000"
                         className="placeholder peer h-[45px] w-full rounded-[8px] border border-solid border-input-border px-4 py-0 text-[18px] leading-[normal] placeholder:text-input-placeholder focus-visible:outline-input-focus aria-[invalid]:border-error"
                     />
-                    <span
-                        id="error_number"
-                        className="mt-[0.6rem] hidden text-error peer-aria-[invalid]:block"
-                    >
-                        Error
-                    </span>
+                    <ErrorMessage
+                        name="number"
+                        component="span"
+                        className="mt-[0.6rem] block text-error"
+                    />
                     <div className="flex gap-x-[20px]">
                         <div>
                             <label
@@ -101,7 +129,7 @@ function CardForm({ onDataChange }: Props) {
                                     name="month"
                                     maxLength={2}
                                     placeholder="MM"
-                                    data-target="expiration"
+                                    aria-invalid={formik.errors.month}
                                     aria-label="expiration month"
                                     className="placeholder inline-block h-[45px] w-[80px] rounded-[8px] border border-solid border-input-border px-4 py-0 text-[18px] leading-[normal] placeholder:text-input-placeholder focus-visible:outline-input-focus aria-[invalid]:border-error"
                                 />
@@ -111,17 +139,12 @@ function CardForm({ onDataChange }: Props) {
                                     name="year"
                                     maxLength={2}
                                     placeholder="YY"
-                                    data-target="expiration"
+                                    aria-invalid={formik.errors.year}
                                     aria-label="expiration year"
                                     className="placeholder inline-block h-[45px] w-[80px] rounded-[8px] border border-solid border-input-border px-4 py-0 text-[18px] leading-[normal] placeholder:text-input-placeholder focus-visible:outline-input-focus aria-[invalid]:border-error"
                                 />
                             </div>
-                            <span
-                                id="error_expiration"
-                                className="mt-[0.6rem] hidden text-error"
-                            >
-                                Error
-                            </span>
+                            {expirationError}
                         </div>
                         <div>
                             <label
@@ -134,17 +157,16 @@ function CardForm({ onDataChange }: Props) {
                                 type="text"
                                 id="cvc"
                                 name="cvc"
-                                data-target="cvc"
+                                aria-invalid={formik.errors.cvc}
                                 maxLength={3}
                                 placeholder="e.g. 123"
                                 className="placeholder peer h-[45px] w-full rounded-[8px] border border-solid border-input-border px-4 py-0 text-[18px] leading-[normal] placeholder:text-input-placeholder focus-visible:outline-input-focus aria-[invalid]:border-error"
                             />
-                            <span
-                                id="error_cvc"
-                                className="mt-[0.6rem] hidden text-error peer-aria-[invalid]:block"
-                            >
-                                Error
-                            </span>
+                            <ErrorMessage
+                                name="cvc"
+                                component="span"
+                                className="mt-[0.6rem] block text-error"
+                            />
                         </div>
                     </div>
                     <button
