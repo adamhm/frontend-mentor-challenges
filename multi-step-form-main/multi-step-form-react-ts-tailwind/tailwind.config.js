@@ -6,6 +6,9 @@ export default {
     content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
     theme: {
         extend: {
+            backgroundImage: {
+                desktop: "url(assets/images/bg-sidebar-desktop.svg)",
+            },
             colors: {
                 "marine-blue": "hsl(213, 96%, 18%)",
                 "purplish-blue": "hsl(243, 100%, 62%)",
