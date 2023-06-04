@@ -5,6 +5,7 @@
             "@assets/*": ["assets/*"],
             "@components": ["components/index"],
             "@contexts/*": ["contexts/*"],
+            "@data/*": ["data/*"],
             "@shared/*": ["shared/*"]
         }
     }
