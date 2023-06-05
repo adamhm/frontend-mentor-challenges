@@ -12,7 +12,7 @@ function StepPanel() {
 
     return (
         <StepContext.Provider value={context}>
-            <div className="flex flex-col gap-y-[28px] px-[30px] py-[40px]">
+            <div className="flex h-full flex-col gap-y-[28px] px-[30px] py-[40px]">
                 {steps.map((step) => (
                     <StepElement
                         step={step.id}
