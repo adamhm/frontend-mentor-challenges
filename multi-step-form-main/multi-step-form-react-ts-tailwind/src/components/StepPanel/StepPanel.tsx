@@ -15,6 +15,7 @@ function StepPanel() {
             <div className="flex h-full flex-col gap-y-[28px] px-[30px] py-[40px]">
                 {steps.map((step) => (
                     <StepElement
+                        key={step.id}
                         step={step.id}
                         text={step.text}
                         active={step.id === activeStep}
