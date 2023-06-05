@@ -6,11 +6,11 @@ type PlanCardProps = {
 };
 
 function PlanCard({ image, note, title, subtitle }: PlanCardProps) {
+    const height = note ? "h-[183px]" : "h-[160px]";
+
     return (
         <section
-            className={`flex h-[${
-                note ? "183px" : "160px"
-            }] w-[8.5rem] flex-col rounded-md border border-gray-300 px-[16px] pb-[14px] pt-[20px]`}
+            className={`flex ${height} w-[8.5rem] shrink-0 grow flex-col rounded-md border border-gray-300 px-[16px] pb-[14px] pt-[20px]`}
         >
             <img src={image} alt="" className="w-[42px]" />
             <p className="mt-auto text-[18px] font-bold text-marine-blue">
