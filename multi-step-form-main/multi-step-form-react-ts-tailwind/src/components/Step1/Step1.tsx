@@ -48,7 +48,7 @@ function Step1() {
             </form>
             <button
                 type="button"
-                className="ml-auto mt-[92px] block h-[48px] w-[124px] rounded-md bg-marine-blue text-white"
+                className="ml-auto mt-[92px] block h-[48px] w-[124px] rounded-md bg-marine-blue text-white hover:bg-[#174a8b]"
             >
                 Next Step
             </button>
