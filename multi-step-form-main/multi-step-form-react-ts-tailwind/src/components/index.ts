@@ -6,6 +6,7 @@ import Step1 from "./Step1/Step1";
 import StepElement from "./StepElement/StepElement";
 import StepPanel from "./StepPanel/StepPanel";
 import StepTitleBar from "./StepTitleBar/StepTitleBar";
+import ToggleButton from "./ToggleButton/ToggleButton";
 
 export {
     App,
@@ -16,4 +17,5 @@ export {
     StepElement,
     StepPanel,
     StepTitleBar,
+    ToggleButton,
 };
