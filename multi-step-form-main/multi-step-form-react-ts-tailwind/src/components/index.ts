@@ -1,5 +1,6 @@
 import App from "./App/App";
 import ContentPanel from "./ContentPanel/ContentPanel";
+import NavigationBar from "./NavigationBar/NavigationBar";
 import PlanCard from "./PlanCard/PlanCard";
 import Sidebar from "./Sidebar/Sidebar";
 import Step1 from "./Step1/Step1";
@@ -12,6 +13,7 @@ import ToggleButton from "./ToggleButton/ToggleButton";
 export {
     App,
     ContentPanel,
+    NavigationBar,
     PlanCard,
     Sidebar,
     Step1,
