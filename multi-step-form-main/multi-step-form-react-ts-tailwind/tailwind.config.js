@@ -19,6 +19,9 @@ export default {
                 "light-gray": "hsl(229, 24%, 87%)",
                 magnolia: "hsl(217, 100%, 97%)",
                 alabaster: "hsl(231, 100%, 99%)",
+                "ghost-white": "hsl(230, 75%, 98%)",
+                "purple-navy": "hsl(246, 31%, 44%)",
+                "slate-blue": "hsl(245, 56%, 60%)",
             },
             fontFamily: {
                 sans: ["Ubuntu", ...defaultTheme.fontFamily.sans],
