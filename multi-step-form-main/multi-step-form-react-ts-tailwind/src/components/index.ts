@@ -1,3 +1,4 @@
+import AddonCard from "./AddonCard/AddonCard";
 import App from "./App/App";
 import ContentPanel from "./ContentPanel/ContentPanel";
 import NavigationBar from "./NavigationBar/NavigationBar";
@@ -11,6 +12,7 @@ import StepTitleBar from "./StepTitleBar/StepTitleBar";
 import ToggleButton from "./ToggleButton/ToggleButton";
 
 export {
+    AddonCard,
     App,
     ContentPanel,
     NavigationBar,
