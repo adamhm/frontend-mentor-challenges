@@ -30,7 +30,7 @@ function Step3() {
             </div>
             <NavigationBar
                 colorClass="bg-marine-blue"
-                hoverColorClass="bg-[#174a8b]"
+                hoverColorClass="hover:bg-[#174a8b]"
             />
         </div>
     );

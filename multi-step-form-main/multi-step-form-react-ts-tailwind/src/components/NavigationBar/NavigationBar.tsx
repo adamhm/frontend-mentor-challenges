@@ -1,6 +1,6 @@
 type NavigationBarProps = {
     colorClass: string;
-    hoverColorClass: string;
+    hoverColorClass: `hover:${string}`;
 };
 
 function NavigationBar({ colorClass, hoverColorClass }: NavigationBarProps) {
@@ -14,7 +14,7 @@ function NavigationBar({ colorClass, hoverColorClass }: NavigationBarProps) {
             </button>
             <button
                 type="button"
-                className={`h-[48px] w-[124px] rounded-md ${colorClass} text-white hover:${hoverColorClass}`}
+                className={`h-[48px] w-[124px] rounded-md ${colorClass} text-white ${hoverColorClass}`}
             >
                 Next Step
             </button>

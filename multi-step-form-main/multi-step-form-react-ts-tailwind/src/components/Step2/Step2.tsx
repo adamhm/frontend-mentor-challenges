@@ -36,12 +36,12 @@ function Step2() {
                     note={prices.pro.note}
                 />
             </div>
-            <div className="mt-9 flex h-[3rem] items-center justify-center bg-[#f8f9fe]">
+            <div className="mt-9 flex h-[3rem] items-center justify-center bg-ghost-white">
                 <ToggleButton state="monthly" />
             </div>
             <NavigationBar
                 colorClass="bg-marine-blue"
-                hoverColorClass="bg-[#174a8b]"
+                hoverColorClass="hover:bg-[#174a8b]"
             />
         </div>
     );
