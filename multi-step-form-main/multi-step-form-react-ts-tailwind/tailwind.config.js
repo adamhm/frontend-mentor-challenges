@@ -22,6 +22,7 @@ export default {
                 "ghost-white": "rgb(248, 249, 254)",
                 "purple-navy": "hsl(246, 31%, 44%)",
                 "slate-blue": "hsl(245, 56%, 60%)",
+                "violets-are-blue": "hsl(244, 100%, 77%)",
             },
             fontFamily: {
                 sans: ["Ubuntu", ...defaultTheme.fontFamily.sans],
