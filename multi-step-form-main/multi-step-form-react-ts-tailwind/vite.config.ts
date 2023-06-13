@@ -12,6 +12,7 @@ export default defineConfig({
             "@contexts": path.resolve(__dirname, "./src/contexts"),
             "@data": path.resolve(__dirname, "./src/data"),
             "@shared": path.resolve(__dirname, "./src/shared"),
+            "@typedefs": path.resolve(__dirname, "./src/typedefs"),
         },
     },
     plugins: [
