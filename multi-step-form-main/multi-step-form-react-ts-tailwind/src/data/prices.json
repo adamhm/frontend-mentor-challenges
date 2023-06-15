@@ -19,15 +19,18 @@
     "addons": {
         "Online service": {
             "monthly": 1,
-            "yearly": 10
+            "yearly": 10,
+            "note": "Access to multiplayer games"
         },
         "Larger storage": {
             "monthly": 2,
-            "yearly": 20
+            "yearly": 20,
+            "note": "Extra 1TB of cloud save"
         },
         "Customizable profile": {
             "monthly": 2,
-            "yearly": 20
+            "yearly": 20,
+            "note": "Custom theme on your profile"
         }
     }
 }
