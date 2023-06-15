@@ -7,7 +7,9 @@
             "@contexts/*": ["contexts/*"],
             "@data/*": ["data/*"],
             "@shared/*": ["shared/*"],
-            "@typedefs": ["typedefs/index"]
+            "@state/*": ["state/*"],
+            "@typedefs": ["typedefs/index"],
+            "@utils/*": ["utils/*"]
         }
     }
 }
