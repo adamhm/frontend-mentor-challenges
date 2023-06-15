@@ -49,7 +49,7 @@ function AddonCard({
                 </p>
                 <p className="text-[15px] text-cool-gray">{subtitle}</p>
             </div>
-            <p className="ml-auto mr-[42px] text-[15px] font-medium text-slate-blue">
+            <p className="ml-auto mr-[24px] text-[15px] font-medium text-slate-blue">
                 {text}
             </p>
         </section>
