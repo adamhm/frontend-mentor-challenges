@@ -1,31 +1,31 @@
 {
     "plans": {
-        "arcade": {
+        "Arcade": {
             "monthly": 9,
             "yearly": 90,
             "note": "2 months free"
         },
-        "advanced": {
+        "Advanced": {
             "monthly": 12,
             "yearly": 120,
             "note": "2 months free"
         },
-        "pro": {
+        "Pro": {
             "monthly": 15,
             "yearly": 150,
             "note": "2 months free"
         }
     },
     "addons": {
-        "onlineService": {
+        "Online service": {
             "monthly": 1,
             "yearly": 10
         },
-        "largerStorage": {
+        "Larger storage": {
             "monthly": 2,
             "yearly": 20
         },
-        "customProfile": {
+        "Customizable profile": {
             "monthly": 2,
             "yearly": 20
         }
