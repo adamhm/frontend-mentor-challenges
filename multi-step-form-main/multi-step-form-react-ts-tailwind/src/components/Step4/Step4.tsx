@@ -1,6 +1,23 @@
+import { useContext } from "react";
 import { NavigationBar, StepTitleBar } from "@components";
+import FormContext from "@contexts/form-context";
+import prices from "@data/prices.json";
+import { Addon } from "@typedefs";
 
 function Step4() {
+    const { state } = useContext(FormContext);
+    const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+
+    const planPrice = prices.plans[state.plan][state.billing];
+    const addonPrice = Object.entries(state.addons)
+        .filter(([, selected]) => selected)
+        .reduce(
+            (total, [addon]) =>
+                total + prices.addons[addon as Addon][state.billing],
+            0
+        );
+    const totalPrice = planPrice + addonPrice;
+
     return (
         <div className="flex h-full flex-col">
             <StepTitleBar
@@ -12,7 +29,7 @@ function Step4() {
                     <div className="flex pb-[16px]">
                         <div>
                             <p className="text-[17px] font-bold text-marine-blue">
-                                Arcade (Monthly)
+                                {`${state.plan} (${state.billing})`}
                             </p>
                             <button
                                 type="button"
@@ -22,23 +39,30 @@ function Step4() {
                             </button>
                         </div>
                         <p className="ml-auto text-[17px] font-bold text-marine-blue">
-                            $9/mo
+                            {`$${
+                                prices.plans[state.plan][state.billing]
+                            }/${priceSuffix}`}
                         </p>
                     </div>
                     <hr />
                     <ul className="pt-[16px]">
-                        <li className="mb-4 flex text-[15px]">
-                            <p className="text-cool-gray">Online Service</p>
-                            <p className="ml-auto font-medium text-marine-blue">
-                                +$1/mo
-                            </p>
-                        </li>
-                        <li className="flex text-[15px]">
-                            <p className="text-cool-gray">Larger storage</p>
-                            <p className="ml-auto font-medium text-marine-blue">
-                                +$2/mo
-                            </p>
-                        </li>
+                        {Object.keys(state.addons).map(
+                            (addon) =>
+                                state.addons[addon as Addon] && (
+                                    <li className="mb-4 flex text-[15px]">
+                                        <p className="text-cool-gray">
+                                            {addon}
+                                        </p>
+                                        <p className="ml-auto font-medium text-marine-blue">
+                                            {`+$${
+                                                prices.addons[addon as Addon][
+                                                    state.billing
+                                                ]
+                                            }/${priceSuffix}`}
+                                        </p>
+                                    </li>
+                                )
+                        )}
                     </ul>
                 </div>
             </div>
@@ -46,7 +70,7 @@ function Step4() {
             <div className="mt-6 flex items-center px-[20px]">
                 <p className="text-[15px] text-cool-gray">Total (per month)</p>
                 <p className="ml-auto text-[21px] font-bold text-purplish-blue">
-                    +$12/mo
+                    {`+$${totalPrice}/${priceSuffix}`}
                 </p>
             </div>
             <NavigationBar
