@@ -1,3 +1,4 @@
+import exhaustiveCheck from "@utils/exhaustive-check";
 import { FormState, FormAction } from "@typedefs";
 
 function formReducer(state: FormState, action: FormAction): FormState {
@@ -23,7 +24,7 @@ function formReducer(state: FormState, action: FormAction): FormState {
         case "SET_PLAN":
             return { ...state, plan: action.payload };
         default:
-            return state;
+            return exhaustiveCheck(action);
     }
 }
 
