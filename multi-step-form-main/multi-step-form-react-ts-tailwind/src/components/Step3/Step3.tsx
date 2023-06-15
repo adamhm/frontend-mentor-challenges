@@ -1,7 +1,14 @@
+import { useContext } from "react";
 import { AddonCard, NavigationBar, StepTitleBar } from "@components";
 import prices from "@data/prices.json";
+import FormContext from "@contexts/form-context";
+import { Addon } from "@typedefs";
 
 function Step3() {
+    const { state } = useContext(FormContext);
+
+    const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+
     return (
         <div className="flex h-full flex-col">
             <StepTitleBar
@@ -9,24 +16,16 @@ function Step3() {
                 subtitle="Add-ons help enhance your gaming experience."
             />
             <div className="mt-[34px]">
-                <AddonCard
-                    title="Online service"
-                    subtitle="Access to multiplayer games"
-                    text={`+$${prices.onlineService.monthly}/mo`}
-                    active
-                />
-                <AddonCard
-                    title="Larger storage"
-                    subtitle="Extra 1TB of cloud save"
-                    text={`+$${prices.largerStorage.monthly}/mo`}
-                    active
-                />
-                <AddonCard
-                    title="Customizable profile"
-                    subtitle="Custom theme on your profile"
-                    text={`+$${prices.customProfile.monthly}/mo`}
-                    active={false}
-                />
+                {Object.keys(prices.addons).map((addon) => (
+                    <AddonCard
+                        title={addon}
+                        subtitle={prices.addons[addon as Addon].note}
+                        text={`+$${
+                            prices.addons[addon as Addon][state.billing]
+                        }/${priceSuffix}`}
+                        active={state.addons[addon as Addon]}
+                    />
+                ))}
             </div>
             <NavigationBar
                 colorClass="bg-marine-blue"
