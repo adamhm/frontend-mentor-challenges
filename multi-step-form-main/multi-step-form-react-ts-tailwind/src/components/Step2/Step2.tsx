@@ -1,15 +1,19 @@
+import { useContext } from "react";
+import FormContext from "@contexts/form-context";
 import {
     NavigationBar,
     PlanCard,
     StepTitleBar,
     ToggleButton,
 } from "@components";
-import arcadeIcon from "@assets/images/icon-arcade.svg";
-import advancedIcon from "@assets/images/icon-advanced.svg";
-import proIcon from "@assets/images/icon-pro.svg";
 import prices from "@data/prices.json";
+import objectKeys from "@utils/object-keys";
 
 function Step2() {
+    const { state } = useContext(FormContext);
+
+    const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+
     return (
         <div className="flex h-full flex-col">
             <StepTitleBar
@@ -17,24 +21,17 @@ function Step2() {
                 subtitle="You have the option of monthly or yearly billing."
             />
             <div className="mt-[34px] flex gap-[18px]">
-                <PlanCard
-                    image={arcadeIcon}
-                    title="Arcade"
-                    subtitle={`$${prices.arcade.monthly}/mo`}
-                    note={prices.arcade.note}
-                />
-                <PlanCard
-                    image={advancedIcon}
-                    title="Advanced"
-                    subtitle={`$${prices.advanced.monthly}/mo`}
-                    note={prices.advanced.note}
-                />
-                <PlanCard
-                    image={proIcon}
-                    title="Pro"
-                    subtitle={`$${prices.pro.monthly}/mo`}
-                    note={prices.pro.note}
-                />
+                {objectKeys(prices.plans).map((plan) => (
+                    <PlanCard
+                        image={`/src/assets/images/${prices.plans[plan].image}`}
+                        title={plan}
+                        subtitle={`$${
+                            prices.plans[plan][state.billing]
+                        }/${priceSuffix}`}
+                        note={prices.plans[plan].note}
+                        active={state.plan === plan}
+                    />
+                ))}
             </div>
             <div className="mt-9 flex h-[3rem] items-center justify-center bg-ghost-white">
                 <ToggleButton state="monthly" />
