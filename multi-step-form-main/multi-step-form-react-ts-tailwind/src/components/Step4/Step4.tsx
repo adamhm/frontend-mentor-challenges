@@ -3,6 +3,7 @@ import { NavigationBar, StepTitleBar } from "@components";
 import FormContext from "@contexts/form-context";
 import prices from "@data/prices.json";
 import { Addon } from "@typedefs";
+import objectKeys from "@utils/object-keys";
 
 function Step4() {
     const { state } = useContext(FormContext);
@@ -46,16 +47,16 @@ function Step4() {
                     </div>
                     <hr />
                     <ul className="pt-[16px]">
-                        {Object.keys(state.addons).map(
+                        {objectKeys(state.addons).map(
                             (addon) =>
-                                state.addons[addon as Addon] && (
+                                state.addons[addon] && (
                                     <li className="mb-4 flex text-[15px]">
                                         <p className="text-cool-gray">
                                             {addon}
                                         </p>
                                         <p className="ml-auto font-medium text-marine-blue">
                                             {`+$${
-                                                prices.addons[addon as Addon][
+                                                prices.addons[addon][
                                                     state.billing
                                                 ]
                                             }/${priceSuffix}`}
