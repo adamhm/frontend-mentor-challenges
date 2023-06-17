@@ -3,17 +3,20 @@
         "Arcade": {
             "monthly": 9,
             "yearly": 90,
-            "note": "2 months free"
+            "note": "2 months free",
+            "image": "icon-arcade.svg"
         },
         "Advanced": {
             "monthly": 12,
             "yearly": 120,
-            "note": "2 months free"
+            "note": "2 months free",
+            "image": "icon-advanced.svg"
         },
         "Pro": {
             "monthly": 15,
             "yearly": 150,
-            "note": "2 months free"
+            "note": "2 months free",
+            "image": "icon-pro.svg"
         }
     },
     "addons": {
