@@ -10,9 +10,12 @@ import prices from "@data/prices.json";
 import objectKeys from "@utils/object-keys";
 
 function Step2() {
-    const { state } = useContext(FormContext);
+    const { state, dispatch } = useContext(FormContext);
 
     const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+
+    const handleBillingChange = (billing: "monthly" | "yearly") =>
+        dispatch?.({ type: "SET_BILLING", payload: billing });
 
     return (
         <div className="flex h-full flex-col">
@@ -28,13 +31,20 @@ function Step2() {
                         subtitle={`$${
                             prices.plans[plan][state.billing]
                         }/${priceSuffix}`}
-                        note={prices.plans[plan].note}
+                        note={
+                            state.billing === "yearly"
+                                ? prices.plans[plan].note
+                                : undefined
+                        }
                         active={state.plan === plan}
                     />
                 ))}
             </div>
             <div className="mt-9 flex h-[3rem] items-center justify-center bg-ghost-white">
-                <ToggleButton state="monthly" />
+                <ToggleButton
+                    state={state.billing}
+                    onChange={handleBillingChange}
+                />
             </div>
             <NavigationBar
                 colorClass="bg-marine-blue"
