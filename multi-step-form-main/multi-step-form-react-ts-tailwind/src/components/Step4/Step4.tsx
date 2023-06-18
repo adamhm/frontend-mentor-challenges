@@ -71,7 +71,7 @@ function Step4() {
             <div className="mt-6 flex items-center px-[20px]">
                 <p className="text-[15px] text-cool-gray">Total (per month)</p>
                 <p className="ml-auto text-[21px] font-bold text-purplish-blue">
-                    {`+$${totalPrice}/${priceSuffix}`}
+                    {`$${totalPrice}/${priceSuffix}`}
                 </p>
             </div>
             <NavigationBar
