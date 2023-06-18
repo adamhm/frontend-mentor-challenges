@@ -33,7 +33,7 @@ function ToggleButton({ state, onChange }: ToggleButtonProps) {
                     onChange?.(state === "monthly" ? "yearly" : "monthly")
                 }
             >
-                <span className="sr-only">Yearly plan</span>
+                <span className="sr-only">{`${state} plan`}</span>
                 <span
                     aria-hidden="true"
                     className="h-[12px] w-[12px] rounded-full bg-white"
