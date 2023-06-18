@@ -6,7 +6,7 @@ import {
     StepTitleBar,
     ToggleButton,
 } from "@components";
-import prices from "@data/prices.json";
+import data from "@data/data.json";
 import objectKeys from "@utils/object-keys";
 
 function Step2() {
@@ -24,16 +24,16 @@ function Step2() {
                 subtitle="You have the option of monthly or yearly billing."
             />
             <div className="mt-[34px] flex gap-[18px]">
-                {objectKeys(prices.plans).map((plan) => (
+                {objectKeys(data.plans).map((plan) => (
                     <PlanCard
-                        image={`/src/assets/images/${prices.plans[plan].image}`}
+                        image={`/src/assets/images/${data.plans[plan].image}`}
                         title={plan}
                         subtitle={`$${
-                            prices.plans[plan][state.billing]
+                            data.plans[plan][state.billing]
                         }/${priceSuffix}`}
                         note={
                             state.billing === "yearly"
-                                ? prices.plans[plan].note
+                                ? data.plans[plan].note
                                 : undefined
                         }
                         active={state.plan === plan}

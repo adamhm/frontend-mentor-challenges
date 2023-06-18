@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { NavigationBar, StepTitleBar } from "@components";
 import FormContext from "@contexts/form-context";
-import prices from "@data/prices.json";
+import data from "@data/data.json";
 import { Addon } from "@typedefs";
 import objectKeys from "@utils/object-keys";
 
@@ -9,12 +9,12 @@ function Step4() {
     const { state } = useContext(FormContext);
     const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
 
-    const planPrice = prices.plans[state.plan][state.billing];
+    const planPrice = data.plans[state.plan][state.billing];
     const addonPrice = Object.entries(state.addons)
         .filter(([, selected]) => selected)
         .reduce(
             (total, [addon]) =>
-                total + prices.addons[addon as Addon][state.billing],
+                total + data.addons[addon as Addon][state.billing],
             0
         );
     const totalPrice = planPrice + addonPrice;
@@ -41,7 +41,7 @@ function Step4() {
                         </div>
                         <p className="ml-auto text-[17px] font-bold text-marine-blue">
                             {`$${
-                                prices.plans[state.plan][state.billing]
+                                data.plans[state.plan][state.billing]
                             }/${priceSuffix}`}
                         </p>
                     </div>
@@ -56,7 +56,7 @@ function Step4() {
                                         </p>
                                         <p className="ml-auto font-medium text-marine-blue">
                                             {`+$${
-                                                prices.addons[addon][
+                                                data.addons[addon][
                                                     state.billing
                                                 ]
                                             }/${priceSuffix}`}

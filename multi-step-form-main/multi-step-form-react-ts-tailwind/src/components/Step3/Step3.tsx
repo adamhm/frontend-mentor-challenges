@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { AddonCard, NavigationBar, StepTitleBar } from "@components";
-import prices from "@data/prices.json";
+import data from "@data/data.json";
 import FormContext from "@contexts/form-context";
 import objectKeys from "@utils/object-keys";
 
@@ -16,12 +16,12 @@ function Step3() {
                 subtitle="Add-ons help enhance your gaming experience."
             />
             <div className="mt-[34px]">
-                {objectKeys(prices.addons).map((addon) => (
+                {objectKeys(data.addons).map((addon) => (
                     <AddonCard
                         title={addon}
-                        subtitle={prices.addons[addon].note}
+                        subtitle={data.addons[addon].note}
                         text={`+$${
-                            prices.addons[addon][state.billing]
+                            data.addons[addon][state.billing]
                         }/${priceSuffix}`}
                         active={state.addons[addon]}
                     />
