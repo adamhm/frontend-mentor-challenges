@@ -22,6 +22,7 @@ type FormAction =
     | { type: "SET_PLAN"; payload: Plan }
     | { type: "SET_BILLING"; payload: "monthly" | "yearly" }
     | { type: "ADD_ADDON"; payload: Addon }
-    | { type: "REMOVE_ADDON"; payload: Addon };
+    | { type: "REMOVE_ADDON"; payload: Addon }
+    | { type: "SET_ADDON"; payload: { addon: Addon; selected: boolean } };
 
 export type { Addon, Plan, FormState, FormAction };

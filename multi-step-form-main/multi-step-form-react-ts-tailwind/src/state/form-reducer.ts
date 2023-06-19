@@ -13,6 +13,14 @@ function formReducer(state: FormState, action: FormAction): FormState {
                 ...state,
                 addons: { ...state.addons, [action.payload]: false },
             };
+        case "SET_ADDON":
+            return {
+                ...state,
+                addons: {
+                    ...state.addons,
+                    [action.payload.addon]: action.payload.selected,
+                },
+            };
         case "SET_BILLING":
             return { ...state, billing: action.payload };
         case "SET_EMAIL":
