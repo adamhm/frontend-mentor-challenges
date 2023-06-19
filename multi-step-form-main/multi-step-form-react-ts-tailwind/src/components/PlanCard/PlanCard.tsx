@@ -4,9 +4,17 @@ type PlanCardProps = {
     title: string;
     subtitle: string;
     active: boolean;
+    onClick?: () => void;
 };
 
-function PlanCard({ image, note, title, subtitle, active }: PlanCardProps) {
+function PlanCard({
+    image,
+    note,
+    title,
+    subtitle,
+    active,
+    onClick,
+}: PlanCardProps) {
     const height = note ? "h-[183px]" : "h-[160px]";
 
     const sectionVariants = {
@@ -16,10 +24,13 @@ function PlanCard({ image, note, title, subtitle, active }: PlanCardProps) {
     };
 
     return (
-        <section
+        <button
+            type="button"
+            aria-pressed={active}
             className={`flex ${height} w-[8.5rem] shrink-0 grow cursor-pointer flex-col rounded-md border px-[16px] pb-[14px] pt-[20px] ${
                 sectionVariants[active ? "active" : "inactive"]
             }`}
+            onClick={onClick}
         >
             <img src={image} alt="" className="w-[42px]" />
             <p className="mt-auto text-[18px] font-bold text-marine-blue">
@@ -31,7 +42,7 @@ function PlanCard({ image, note, title, subtitle, active }: PlanCardProps) {
                     {note}
                 </p>
             )}
-        </section>
+        </button>
     );
 }
 

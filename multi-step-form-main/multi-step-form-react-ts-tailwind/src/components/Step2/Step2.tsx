@@ -8,6 +8,7 @@ import {
 } from "@components";
 import data from "@data/data.json";
 import objectKeys from "@utils/object-keys";
+import { Plan } from "@typedefs";
 
 function Step2() {
     const { state, dispatch } = useContext(FormContext);
@@ -16,6 +17,9 @@ function Step2() {
 
     const handleBillingChange = (billing: "monthly" | "yearly") =>
         dispatch?.({ type: "SET_BILLING", payload: billing });
+
+    const handlePlanChange = (plan: Plan) =>
+        dispatch?.({ type: "SET_PLAN", payload: plan });
 
     return (
         <div className="flex h-full flex-col">
@@ -26,6 +30,7 @@ function Step2() {
             <div className="mt-[34px] flex gap-[18px]">
                 {objectKeys(data.plans).map((plan) => (
                     <PlanCard
+                        key={plan}
                         image={`/src/assets/images/${data.plans[plan].image}`}
                         title={plan}
                         subtitle={`$${
@@ -37,6 +42,7 @@ function Step2() {
                                 : undefined
                         }
                         active={state.plan === plan}
+                        onClick={() => handlePlanChange(plan)}
                     />
                 ))}
             </div>
