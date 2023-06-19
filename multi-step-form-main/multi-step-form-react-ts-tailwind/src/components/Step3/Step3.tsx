@@ -3,12 +3,18 @@ import { AddonCard, NavigationBar, StepTitleBar } from "@components";
 import data from "@data/data.json";
 import FormContext from "@contexts/form-context";
 import objectKeys from "@utils/object-keys";
+import { Addon } from "@typedefs";
 
 function Step3() {
-    const { state } = useContext(FormContext);
+    const { state, dispatch } = useContext(FormContext);
 
     const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
 
+    const handleSelectedChange = (addon: Addon, selected: boolean) =>
+        dispatch?.({
+            type: "SET_ADDON",
+            payload: { addon, selected },
+        });
     return (
         <div className="flex h-full flex-col">
             <StepTitleBar
@@ -24,6 +30,9 @@ function Step3() {
                             data.addons[addon][state.billing]
                         }/${priceSuffix}`}
                         active={state.addons[addon]}
+                        onChange={(selected) =>
+                            handleSelectedChange(addon, selected)
+                        }
                     />
                 ))}
             </div>
