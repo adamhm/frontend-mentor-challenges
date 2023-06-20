@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import FormContext from "@contexts/form-context";
+import { FormContext, StepContext } from "@contexts";
 import {
     NavigationBar,
     PlanCard,
@@ -12,6 +12,7 @@ import { Plan } from "@typedefs";
 
 function Step2() {
     const { state, dispatch } = useContext(FormContext);
+    const { activeStep, setActiveStep } = useContext(StepContext);
 
     const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
 
@@ -20,6 +21,10 @@ function Step2() {
 
     const handlePlanChange = (plan: Plan) =>
         dispatch?.({ type: "SET_PLAN", payload: plan });
+
+    const nextClickHandler = () => setActiveStep?.(activeStep + 1);
+
+    const goBackClickHandler = () => setActiveStep?.(activeStep - 1);
 
     return (
         <div className="flex h-full flex-col">
@@ -55,6 +60,8 @@ function Step2() {
             <NavigationBar
                 colorClass="bg-marine-blue"
                 hoverColorClass="hover:bg-[#174a8b]"
+                onNextClick={nextClickHandler}
+                onGoBackClick={goBackClickHandler}
             />
         </div>
     );

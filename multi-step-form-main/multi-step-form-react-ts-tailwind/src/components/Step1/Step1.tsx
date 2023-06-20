@@ -1,11 +1,17 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { useContext, useId } from "react";
 import { StepTitleBar } from "@components";
-import { useId } from "react";
+import { StepContext } from "@contexts";
 
 function Step1() {
     const nameId = useId();
     const emailId = useId();
     const phoneId = useId();
+    const { activeStep, setActiveStep } = useContext(StepContext);
+
+    const handleClick = () => {
+        setActiveStep?.(activeStep + 1);
+    };
 
     return (
         <div>
@@ -49,6 +55,7 @@ function Step1() {
             <button
                 type="button"
                 className="ml-auto mt-[92px] block h-[48px] w-[124px] rounded-md bg-marine-blue text-white hover:bg-[#174a8b]"
+                onClick={handleClick}
             >
                 Next Step
             </button>

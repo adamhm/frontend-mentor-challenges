@@ -1,12 +1,13 @@
 import { useContext } from "react";
 import { AddonCard, NavigationBar, StepTitleBar } from "@components";
 import data from "@data/data.json";
-import FormContext from "@contexts/form-context";
+import { FormContext, StepContext } from "@contexts";
 import objectKeys from "@utils/object-keys";
 import { Addon } from "@typedefs";
 
 function Step3() {
     const { state, dispatch } = useContext(FormContext);
+    const { activeStep, setActiveStep } = useContext(StepContext);
 
     const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
 
@@ -15,6 +16,11 @@ function Step3() {
             type: "SET_ADDON",
             payload: { addon, selected },
         });
+
+    const nextClickHandler = () => setActiveStep?.(activeStep + 1);
+
+    const goBackClickHandler = () => setActiveStep?.(activeStep - 1);
+
     return (
         <div className="flex h-full flex-col">
             <StepTitleBar
@@ -39,6 +45,8 @@ function Step3() {
             <NavigationBar
                 colorClass="bg-marine-blue"
                 hoverColorClass="hover:bg-[#174a8b]"
+                onNextClick={nextClickHandler}
+                onGoBackClick={goBackClickHandler}
             />
         </div>
     );

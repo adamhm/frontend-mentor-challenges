@@ -1,12 +1,14 @@
 import { useContext } from "react";
 import { NavigationBar, StepTitleBar } from "@components";
-import FormContext from "@contexts/form-context";
+import { FormContext, StepContext } from "@contexts";
 import data from "@data/data.json";
 import { Addon } from "@typedefs";
 import objectKeys from "@utils/object-keys";
 
 function Step4() {
     const { state } = useContext(FormContext);
+    const { activeStep, setActiveStep } = useContext(StepContext);
+
     const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
 
     const planPrice = data.plans[state.plan][state.billing];
@@ -18,6 +20,8 @@ function Step4() {
             0
         );
     const totalPrice = planPrice + addonPrice;
+
+    const goBackClickHandler = () => setActiveStep?.(activeStep - 1);
 
     return (
         <div className="flex h-full flex-col">
@@ -77,6 +81,7 @@ function Step4() {
             <NavigationBar
                 colorClass="bg-purplish-blue"
                 hoverColorClass="hover:bg-violets-are-blue"
+                onGoBackClick={goBackClickHandler}
             />
         </div>
     );
