@@ -54,7 +54,10 @@ function Step4() {
                         {objectKeys(state.addons).map(
                             (addon) =>
                                 state.addons[addon] && (
-                                    <li className="mb-4 flex text-[15px]">
+                                    <li
+                                        key={addon}
+                                        className="mb-4 flex text-[15px]"
+                                    >
                                         <p className="text-cool-gray">
                                             {addon}
                                         </p>

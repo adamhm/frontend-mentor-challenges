@@ -30,6 +30,7 @@ function Step3() {
             <div className="mt-[34px]">
                 {objectKeys(data.addons).map((addon) => (
                     <AddonCard
+                        key={addon}
                         title={addon}
                         subtitle={data.addons[addon].note}
                         text={`+$${
