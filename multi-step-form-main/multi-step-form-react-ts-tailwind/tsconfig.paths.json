@@ -4,7 +4,7 @@
         "paths": {
             "@assets/*": ["assets/*"],
             "@components": ["components/index"],
-            "@contexts/*": ["contexts/*"],
+            "@contexts": ["contexts/index"],
             "@data/*": ["data/*"],
             "@shared/*": ["shared/*"],
             "@state/*": ["state/*"],
