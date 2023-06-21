@@ -1,8 +1,8 @@
-import data from "@data/data.json";
+import { addons, plans } from "@data/data.json";
 
-type Plan = keyof (typeof data)["plans"];
+type Plan = keyof typeof plans;
 
-type Addon = keyof (typeof data)["addons"];
+type Addon = keyof typeof addons;
 
 type AddonGroup = { [K in Addon]: boolean };
 

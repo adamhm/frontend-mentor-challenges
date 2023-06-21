@@ -1,15 +1,18 @@
 import { useContext } from "react";
 import { AddonCard, NavigationBar, StepTitleBar } from "@components";
-import data from "@data/data.json";
+import { addons as addonData } from "@data/data.json";
 import { FormContext, StepContext } from "@contexts";
 import objectKeys from "@utils/object-keys";
 import { Addon } from "@typedefs";
 
 function Step3() {
-    const { state, dispatch } = useContext(FormContext);
+    const {
+        state: { addons, billing },
+        dispatch,
+    } = useContext(FormContext);
     const { activeStep, setActiveStep } = useContext(StepContext);
 
-    const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+    const priceSuffix = billing === "monthly" ? "mo" : "yr";
 
     const handleSelectedChange = (addon: Addon, selected: boolean) =>
         dispatch?.({
@@ -28,15 +31,13 @@ function Step3() {
                 subtitle="Add-ons help enhance your gaming experience."
             />
             <div className="mt-[34px]">
-                {objectKeys(data.addons).map((addon) => (
+                {objectKeys(addonData).map((addon) => (
                     <AddonCard
                         key={addon}
                         title={addon}
-                        subtitle={data.addons[addon].note}
-                        text={`+$${
-                            data.addons[addon][state.billing]
-                        }/${priceSuffix}`}
-                        active={state.addons[addon]}
+                        subtitle={addonData[addon].note}
+                        text={`+$${addonData[addon][billing]}/${priceSuffix}`}
+                        active={addons[addon]}
                         onChange={(selected) =>
                             handleSelectedChange(addon, selected)
                         }

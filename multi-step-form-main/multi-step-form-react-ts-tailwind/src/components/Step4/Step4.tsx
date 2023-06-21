@@ -1,22 +1,23 @@
 import { useContext } from "react";
 import { NavigationBar, StepTitleBar } from "@components";
 import { FormContext, StepContext } from "@contexts";
-import data from "@data/data.json";
+import { addons as addonData, plans as planData } from "@data/data.json";
 import { Addon } from "@typedefs";
 import objectKeys from "@utils/object-keys";
 
 function Step4() {
-    const { state } = useContext(FormContext);
+    const {
+        state: { addons, plan, billing },
+    } = useContext(FormContext);
     const { activeStep, setActiveStep } = useContext(StepContext);
 
-    const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+    const priceSuffix = billing === "monthly" ? "mo" : "yr";
 
-    const planPrice = data.plans[state.plan][state.billing];
-    const addonPrice = Object.entries(state.addons)
+    const planPrice = planData[plan][billing];
+    const addonPrice = Object.entries(addons)
         .filter(([, selected]) => selected)
         .reduce(
-            (total, [addon]) =>
-                total + data.addons[addon as Addon][state.billing],
+            (total, [addon]) => total + addonData[addon as Addon][billing],
             0
         );
     const totalPrice = planPrice + addonPrice;
@@ -36,7 +37,7 @@ function Step4() {
                     <div className="flex pb-[16px]">
                         <div>
                             <p className="text-[17px] font-bold text-marine-blue">
-                                {`${state.plan} (${state.billing})`}
+                                {`${plan} (${billing})`}
                             </p>
                             <button
                                 type="button"
@@ -46,16 +47,14 @@ function Step4() {
                             </button>
                         </div>
                         <p className="ml-auto text-[17px] font-bold text-marine-blue">
-                            {`$${
-                                data.plans[state.plan][state.billing]
-                            }/${priceSuffix}`}
+                            {`$${planData[plan][billing]}/${priceSuffix}`}
                         </p>
                     </div>
                     <hr />
                     <ul className="pt-[16px]">
-                        {objectKeys(state.addons).map(
+                        {objectKeys(addons).map(
                             (addon) =>
-                                state.addons[addon] && (
+                                addons[addon] && (
                                     <li
                                         key={addon}
                                         className="mb-4 flex text-[15px]"
@@ -64,11 +63,7 @@ function Step4() {
                                             {addon}
                                         </p>
                                         <p className="ml-auto font-medium text-marine-blue">
-                                            {`+$${
-                                                data.addons[addon][
-                                                    state.billing
-                                                ]
-                                            }/${priceSuffix}`}
+                                            {`+$${addonData[addon][billing]}/${priceSuffix}`}
                                         </p>
                                     </li>
                                 )

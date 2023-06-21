@@ -6,18 +6,22 @@ import {
     StepTitleBar,
     ToggleButton,
 } from "@components";
-import data from "@data/data.json";
+import { plans as planData } from "@data/data.json";
 import objectKeys from "@utils/object-keys";
 import { Plan } from "@typedefs";
 
 function Step2() {
-    const { state, dispatch } = useContext(FormContext);
+    const {
+        state,
+        state: { billing },
+        dispatch,
+    } = useContext(FormContext);
     const { activeStep, setActiveStep } = useContext(StepContext);
 
-    const priceSuffix = state.billing === "monthly" ? "mo" : "yr";
+    const priceSuffix = billing === "monthly" ? "mo" : "yr";
 
-    const handleBillingChange = (billing: "monthly" | "yearly") =>
-        dispatch?.({ type: "SET_BILLING", payload: billing });
+    const handleBillingChange = (period: "monthly" | "yearly") =>
+        dispatch?.({ type: "SET_BILLING", payload: period });
 
     const handlePlanChange = (plan: Plan) =>
         dispatch?.({ type: "SET_PLAN", payload: plan });
@@ -33,17 +37,15 @@ function Step2() {
                 subtitle="You have the option of monthly or yearly billing."
             />
             <div className="mt-[34px] flex gap-[18px]">
-                {objectKeys(data.plans).map((plan) => (
+                {objectKeys(planData).map((plan) => (
                     <PlanCard
                         key={plan}
-                        image={`/src/assets/images/${data.plans[plan].image}`}
+                        image={`/src/assets/images/${planData[plan].image}`}
                         title={plan}
-                        subtitle={`$${
-                            data.plans[plan][state.billing]
-                        }/${priceSuffix}`}
+                        subtitle={`$${planData[plan][billing]}/${priceSuffix}`}
                         note={
-                            state.billing === "yearly"
-                                ? data.plans[plan].note
+                            billing === "yearly"
+                                ? planData[plan].note
                                 : undefined
                         }
                         active={state.plan === plan}
@@ -52,10 +54,7 @@ function Step2() {
                 ))}
             </div>
             <div className="mt-9 flex h-[3rem] items-center justify-center bg-ghost-white">
-                <ToggleButton
-                    state={state.billing}
-                    onChange={handleBillingChange}
-                />
+                <ToggleButton state={billing} onChange={handleBillingChange} />
             </div>
             <NavigationBar
                 colorClass="bg-marine-blue"
