@@ -21,7 +21,9 @@ function Step4() {
         );
     const totalPrice = planPrice + addonPrice;
 
-    const goBackClickHandler = () => setActiveStep?.(activeStep - 1);
+    const primaryClickHandler = () => setActiveStep?.(activeStep + 1);
+
+    const secondaryClickHandler = () => setActiveStep?.(activeStep - 1);
 
     return (
         <div className="flex h-full flex-col">
@@ -82,9 +84,11 @@ function Step4() {
                 </p>
             </div>
             <NavigationBar
+                primaryText="Confirm"
                 colorClass="bg-purplish-blue"
                 hoverColorClass="hover:bg-violets-are-blue"
-                onGoBackClick={goBackClickHandler}
+                onPrimaryClick={primaryClickHandler}
+                onSecondaryClick={secondaryClickHandler}
             />
         </div>
     );

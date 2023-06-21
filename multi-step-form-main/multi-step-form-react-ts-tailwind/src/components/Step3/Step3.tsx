@@ -17,9 +17,9 @@ function Step3() {
             payload: { addon, selected },
         });
 
-    const nextClickHandler = () => setActiveStep?.(activeStep + 1);
+    const primaryClickHandler = () => setActiveStep?.(activeStep + 1);
 
-    const goBackClickHandler = () => setActiveStep?.(activeStep - 1);
+    const secondaryClickHandler = () => setActiveStep?.(activeStep - 1);
 
     return (
         <div className="flex h-full flex-col">
@@ -46,8 +46,8 @@ function Step3() {
             <NavigationBar
                 colorClass="bg-marine-blue"
                 hoverColorClass="hover:bg-[#174a8b]"
-                onNextClick={nextClickHandler}
-                onGoBackClick={goBackClickHandler}
+                onPrimaryClick={primaryClickHandler}
+                onSecondaryClick={secondaryClickHandler}
             />
         </div>
     );

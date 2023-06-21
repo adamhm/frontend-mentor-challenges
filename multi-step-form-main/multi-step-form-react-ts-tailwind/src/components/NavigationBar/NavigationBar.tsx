@@ -1,31 +1,37 @@
+import { MouseEventHandler } from "react";
+
 type NavigationBarProps = {
     colorClass: string;
     hoverColorClass: `hover:${string}`;
-    onGoBackClick?: React.MouseEventHandler<HTMLButtonElement>;
-    onNextClick?: React.MouseEventHandler<HTMLButtonElement>;
+    primaryText?: string;
+    secondaryText?: string;
+    onSecondaryClick?: MouseEventHandler<HTMLButtonElement>;
+    onPrimaryClick?: MouseEventHandler<HTMLButtonElement>;
 };
 
 function NavigationBar({
     colorClass,
     hoverColorClass,
-    onGoBackClick,
-    onNextClick,
+    primaryText = "Next Step",
+    secondaryText = "Go Back",
+    onSecondaryClick,
+    onPrimaryClick,
 }: NavigationBarProps) {
     return (
         <div className="mb-[16px] mt-auto flex justify-between">
             <button
                 type="button"
                 className="h-[48px] w-[124px] rounded-md bg-white font-medium text-cool-gray hover:text-marine-blue"
-                onClick={onGoBackClick}
+                onClick={onSecondaryClick}
             >
-                Go Back
+                {secondaryText}
             </button>
             <button
                 type="button"
                 className={`h-[48px] w-[124px] rounded-md ${colorClass} text-white ${hoverColorClass}`}
-                onClick={onNextClick}
+                onClick={onPrimaryClick}
             >
-                Next Step
+                {primaryText}
             </button>
         </div>
     );

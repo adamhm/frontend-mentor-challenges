@@ -22,9 +22,9 @@ function Step2() {
     const handlePlanChange = (plan: Plan) =>
         dispatch?.({ type: "SET_PLAN", payload: plan });
 
-    const nextClickHandler = () => setActiveStep?.(activeStep + 1);
+    const primaryClickHandler = () => setActiveStep?.(activeStep + 1);
 
-    const goBackClickHandler = () => setActiveStep?.(activeStep - 1);
+    const secondaryClickHandler = () => setActiveStep?.(activeStep - 1);
 
     return (
         <div className="flex h-full flex-col">
@@ -60,8 +60,8 @@ function Step2() {
             <NavigationBar
                 colorClass="bg-marine-blue"
                 hoverColorClass="hover:bg-[#174a8b]"
-                onNextClick={nextClickHandler}
-                onGoBackClick={goBackClickHandler}
+                onPrimaryClick={primaryClickHandler}
+                onSecondaryClick={secondaryClickHandler}
             />
         </div>
     );
