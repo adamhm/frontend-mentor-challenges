@@ -27,22 +27,22 @@ function AddonCard({
     };
 
     return (
-        <section
-            className={`mb-4 flex h-[5em] items-center rounded-md border ${
+        <button
+            type="button"
+            aria-pressed={active}
+            className={`mb-4 flex h-[5em] w-full items-center rounded-md border text-left ${
                 sectionVariants[active ? "active" : "inactive"]
             }`}
+            onClick={() => onChange?.(!active)}
         >
-            <button
-                type="button"
-                aria-pressed={active}
-                className={`mx-[24px] h-[22px] w-[22px] rounded-md border border-gray-300 text-center ${
+            <span
+                aria-hidden
+                className={`mx-[24px] flex h-[22px] w-[22px] items-center rounded-md border border-gray-300 ${
                     buttonVariants[active ? "active" : "inactive"]
                 }`}
-                onClick={() => onChange?.(!active)}
             >
-                <span className="sr-only">{title}</span>
                 {active && <img src={iconCheckMark} alt="" className="ml-1" />}
-            </button>
+            </span>
             <div>
                 <p className="text-[17px] font-medium text-marine-blue">
                     {title}
@@ -52,7 +52,7 @@ function AddonCard({
             <p className="ml-auto mr-[24px] text-[15px] font-medium text-slate-blue">
                 {text}
             </p>
-        </section>
+        </button>
     );
 }
 
