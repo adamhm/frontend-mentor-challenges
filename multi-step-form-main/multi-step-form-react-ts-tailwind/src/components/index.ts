@@ -8,6 +8,7 @@ import Step1 from "./Step1/Step1";
 import Step2 from "./Step2/Step2";
 import Step3 from "./Step3/Step3";
 import Step4 from "./Step4/Step4";
+import Step5 from "./Step5/Step5";
 import StepElement from "./StepElement/StepElement";
 import StepPanel from "./StepPanel/StepPanel";
 import StepTitleBar from "./StepTitleBar/StepTitleBar";
@@ -24,6 +25,7 @@ export {
     Step2,
     Step3,
     Step4,
+    Step5,
     StepElement,
     StepPanel,
     StepTitleBar,
