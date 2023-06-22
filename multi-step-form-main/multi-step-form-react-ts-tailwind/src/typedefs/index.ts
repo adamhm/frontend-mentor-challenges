@@ -19,6 +19,14 @@ type FormAction =
     | { type: "SET_NAME"; payload: string }
     | { type: "SET_EMAIL"; payload: string }
     | { type: "SET_PHONE"; payload: string }
+    | {
+          type: "SET_USER_DATA";
+          payload: {
+              name: string;
+              email: string;
+              phone: string;
+          };
+      }
     | { type: "SET_PLAN"; payload: Plan }
     | { type: "SET_BILLING"; payload: "monthly" | "yearly" }
     | { type: "ADD_ADDON"; payload: Addon }

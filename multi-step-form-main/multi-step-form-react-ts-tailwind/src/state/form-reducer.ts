@@ -1,38 +1,48 @@
 import exhaustiveCheck from "@utils/exhaustive-check";
 import { FormState, FormAction } from "@typedefs";
 
-function formReducer(state: FormState, action: FormAction): FormState {
-    switch (action.type) {
+function formReducer(
+    state: FormState,
+    { type, payload }: FormAction
+): FormState {
+    switch (type) {
         case "ADD_ADDON":
             return {
                 ...state,
-                addons: { ...state.addons, [action.payload]: true },
+                addons: { ...state.addons, [payload]: true },
             };
         case "REMOVE_ADDON":
             return {
                 ...state,
-                addons: { ...state.addons, [action.payload]: false },
+                addons: { ...state.addons, [payload]: false },
             };
         case "SET_ADDON":
             return {
                 ...state,
                 addons: {
                     ...state.addons,
-                    [action.payload.addon]: action.payload.selected,
+                    [payload.addon]: payload.selected,
                 },
             };
         case "SET_BILLING":
-            return { ...state, billing: action.payload };
+            return { ...state, billing: payload };
         case "SET_EMAIL":
-            return { ...state, email: action.payload };
+            return { ...state, email: payload };
         case "SET_NAME":
-            return { ...state, name: action.payload };
+            return { ...state, name: payload };
         case "SET_PHONE":
-            return { ...state, phone: action.payload };
+            return { ...state, phone: payload };
         case "SET_PLAN":
-            return { ...state, plan: action.payload };
+            return { ...state, plan: payload };
+        case "SET_USER_DATA":
+            return {
+                ...state,
+                name: payload.name,
+                email: payload.email,
+                phone: payload.phone,
+            };
         default:
-            return exhaustiveCheck(action);
+            return exhaustiveCheck(type);
     }
 }
 
