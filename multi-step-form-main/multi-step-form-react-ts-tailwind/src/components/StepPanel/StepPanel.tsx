@@ -13,7 +13,10 @@ function StepPanel() {
                     key={step.id}
                     step={step.id}
                     text={step.text}
-                    active={step.id === activeStep}
+                    active={
+                        step.id === activeStep ||
+                        (step.id === steps.length && activeStep > step.id)
+                    }
                 />
             ))}
         </div>
