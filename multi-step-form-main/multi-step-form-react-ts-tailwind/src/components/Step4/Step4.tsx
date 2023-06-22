@@ -73,7 +73,9 @@ function Step4() {
             </div>
 
             <div className="mt-6 flex items-center px-[20px]">
-                <p className="text-[15px] text-cool-gray">Total (per month)</p>
+                <p className="text-[15px] text-cool-gray">{`Total (per ${
+                    billing === "monthly" ? "month" : "year"
+                })`}</p>
                 <p className="ml-auto text-[21px] font-bold text-purplish-blue">
                     {`$${totalPrice}/${priceSuffix}`}
                 </p>
