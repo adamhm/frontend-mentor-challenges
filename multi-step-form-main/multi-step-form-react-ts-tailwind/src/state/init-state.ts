@@ -1,9 +1,11 @@
 import { FormState } from "@typedefs";
 
 const initState: FormState = {
-    name: "",
-    email: "",
-    phone: "",
+    userData: {
+        name: "",
+        email: "",
+        phone: "",
+    },
     plan: "Arcade",
     billing: "monthly",
     addons: {

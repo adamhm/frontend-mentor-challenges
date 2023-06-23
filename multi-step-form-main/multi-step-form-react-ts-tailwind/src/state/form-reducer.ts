@@ -26,20 +26,16 @@ function formReducer(
             };
         case "SET_BILLING":
             return { ...state, billing: payload };
-        case "SET_EMAIL":
-            return { ...state, email: payload };
-        case "SET_NAME":
-            return { ...state, name: payload };
-        case "SET_PHONE":
-            return { ...state, phone: payload };
         case "SET_PLAN":
             return { ...state, plan: payload };
         case "SET_USER_DATA":
             return {
                 ...state,
-                name: payload.name,
-                email: payload.email,
-                phone: payload.phone,
+                userData: {
+                    name: payload.name,
+                    email: payload.email,
+                    phone: payload.phone,
+                },
             };
         default:
             return exhaustiveCheck(type);

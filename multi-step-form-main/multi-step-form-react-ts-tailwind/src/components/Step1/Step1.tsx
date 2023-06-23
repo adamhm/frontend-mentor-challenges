@@ -2,7 +2,8 @@
 import { ChangeEvent, useContext, useId, useState } from "react";
 import { StepTitleBar } from "@components";
 import { FormContext, StepContext } from "@contexts";
-import validate, { ValidationError } from "@shared/validate";
+import { validate, ValidationError } from "@validation";
+import { UserData } from "@typedefs";
 
 function Step1() {
     const nameId = useId();
@@ -10,24 +11,25 @@ function Step1() {
     const phoneId = useId();
     const { state, dispatch } = useContext(FormContext);
     const { activeStep, setActiveStep } = useContext(StepContext);
-    const [data, setData] = useState({
-        name: state.name,
-        email: state.email,
-        phone: state.phone,
+    const [userData, setUserData] = useState<UserData>({
+        name: state.userData.name,
+        email: state.userData.email,
+        phone: state.userData.phone,
     });
     const [errors, setErrors] = useState<ValidationError>({
         name: null,
         email: null,
         phone: null,
     });
+
     const handleInputChange = (e: ChangeEvent<HTMLInputElement>) =>
-        setData((inputData) => ({
+        setUserData((inputData) => ({
             ...inputData,
             [e.target.name]: e.target.value,
         }));
 
     const handleClick = () => {
-        const errorMessages = validate(data);
+        const errorMessages = validate(userData);
         const noError =
             !errorMessages.name && !errorMessages.email && !errorMessages.phone;
 
@@ -35,9 +37,9 @@ function Step1() {
             dispatch?.({
                 type: "SET_USER_DATA",
                 payload: {
-                    name: data.name.trim(),
-                    email: data.email.trim(),
-                    phone: data.phone.trim(),
+                    name: userData.name.trim(),
+                    email: userData.email.trim(),
+                    phone: userData.phone.trim(),
                 },
             });
             setActiveStep?.(activeStep + 1);
@@ -71,7 +73,7 @@ function Step1() {
                     className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
                         errors.name ? "border-red-600" : "border-gray-300"
                     }`}
-                    value={data.name}
+                    value={userData.name}
                     onChange={handleInputChange}
                 />
                 <div className="mt-5 flex font-medium">
@@ -90,7 +92,7 @@ function Step1() {
                     className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
                         errors.email ? "border-red-600" : "border-gray-300"
                     }`}
-                    value={data.email}
+                    value={userData.email}
                     onChange={handleInputChange}
                 />
                 <div className="mt-5 flex font-medium">
@@ -109,7 +111,7 @@ function Step1() {
                     className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
                         errors.phone ? "border-red-600" : "border-gray-300"
                     }`}
-                    value={data.phone}
+                    value={userData.phone}
                     onChange={handleInputChange}
                 />
             </form>
