@@ -7,7 +7,7 @@ function Step5() {
             <h1 className="mb-[0.2em] mt-[1em] text-[2em] font-bold text-marine-blue">
                 Thank you!
             </h1>
-            <p className="text-center text-[17px] text-gray-400">
+            <p className="mx-[-10px] text-center text-[17px] text-gray-400">
                 Thanks for confirming your subscription! We hope you have fun
                 using our platform. If you ever need support, please feel free
                 to email us at support@loremgaming.com.
