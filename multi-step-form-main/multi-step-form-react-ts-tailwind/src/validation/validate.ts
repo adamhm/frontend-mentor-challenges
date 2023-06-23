@@ -1,25 +1,25 @@
-import { FormState } from "@typedefs";
-
-type Data = Pick<FormState, "name" | "email" | "phone">;
+import { UserData } from "@typedefs";
+import { NotBlankValidator, EmailValidator, PhoneValidator } from "@validation";
 
 type Error = "This field is required" | "Invalid format" | null;
 
-type ValidationError = { [K in keyof Data]: Error };
+type ValidationError = { [K in keyof UserData]: Error };
 
-const isMissing = (value: string) => value.trim() === "";
-const isValidEmail = (email: string) => /\S+@\S+\.\S+/.test(email.trim());
-const isValidPhone = (phone: string) => /^\+\d+$/.test(phone.trim());
-
-function validate(data: Data): ValidationError {
+function validate(userData: UserData): ValidationError {
     return {
-        name: (isMissing(data.name) && "This field is required") || null,
+        name:
+            (!NotBlankValidator.validate(userData.name) &&
+                "This field is required") ||
+            null,
         email:
-            (isMissing(data.email) && "This field is required") ||
-            (!isValidEmail(data.email) && "Invalid format") ||
+            (!NotBlankValidator.validate(userData.email) &&
+                "This field is required") ||
+            (!EmailValidator.validate(userData.email) && "Invalid format") ||
             null,
         phone:
-            (isMissing(data.phone) && "This field is required") ||
-            (!isValidPhone(data.phone) && "Invalid format") ||
+            (!NotBlankValidator.validate(userData.phone) &&
+                "This field is required") ||
+            (!PhoneValidator.validate(userData.phone) && "Invalid format") ||
             null,
     };
 }

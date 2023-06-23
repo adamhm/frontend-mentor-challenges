@@ -15,6 +15,7 @@ export default defineConfig({
             "@state": path.resolve(__dirname, "./src/state"),
             "@typedefs": path.resolve(__dirname, "./src/typedefs"),
             "@utils": path.resolve(__dirname, "./src/utils"),
+            "@validation": path.resolve(__dirname, "./src/validation"),
         },
     },
     plugins: [

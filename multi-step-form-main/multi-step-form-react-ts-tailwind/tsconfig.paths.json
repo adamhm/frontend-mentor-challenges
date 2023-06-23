@@ -9,7 +9,8 @@
             "@shared/*": ["shared/*"],
             "@state/*": ["state/*"],
             "@typedefs": ["typedefs/index"],
-            "@utils/*": ["utils/*"]
+            "@utils/*": ["utils/*"],
+            "@validation": ["validation/index"]
         }
     }
 }
