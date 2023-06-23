@@ -42,6 +42,7 @@ function Step4() {
                             <button
                                 type="button"
                                 className="block text-[15px] font-medium text-cool-gray underline"
+                                onClick={() => setActiveStep?.(2)}
                             >
                                 Change
                             </button>
