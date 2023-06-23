@@ -69,6 +69,8 @@ function Step1() {
                     id={nameId}
                     name="name"
                     type="text"
+                    required
+                    aria-invalid={!!errors.name}
                     placeholder="e.g. Stephen King"
                     className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
                         errors.name ? "border-red-600" : "border-gray-300"
@@ -88,6 +90,8 @@ function Step1() {
                     id={emailId}
                     name="email"
                     type="text"
+                    required
+                    aria-invalid={!!errors.email}
                     placeholder="e.g. stephenking@lorem.com"
                     className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
                         errors.email ? "border-red-600" : "border-gray-300"
@@ -107,6 +111,8 @@ function Step1() {
                     id={phoneId}
                     name="phone"
                     type="text"
+                    required
+                    aria-invalid={!!errors.phone}
                     placeholder="e,g, +1 234 567 890"
                     className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
                         errors.phone ? "border-red-600" : "border-gray-300"
