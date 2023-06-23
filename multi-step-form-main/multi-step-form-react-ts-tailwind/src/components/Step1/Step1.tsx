@@ -2,7 +2,13 @@
 import { ChangeEvent, useContext, useId, useState } from "react";
 import { StepTitleBar } from "@components";
 import { FormContext, StepContext } from "@contexts";
-import { validate, ValidationError } from "@validation";
+import {
+    validate,
+    ValidationError,
+    NotBlankValidator,
+    EmailValidator,
+    PhoneValidator,
+} from "@validation";
 import { UserData } from "@typedefs";
 
 function Step1() {
@@ -29,7 +35,12 @@ function Step1() {
         }));
 
     const handleClick = () => {
-        const errorMessages = validate(userData);
+        const errorMessages = validate(userData, {
+            name: [NotBlankValidator],
+            email: [NotBlankValidator, EmailValidator],
+            phone: [NotBlankValidator, PhoneValidator],
+        });
+
         const noError =
             !errorMessages.name && !errorMessages.email && !errorMessages.phone;
 
