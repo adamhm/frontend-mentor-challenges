@@ -17,7 +17,7 @@ function StepElement({ active, step, text }: StepElementProps) {
             >
                 {step}
             </span>
-            <div className="uppercase">
+            <div className="hidden uppercase md:block">
                 <p className="text-[13px] text-pastel-blue">step {step}</p>
                 <p className="mt-[-2px] text-[14px] font-bold tracking-widest text-white">
                     {text}
