@@ -2,7 +2,7 @@ import { StepPanel } from "@components";
 
 function Sidebar() {
     return (
-        <section className="h-[568px] w-[274px] shrink-0 bg-desktop bg-no-repeat">
+        <section className="h-[172px] w-full shrink-0 bg-mobile bg-no-repeat md:h-[568px] md:w-[274px] md:bg-desktop">
             <StepPanel />
         </section>
     );
