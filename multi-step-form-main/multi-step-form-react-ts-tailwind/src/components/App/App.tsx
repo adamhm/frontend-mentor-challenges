@@ -20,7 +20,7 @@ function App() {
     return (
         <StepContext.Provider value={stepContext}>
             <FormContext.Provider value={formContext}>
-                <article className="flex h-[600px] w-[940px] gap-4 rounded-2xl bg-white p-4 shadow-xl">
+                <article className="flex h-full w-[940px] flex-col bg-magnolia md:h-[600px] md:flex-row md:gap-4 md:rounded-2xl md:bg-white md:p-4 md:shadow-xl">
                     <Sidebar />
                     <ContentPanel />
                 </article>
