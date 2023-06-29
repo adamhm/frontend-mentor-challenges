@@ -60,85 +60,110 @@ function Step1() {
     };
 
     return (
-        <div>
-            <StepTitleBar
-                title="Personal info"
-                subtitle="Please provide your name, email address, and phone number."
-            />
-            <form action="" className="mt-[34px]">
-                <div className="flex font-medium">
-                    <label htmlFor={nameId} className="text-marine-blue">
-                        Name
-                    </label>
-                    {errors.name && (
-                        <span className="ml-auto text-red-600">
-                            {errors.name}
-                        </span>
-                    )}
+        <div className="flex h-full flex-col">
+            <div className="px-[1rem] md:px-0">
+                <div className="h-[376px] rounded-2xl bg-white px-[24px] pt-[28px] shadow-xl md:px-0 md:pt-0 md:shadow-none">
+                    <StepTitleBar
+                        title="Personal info"
+                        subtitle="Please provide your name, email address, and phone number."
+                    />
+                    <form action="" className="mt-[16px] md:mt-[34px]">
+                        <div className="flex text-[14px] font-medium md:text-[1rem]">
+                            <label
+                                htmlFor={nameId}
+                                className="text-marine-blue"
+                            >
+                                Name
+                            </label>
+                            {errors.name && (
+                                <span className="ml-auto text-red-600">
+                                    {errors.name}
+                                </span>
+                            )}
+                        </div>
+                        <input
+                            id={nameId}
+                            name="name"
+                            type="text"
+                            required
+                            aria-invalid={!!errors.name}
+                            placeholder="e.g. Stephen King"
+                            className={`mt-1 block h-[40px] w-full rounded-lg border p-4 placeholder:font-medium md:h-[3rem] ${
+                                errors.name
+                                    ? "border-red-600"
+                                    : "border-gray-300"
+                            }`}
+                            value={userData.name}
+                            onChange={handleInputChange}
+                        />
+                        <div className="mt-[12px] flex text-[14px] font-medium md:mt-5 md:text-[1rem]">
+                            <label
+                                htmlFor={emailId}
+                                className="text-marine-blue"
+                            >
+                                Email Address
+                            </label>
+                            {errors.email && (
+                                <span className="ml-auto text-red-600">
+                                    {errors.email}
+                                </span>
+                            )}
+                        </div>
+                        <input
+                            id={emailId}
+                            name="email"
+                            type="text"
+                            required
+                            aria-invalid={!!errors.email}
+                            placeholder="e.g. stephenking@lorem.com"
+                            className={`mt-1 block h-[40px] w-full rounded-lg border p-4 placeholder:font-medium md:h-[3rem] ${
+                                errors.email
+                                    ? "border-red-600"
+                                    : "border-gray-300"
+                            }`}
+                            value={userData.email}
+                            onChange={handleInputChange}
+                        />
+                        <div className="mt-[12px] flex text-[14px] font-medium md:mt-5 md:text-[1rem]">
+                            <label
+                                htmlFor={phoneId}
+                                className="text-marine-blue"
+                            >
+                                Phone Number
+                            </label>
+                            {errors.phone && (
+                                <span className="ml-auto text-red-600">
+                                    {errors.phone}
+                                </span>
+                            )}
+                        </div>
+                        <input
+                            id={phoneId}
+                            name="phone"
+                            type="text"
+                            required
+                            aria-invalid={!!errors.phone}
+                            placeholder="e,g, +1 234 567 890"
+                            className={`mt-1 block h-[40px] w-full rounded-lg border p-4 placeholder:font-medium md:h-[3rem] ${
+                                errors.phone
+                                    ? "border-red-600"
+                                    : "border-gray-300"
+                            }`}
+                            value={userData.phone}
+                            onChange={handleInputChange}
+                        />
+                    </form>
                 </div>
-                <input
-                    id={nameId}
-                    name="name"
-                    type="text"
-                    required
-                    aria-invalid={!!errors.name}
-                    placeholder="e.g. Stephen King"
-                    className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
-                        errors.name ? "border-red-600" : "border-gray-300"
-                    }`}
-                    value={userData.name}
-                    onChange={handleInputChange}
-                />
-                <div className="mt-5 flex font-medium">
-                    <label htmlFor={emailId}>Email Address</label>
-                    {errors.email && (
-                        <span className="ml-auto text-red-600">
-                            {errors.email}
-                        </span>
-                    )}
-                </div>
-                <input
-                    id={emailId}
-                    name="email"
-                    type="text"
-                    required
-                    aria-invalid={!!errors.email}
-                    placeholder="e.g. stephenking@lorem.com"
-                    className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
-                        errors.email ? "border-red-600" : "border-gray-300"
-                    }`}
-                    value={userData.email}
-                    onChange={handleInputChange}
-                />
-                <div className="mt-5 flex font-medium">
-                    <label htmlFor={phoneId}>Phone Number</label>
-                    {errors.phone && (
-                        <span className="ml-auto text-red-600">
-                            {errors.phone}
-                        </span>
-                    )}
-                </div>
-                <input
-                    id={phoneId}
-                    name="phone"
-                    type="text"
-                    required
-                    aria-invalid={!!errors.phone}
-                    placeholder="e,g, +1 234 567 890"
-                    className={`mt-1 block h-[3rem] w-full rounded-lg border p-4 placeholder:font-medium ${
-                        errors.phone ? "border-red-600" : "border-gray-300"
-                    }`}
-                    value={userData.phone}
-                    onChange={handleInputChange}
-                />
-            </form>
-            <button
-                type="button"
-                className="ml-auto mt-[92px] block h-[48px] w-[124px] rounded-md bg-marine-blue text-white hover:bg-[#174a8b]"
-                onClick={handleClick}
-            >
-                Next Step
-            </button>
+            </div>
+            <div className="mt-auto flex h-[4.5rem] items-center bg-white px-[16px] md:px-0">
+                <button
+                    type="button"
+                    className="ml-auto block h-[40px] w-[96px] rounded-md bg-marine-blue text-[15px] text-white hover:bg-[#174a8b] md:h-[48px] md:w-[124px] md:text-[1rem]"
+                    onClick={handleClick}
+                >
+                    Next Step
+                </button>
+            </div>
         </div>
     );
 }
