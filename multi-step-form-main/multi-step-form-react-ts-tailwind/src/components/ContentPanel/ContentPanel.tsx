@@ -8,7 +8,9 @@ function ContentPanel() {
     const steps = [<Step1 />, <Step2 />, <Step3 />, <Step4 />, <Step5 />];
 
     return (
-        <section className="mx-[84px] grow">{steps[activeStep - 1]}</section>
+        <section className="mt-[-74px] grow rounded-2xl md:mx-[74px] md:mt-0 md:rounded-none">
+            {steps[activeStep - 1]}
+        </section>
     );
 }
 
