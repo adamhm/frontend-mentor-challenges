@@ -18,17 +18,17 @@ function NavigationBar({
     onPrimaryClick,
 }: NavigationBarProps) {
     return (
-        <div className="mb-[16px] mt-auto flex justify-between">
+        <div className="flex w-full justify-between">
             <button
                 type="button"
-                className="h-[48px] w-[124px] rounded-md bg-white font-medium text-cool-gray hover:text-marine-blue"
+                className="h-[40px] rounded-md bg-white font-medium text-cool-gray hover:text-marine-blue md:h-[48px]"
                 onClick={onSecondaryClick}
             >
                 {secondaryText}
             </button>
             <button
                 type="button"
-                className={`h-[48px] w-[124px] rounded-md ${colorClass} text-white ${hoverColorClass}`}
+                className={`h-[40px] w-[96px] rounded-md md:h-[48px] md:w-[124px] ${colorClass} text-white ${hoverColorClass}`}
                 onClick={onPrimaryClick}
             >
                 {primaryText}
