@@ -7,7 +7,7 @@ function StepPanel() {
     const { activeStep } = useContext(StepContext);
 
     return (
-        <div className="flex h-full flex-col gap-y-[28px] px-[30px] py-[40px]">
+        <div className="flex flex-row justify-center gap-x-[15px] py-[32px] md:h-full md:flex-col md:justify-normal md:gap-x-0 md:gap-y-[28px] md:px-[30px] md:py-[40px]">
             {steps.map((step) => (
                 <StepElement
                     key={step.id}
