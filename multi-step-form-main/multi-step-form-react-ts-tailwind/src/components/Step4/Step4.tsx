@@ -28,66 +28,71 @@ function Step4() {
 
     return (
         <div className="flex h-full flex-col">
-            <StepTitleBar
-                title="Finishing up"
-                subtitle="Double-check everything looks OK before confirming."
-            />
-            <div className="mt-[40px] rounded-md bg-ghost-white p-[20px]">
-                <div>
-                    <div className="flex pb-[16px]">
+            <div className=" px-[1rem] md:px-0">
+                <div className="mb-[24px] rounded-2xl border border-white bg-white px-[24px] pb-[1px] pt-[28px] shadow-xl md:h-[376px] md:px-0 md:pt-0 md:shadow-none">
+                    <StepTitleBar
+                        title="Finishing up"
+                        subtitle="Double-check everything looks OK before confirming."
+                    />
+                    <div className="mt-[24px] rounded-md bg-ghost-white p-5 pb-2 md:mt-[40px] md:pb-5">
                         <div>
-                            <p className="text-[17px] font-bold text-marine-blue">
-                                {`${plan} (${billing})`}
-                            </p>
-                            <button
-                                type="button"
-                                className="block text-[15px] font-medium text-cool-gray underline"
-                                onClick={() => setActiveStep?.(2)}
-                            >
-                                Change
-                            </button>
+                            <div className="flex pb-2 md:pb-4">
+                                <div>
+                                    <p className="text-[15px] font-bold text-marine-blue md:text-[17px]">
+                                        {`${plan} (${billing})`}
+                                    </p>
+                                    <button
+                                        type="button"
+                                        className="block text-[15px] font-medium text-cool-gray underline"
+                                        onClick={() => setActiveStep?.(2)}
+                                    >
+                                        Change
+                                    </button>
+                                </div>
+                                <p className="ml-auto self-center text-[16px] font-bold text-marine-blue md:text-[17px]">
+                                    {`$${planData[plan][billing]}/${priceSuffix}`}
+                                </p>
+                            </div>
+                            <hr />
+                            <ul className=" pt-2 md:pt-4">
+                                {objectKeys(addons).map(
+                                    (addon) =>
+                                        addons[addon] && (
+                                            <li
+                                                key={addon}
+                                                className="mb-2 flex text-[15px] md:mb-4"
+                                            >
+                                                <p className="text-cool-gray">
+                                                    {addon}
+                                                </p>
+                                                <p className="ml-auto font-medium text-marine-blue">
+                                                    {`+$${addonData[addon][billing]}/${priceSuffix}`}
+                                                </p>
+                                            </li>
+                                        )
+                                )}
+                            </ul>
                         </div>
-                        <p className="ml-auto text-[17px] font-bold text-marine-blue">
-                            {`$${planData[plan][billing]}/${priceSuffix}`}
+                    </div>
+                    <div className="my-6 flex items-center px-[20px]">
+                        <p className="text-[15px] text-cool-gray">{`Total (per ${
+                            billing === "monthly" ? "month" : "year"
+                        })`}</p>
+                        <p className="ml-auto text-[17px] font-bold text-purplish-blue md:text-[21px]">
+                            {`$${totalPrice}/${priceSuffix}`}
                         </p>
                     </div>
-                    <hr />
-                    <ul className="pt-[16px]">
-                        {objectKeys(addons).map(
-                            (addon) =>
-                                addons[addon] && (
-                                    <li
-                                        key={addon}
-                                        className="mb-4 flex text-[15px]"
-                                    >
-                                        <p className="text-cool-gray">
-                                            {addon}
-                                        </p>
-                                        <p className="ml-auto font-medium text-marine-blue">
-                                            {`+$${addonData[addon][billing]}/${priceSuffix}`}
-                                        </p>
-                                    </li>
-                                )
-                        )}
-                    </ul>
                 </div>
             </div>
-
-            <div className="mt-6 flex items-center px-[20px]">
-                <p className="text-[15px] text-cool-gray">{`Total (per ${
-                    billing === "monthly" ? "month" : "year"
-                })`}</p>
-                <p className="ml-auto text-[21px] font-bold text-purplish-blue">
-                    {`$${totalPrice}/${priceSuffix}`}
-                </p>
+            <div className="mt-auto flex h-[4.5rem] items-center bg-white px-[16px] md:px-0">
+                <NavigationBar
+                    primaryText="Confirm"
+                    colorClass="bg-purplish-blue"
+                    hoverColorClass="hover:bg-violets-are-blue"
+                    onPrimaryClick={primaryClickHandler}
+                    onSecondaryClick={secondaryClickHandler}
+                />
             </div>
-            <NavigationBar
-                primaryText="Confirm"
-                colorClass="bg-purplish-blue"
-                hoverColorClass="hover:bg-violets-are-blue"
-                onPrimaryClick={primaryClickHandler}
-                onSecondaryClick={secondaryClickHandler}
-            />
         </div>
     );
 }
