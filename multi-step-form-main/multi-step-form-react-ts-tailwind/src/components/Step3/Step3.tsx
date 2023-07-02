@@ -26,30 +26,36 @@ function Step3() {
 
     return (
         <div className="flex h-full flex-col">
-            <StepTitleBar
-                title="Pick add-ons"
-                subtitle="Add-ons help enhance your gaming experience."
-            />
-            <div className="mt-[34px]">
-                {objectKeys(addonData).map((addon) => (
-                    <AddonCard
-                        key={addon}
-                        title={addon}
-                        subtitle={addonData[addon].note}
-                        text={`+$${addonData[addon][billing]}/${priceSuffix}`}
-                        active={addons[addon]}
-                        onChange={(selected) =>
-                            handleSelectedChange(addon, selected)
-                        }
+            <div className=" px-[1rem] md:px-0">
+                <div className="mb-[24px] rounded-2xl border border-white bg-white px-[24px] pb-[1px] pt-[28px] shadow-xl md:h-[376px] md:px-0 md:pt-0 md:shadow-none">
+                    <StepTitleBar
+                        title="Pick add-ons"
+                        subtitle="Add-ons help enhance your gaming experience."
                     />
-                ))}
+                    <div className="mt-[34px]">
+                        {objectKeys(addonData).map((addon) => (
+                            <AddonCard
+                                key={addon}
+                                title={addon}
+                                subtitle={addonData[addon].note}
+                                text={`+$${addonData[addon][billing]}/${priceSuffix}`}
+                                active={addons[addon]}
+                                onChange={(selected) =>
+                                    handleSelectedChange(addon, selected)
+                                }
+                            />
+                        ))}
+                    </div>
+                </div>
             </div>
-            <NavigationBar
-                colorClass="bg-marine-blue"
-                hoverColorClass="hover:bg-[#174a8b]"
-                onPrimaryClick={primaryClickHandler}
-                onSecondaryClick={secondaryClickHandler}
-            />
+            <div className="mt-auto flex h-[4.5rem] items-center bg-white px-[16px] md:px-0">
+                <NavigationBar
+                    colorClass="bg-marine-blue"
+                    hoverColorClass="hover:bg-[#174a8b]"
+                    onPrimaryClick={primaryClickHandler}
+                    onSecondaryClick={secondaryClickHandler}
+                />
+            </div>
         </div>
     );
 }
