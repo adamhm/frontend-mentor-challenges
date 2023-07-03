@@ -12,6 +12,7 @@ import Step5 from "./Step5/Step5";
 import StepElement from "./StepElement/StepElement";
 import StepPanel from "./StepPanel/StepPanel";
 import StepTitleBar from "./StepTitleBar/StepTitleBar";
+import StepContent from "./StepContent/StepContent";
 import ToggleButton from "./ToggleButton/ToggleButton";
 
 export {
@@ -29,5 +30,6 @@ export {
     StepElement,
     StepPanel,
     StepTitleBar,
+    StepContent,
     ToggleButton,
 };
