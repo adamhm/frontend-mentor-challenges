@@ -155,13 +155,11 @@ function Step1() {
                     </form>
                 </div>
             </div>
-            <div className="mt-auto flex h-[4.5rem] items-center bg-white px-[16px] md:px-0">
-                <NavigationBar
-                    colorClass="bg-marine-blue"
-                    hoverColorClass="hover:bg-[#174a8b]"
-                    onPrimaryClick={handleClick}
-                />
-            </div>
+            <NavigationBar
+                colorClass="bg-marine-blue"
+                hoverColorClass="hover:bg-[#174a8b]"
+                onPrimaryClick={handleClick}
+            />
         </div>
     );
 }

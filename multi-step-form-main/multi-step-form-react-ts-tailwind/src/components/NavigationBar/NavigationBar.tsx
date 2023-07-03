@@ -17,11 +17,11 @@ function NavigationBar({
     onSecondaryClick,
     onPrimaryClick,
 }: NavigationBarProps) {
+    const justify = onSecondaryClick ? "justify-between" : "justify-end";
+
     return (
         <div
-            className={`flex w-full ${
-                onSecondaryClick ? "justify-between" : "justify-end"
-            }`}
+            className={`mt-auto flex h-[4.5rem] w-full ${justify} items-center bg-white px-[16px] md:px-0`}
         >
             {onSecondaryClick && (
                 <button

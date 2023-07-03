@@ -84,15 +84,13 @@ function Step4() {
                     </div>
                 </div>
             </div>
-            <div className="mt-auto flex h-[4.5rem] items-center bg-white px-[16px] md:px-0">
-                <NavigationBar
-                    primaryText="Confirm"
-                    colorClass="bg-purplish-blue"
-                    hoverColorClass="hover:bg-violets-are-blue"
-                    onPrimaryClick={primaryClickHandler}
-                    onSecondaryClick={secondaryClickHandler}
-                />
-            </div>
+            <NavigationBar
+                primaryText="Confirm"
+                colorClass="bg-purplish-blue"
+                hoverColorClass="hover:bg-violets-are-blue"
+                onPrimaryClick={primaryClickHandler}
+                onSecondaryClick={secondaryClickHandler}
+            />
         </div>
     );
 }
