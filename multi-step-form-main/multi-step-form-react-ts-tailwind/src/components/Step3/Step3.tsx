@@ -36,7 +36,7 @@ function Step3() {
                     title="Pick add-ons"
                     subtitle="Add-ons help enhance your gaming experience."
                 />
-                <div className="mt-[34px]">
+                <div className="mt-[24px] md:mt-[40px]">
                     {objectKeys(addonData).map((addon) => (
                         <AddonCard
                             key={addon}

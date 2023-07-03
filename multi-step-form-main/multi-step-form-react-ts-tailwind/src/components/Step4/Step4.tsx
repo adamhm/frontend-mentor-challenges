@@ -33,7 +33,7 @@ function Step4() {
                     title="Finishing up"
                     subtitle="Double-check everything looks OK before confirming."
                 />
-                <div className="mt-[24px] rounded-md bg-ghost-white p-5 pb-2 md:mt-[40px] md:pb-5">
+                <div className="mt-[24px] rounded-md bg-ghost-white p-5 pb-2 md:mt-[40px] md:pb-2">
                     <div>
                         <div className="flex pb-2 md:pb-4">
                             <div>
@@ -73,7 +73,7 @@ function Step4() {
                         </ul>
                     </div>
                 </div>
-                <div className="my-6 flex items-center px-[20px]">
+                <div className="my-6 flex items-center px-[20px] md:mt-3">
                     <p className="text-[15px] text-cool-gray">{`Total (per ${
                         billing === "monthly" ? "month" : "year"
                     })`}</p>

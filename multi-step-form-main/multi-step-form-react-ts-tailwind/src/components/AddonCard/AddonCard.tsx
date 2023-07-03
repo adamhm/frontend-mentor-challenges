@@ -30,7 +30,7 @@ function AddonCard({
         <button
             type="button"
             aria-pressed={active}
-            className={`mb-4 flex h-[4em] w-full items-center rounded-md border text-left last-of-type:mb-6 md:h-[5em] ${
+            className={`mb-3 flex h-[62px] w-full items-center rounded-md border text-left last-of-type:mb-6 md:h-[5em] ${
                 sectionVariants[active ? "active" : "inactive"]
             }`}
             onClick={() => onChange?.(!active)}
@@ -44,7 +44,7 @@ function AddonCard({
                 {active && <img src={iconCheckMark} alt="" className="ml-1" />}
             </span>
             <div>
-                <p className="md: text-[14px] font-bold tracking-tighter text-marine-blue md:text-[17px] md:tracking-normal">
+                <p className="text-[15px] font-bold tracking-tighter text-marine-blue md:text-[17px] md:tracking-normal">
                     {title}
                 </p>
                 <p className="text-[13px] tracking-tighter text-cool-gray md:text-[15px] md:tracking-normal">

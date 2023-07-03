@@ -21,7 +21,7 @@ function NavigationBar({
 
     return (
         <div
-            className={`mt-auto flex h-[4.5rem] w-full ${justify} items-center bg-white px-[16px] md:px-0`}
+            className={`mt-auto flex h-[4.5rem] w-full ${justify} items-center bg-white px-[16px] md:h-[5rem] md:px-0`}
         >
             {onSecondaryClick && (
                 <button

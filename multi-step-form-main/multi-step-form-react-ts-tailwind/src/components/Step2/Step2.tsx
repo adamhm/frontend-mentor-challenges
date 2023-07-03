@@ -38,7 +38,7 @@ function Step2() {
                     title="Select your plan"
                     subtitle="You have the option of monthly or yearly billing."
                 />
-                <div className="mt-[24px] flex flex-col gap-[12px] md:mt-[34px] md:flex-row md:gap-[18px]">
+                <div className="mt-[24px] flex flex-col gap-[12px] md:mt-[36px] md:flex-row md:gap-[18px]">
                     {objectKeys(planData).map((plan) => (
                         <PlanCard
                             key={plan}

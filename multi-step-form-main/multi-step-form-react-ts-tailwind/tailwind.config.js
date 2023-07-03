@@ -8,7 +8,7 @@ export default {
         extend: {
             backgroundImage: {
                 desktop: "url(assets/images/bg-sidebar-desktop.svg)",
-                mobile: "url(assets/images/bg-sidebar-mobile.svg)"
+                mobile: "url(assets/images/bg-sidebar-mobile.svg)",
             },
             colors: {
                 "marine-blue": "hsl(213, 96%, 18%)",
