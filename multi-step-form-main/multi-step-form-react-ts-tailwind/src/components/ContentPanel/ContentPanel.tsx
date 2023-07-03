@@ -8,7 +8,7 @@ function ContentPanel() {
     const steps = [<Step1 />, <Step2 />, <Step3 />, <Step4 />, <Step5 />];
 
     return (
-        <section className="mt-[-74px] grow rounded-2xl md:mx-[74px] md:mt-0 md:rounded-none">
+        <section className="mt-[-74px] flex h-full grow flex-col rounded-2xl md:mx-[74px] md:mt-0 md:rounded-none">
             {steps[activeStep - 1]}
         </section>
     );
