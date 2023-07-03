@@ -1,6 +1,7 @@
 import AddonCard from "./AddonCard/AddonCard";
 import App from "./App/App";
 import ContentPanel from "./ContentPanel/ContentPanel";
+import InputGroup from "./InputGroup/InputGroup";
 import NavigationBar from "./NavigationBar/NavigationBar";
 import PlanCard from "./PlanCard/PlanCard";
 import Sidebar from "./Sidebar/Sidebar";
@@ -19,6 +20,7 @@ export {
     AddonCard,
     App,
     ContentPanel,
+    InputGroup,
     NavigationBar,
     PlanCard,
     Sidebar,

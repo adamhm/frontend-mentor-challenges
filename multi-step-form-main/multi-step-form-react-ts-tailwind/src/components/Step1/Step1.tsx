@@ -1,6 +1,10 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
 import { ChangeEvent, useContext, useId, useState } from "react";
-import { NavigationBar, StepTitleBar, StepContent } from "@components";
+import {
+    InputGroup,
+    NavigationBar,
+    StepTitleBar,
+    StepContent,
+} from "@components";
 import { FormContext, StepContext } from "@contexts";
 import {
     validate,
@@ -59,9 +63,6 @@ function Step1() {
         }
     };
 
-    const inputClasses =
-        "mt-1 block h-[40px] w-full rounded-lg border p-4 placeholder:font-medium md:h-[3rem]";
-
     return (
         <>
             <StepContent>
@@ -70,72 +71,36 @@ function Step1() {
                     subtitle="Please provide your name, email address, and phone number."
                 />
                 <form action="" className="mb-8 mt-[16px] md:mt-[34px]">
-                    <div className="flex text-[14px] font-medium md:text-[1rem]">
-                        <label htmlFor={nameId} className="text-marine-blue">
-                            Name
-                        </label>
-                        {errors.name && (
-                            <span className="ml-auto text-red-600">
-                                {errors.name}
-                            </span>
-                        )}
-                    </div>
-                    <input
+                    <InputGroup
                         id={nameId}
                         name="name"
                         type="text"
                         required
-                        aria-invalid={!!errors.name}
+                        label="Name"
                         placeholder="e.g. Stephen King"
-                        className={`${inputClasses} ${
-                            errors.name ? "border-red-600" : "border-gray-300"
-                        }`}
+                        error={errors.name}
                         value={userData.name}
                         onChange={handleInputChange}
                     />
-                    <div className="mt-[12px] flex text-[14px] font-medium md:mt-5 md:text-[1rem]">
-                        <label htmlFor={emailId} className="text-marine-blue">
-                            Email Address
-                        </label>
-                        {errors.email && (
-                            <span className="ml-auto text-red-600">
-                                {errors.email}
-                            </span>
-                        )}
-                    </div>
-                    <input
+                    <InputGroup
                         id={emailId}
                         name="email"
-                        type="text"
+                        type="email"
                         required
-                        aria-invalid={!!errors.email}
+                        label="Email Address"
                         placeholder="e.g. stephenking@lorem.com"
-                        className={`${inputClasses} ${
-                            errors.email ? "border-red-600" : "border-gray-300"
-                        }`}
+                        error={errors.email}
                         value={userData.email}
                         onChange={handleInputChange}
                     />
-                    <div className="mt-[12px] flex text-[14px] font-medium md:mt-5 md:text-[1rem]">
-                        <label htmlFor={phoneId} className="text-marine-blue">
-                            Phone Number
-                        </label>
-                        {errors.phone && (
-                            <span className="ml-auto text-red-600">
-                                {errors.phone}
-                            </span>
-                        )}
-                    </div>
-                    <input
+                    <InputGroup
                         id={phoneId}
                         name="phone"
-                        type="text"
+                        type="tel"
                         required
-                        aria-invalid={!!errors.phone}
+                        label="Phone Number"
                         placeholder="e,g, +1 234 567 890"
-                        className={`${inputClasses} ${
-                            errors.phone ? "border-red-600" : "border-gray-300"
-                        }`}
+                        error={errors.phone}
                         value={userData.phone}
                         onChange={handleInputChange}
                     />
