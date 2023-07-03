@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ChangeEvent, useContext, useId, useState } from "react";
-import { StepTitleBar } from "@components";
+import { NavigationBar, StepTitleBar } from "@components";
 import { FormContext, StepContext } from "@contexts";
 import {
     validate,
@@ -156,13 +156,11 @@ function Step1() {
                 </div>
             </div>
             <div className="mt-auto flex h-[4.5rem] items-center bg-white px-[16px] md:px-0">
-                <button
-                    type="button"
-                    className="ml-auto block h-[40px] w-[96px] rounded-md bg-marine-blue text-[15px] text-white hover:bg-[#174a8b] md:h-[48px] md:w-[124px] md:text-[1rem]"
-                    onClick={handleClick}
-                >
-                    Next Step
-                </button>
+                <NavigationBar
+                    colorClass="bg-marine-blue"
+                    hoverColorClass="hover:bg-[#174a8b]"
+                    onPrimaryClick={handleClick}
+                />
             </div>
         </div>
     );
