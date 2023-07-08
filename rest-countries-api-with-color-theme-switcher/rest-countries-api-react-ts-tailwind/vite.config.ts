@@ -17,5 +17,17 @@ export default defineConfig({
             "@utils": path.resolve(__dirname, "./src/utils"),
         },
     },
-    plugins: [react()],
+    plugins: [
+        react(),
+        Unfonts({
+            google: {
+                families: [
+                    {
+                        name: "Nunito+Sans",
+                        styles: "wght@300;600;800",
+                    },
+                ],
+            },
+        }),
+    ],
 });
