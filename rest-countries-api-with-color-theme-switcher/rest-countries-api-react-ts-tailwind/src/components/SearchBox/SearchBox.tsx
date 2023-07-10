@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 
-import searchIcon from "@assets/search-outline.svg";
+import { ReactComponent as SearchIcon } from "@assets/search-outline.svg";
 
 function SearchBox() {
     return (
@@ -9,12 +9,16 @@ function SearchBox() {
                 <label htmlFor="search" className="sr-only">
                     Search for a country
                 </label>
-                <img src={searchIcon} alt="" className="h-5 w-5" />
+                <SearchIcon
+                    className="h-5 w-5 font-bold text-old-silver"
+                    aria-hidden
+                />
                 <input
                     id="search"
+                    name="search"
                     type="search"
                     placeholder="Search for a country..."
-                    className="ml-6 font-semibold placeholder-old-silver"
+                    className="ml-6 text-[14px] font-semibold placeholder-old-silver"
                 />
             </div>
         </form>
