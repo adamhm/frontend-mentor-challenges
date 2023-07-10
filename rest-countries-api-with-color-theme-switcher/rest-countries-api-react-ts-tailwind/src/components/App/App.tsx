@@ -1,5 +1,12 @@
+import { Header, Home } from "@components";
+
 function App() {
-    return <div className="block text-red-600">App</div>;
+    return (
+        <>
+            <Header />
+            <Home />
+        </>
+    );
 }
 
 export default App;
