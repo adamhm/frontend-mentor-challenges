@@ -1,9 +1,12 @@
-import { SearchBox } from "@components";
+import { Dropdown, SearchBox } from "@components";
 
 function Home() {
     return (
         <main className="px-[5rem] py-[3rem]">
-            <SearchBox />
+            <div className="flex">
+                <SearchBox />
+                <Dropdown />
+            </div>
         </main>
     );
 }
