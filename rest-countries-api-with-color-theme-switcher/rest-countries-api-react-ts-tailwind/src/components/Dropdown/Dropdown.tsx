@@ -35,14 +35,14 @@ function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
         <div ref={menuRef}>
             <button
                 type="button"
-                className="flex h-14 w-[200px] items-center rounded-md border px-6 text-[14px] font-semibold shadow"
+                className="flex h-14 w-[200px] items-center rounded-md border px-6 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]"
                 onClick={() => setIsOpen((open) => !open)}
             >
                 {selectedItem}
                 <DownIcon className="ml-auto h-4 w-4" />
             </button>
             {isOpen && (
-                <menu className="mt-1 w-[200px] rounded-md border py-4 text-[14px] font-semibold shadow-md">
+                <menu className="mt-1 w-[200px] rounded-md border py-4 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]">
                     {items.map((item) => (
                         <li key={item}>
                             <button
