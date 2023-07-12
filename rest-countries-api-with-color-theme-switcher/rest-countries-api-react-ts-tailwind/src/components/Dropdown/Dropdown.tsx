@@ -42,7 +42,7 @@ function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
                 <DownIcon className="ml-auto h-4 w-4" />
             </button>
             {isOpen && (
-                <menu className="mt-1 w-[200px] rounded-md border py-4 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]">
+                <menu className="absolute mt-1 w-[200px] rounded-md border bg-white py-4 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]">
                     {items.map((item) => (
                         <li key={item}>
                             <button
