@@ -7,7 +7,7 @@ type CountryListProps = {
 
 function CountryList({ countries }: CountryListProps) {
     return (
-        <section className="mt-12 grid grid-cols-4 justify-between">
+        <section className="mt-12 grid grid-cols-[repeat(auto-fill,16.5rem)] justify-between gap-[4.5rem]">
             {countries.map((country) => (
                 <CountryCard country={country} />
             ))}
