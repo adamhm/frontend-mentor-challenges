@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Dropdown, SearchBox } from "@components";
+import { CountryList, Dropdown, SearchBox } from "@components";
+import testData from "@data/test-data.json";
 
 function Home() {
     const [region, setRegion] = useState("Filter by Region");
 
     return (
-        <main className="bg-lotion px-[5rem] py-[3rem]">
+        <main className="mx-auto max-w-[1440px] bg-lotion px-[5rem] py-[3rem]">
             <div className="flex">
                 <SearchBox />
                 <div className="ml-auto">
@@ -22,6 +23,7 @@ function Home() {
                     />
                 </div>
             </div>
+            <CountryList countries={testData} />
         </main>
     );
 }
