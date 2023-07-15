@@ -35,7 +35,7 @@ function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
         <div ref={menuRef}>
             <button
                 type="button"
-                className="flex h-14 w-[200px] items-center rounded-md border px-6 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]"
+                className="flex h-14 w-[200px] items-center rounded-md border bg-white px-6 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]"
                 onClick={() => setIsOpen((open) => !open)}
             >
                 {selectedItem}
