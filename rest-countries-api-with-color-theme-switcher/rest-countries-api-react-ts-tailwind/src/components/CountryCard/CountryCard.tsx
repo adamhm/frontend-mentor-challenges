@@ -12,6 +12,7 @@ function CountryCard({
             <img
                 src={flag}
                 alt=""
+                loading="lazy"
                 className="h-[10rem] w-[16.5rem] object-cover"
             />
             <div className="p-6 text-[14px]">
