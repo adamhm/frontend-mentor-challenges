@@ -1,7 +1,7 @@
 import { QueryFunction } from "@tanstack/react-query";
 import { CountryFullInfo } from "@typedefs";
 
-const getCountry2: QueryFunction<CountryFullInfo[], [string, string]> = async ({
+const getCountry: QueryFunction<CountryFullInfo[], [string, string]> = async ({
     queryKey,
 }) => {
     const [, countryCode] = queryKey;
@@ -12,4 +12,4 @@ const getCountry2: QueryFunction<CountryFullInfo[], [string, string]> = async ({
     return response.json() as Promise<CountryFullInfo[]>;
 };
 
-export default getCountry2;
+export default getCountry;
