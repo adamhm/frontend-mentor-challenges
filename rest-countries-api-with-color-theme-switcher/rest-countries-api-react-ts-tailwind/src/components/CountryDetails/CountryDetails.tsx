@@ -1,6 +1,4 @@
-import { useQuery } from "@tanstack/react-query";
-import getCountry from "@api/getCountry";
-import getCountryNames from "@api/getCountryNames";
+import useCountryDetails from "@hooks/useCountryDetails";
 
 type CountryDetailsProps = {
     countryCode: string;
@@ -9,26 +7,15 @@ type CountryDetailsProps = {
 
 function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
     const {
-        data: country,
-        isError: isCountryError,
-        isLoading: isCountryLoading,
-    } = useQuery({
-        queryKey: ["fullInfo", countryCode],
-        queryFn: getCountry,
-        select: (countries) => countries[0],
-    });
+        country,
+        isCountryError,
+        isCountryLoading,
+        borders,
+        isBordersError,
+        isBordersLoading,
+    } = useCountryDetails(countryCode);
 
-    const {
-        data: borders = [],
-        isError: isBordersError,
-        isLoading: isBordersLoading,
-    } = useQuery({
-        queryKey: ["borders", country?.borders],
-        queryFn: getCountryNames,
-        enabled: !!country,
-    });
-
-    if (isCountryLoading || isBordersLoading) {
+    if (!country || isCountryLoading || isBordersLoading) {
         return null;
     }
 
