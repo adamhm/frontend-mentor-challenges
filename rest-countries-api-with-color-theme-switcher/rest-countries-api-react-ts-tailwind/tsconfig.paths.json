@@ -2,11 +2,12 @@
     "compilerOptions": {
         "baseUrl": "./src",
         "paths": {
-            "@api/*": ["api/*"],
+            "@api/*": ["api/index"],
             "@assets/*": ["assets/*"],
             "@components": ["components/index"],
             "@contexts": ["contexts/index"],
             "@data/*": ["data/*"],
+            "@hooks/*": ["hooks/*"],
             "@shared/*": ["shared/*"],
             "@state/*": ["state/*"],
             "@typedefs": ["typedefs/index"],

@@ -13,6 +13,7 @@ export default defineConfig({
             "@components": path.resolve(__dirname, "./src/components"),
             "@contexts": path.resolve(__dirname, "./src/contexts"),
             "@data": path.resolve(__dirname, "./src/data"),
+            "@hooks": path.resolve(__dirname, "./src/hooks"),
             "@shared": path.resolve(__dirname, "./src/shared"),
             "@state": path.resolve(__dirname, "./src/state"),
             "@typedefs": path.resolve(__dirname, "./src/typedefs"),
