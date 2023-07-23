@@ -1,16 +1,13 @@
 import { QueryFunction } from "@tanstack/react-query";
-import { CountryName } from "@typedefs";
+import { CountryBase } from "@typedefs";
 
 const getCountryNames: QueryFunction<
-    { name: CountryName; cioc: string }[],
+    CountryBase[],
     [string, string[] | undefined]
 > = async ({ queryKey }) => {
     const [, countryCodes] = queryKey;
 
-    if (!countryCodes)
-        return Promise.resolve([]) as Promise<
-            { name: CountryName; cioc: string }[]
-        >;
+    if (!countryCodes) return Promise.resolve([]) as Promise<CountryBase[]>;
 
     const response = await fetch(
         `https://restcountries.com/v3.1/alpha?codes=${countryCodes.join(
@@ -18,7 +15,7 @@ const getCountryNames: QueryFunction<
         )}&fields=name,cioc`
     );
 
-    return response.json() as Promise<{ name: CountryName; cioc: string }[]>;
+    return response.json() as Promise<CountryBase[]>;
 };
 
 export default getCountryNames;

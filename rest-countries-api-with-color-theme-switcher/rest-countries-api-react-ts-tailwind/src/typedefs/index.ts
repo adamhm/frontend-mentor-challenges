@@ -13,9 +13,13 @@ type CountryName = {
     nativeName: { [lang: string]: { official: string; common: string } };
 };
 
-interface Country2 {
-    flags: { svg: string; [imgType: string]: string };
+interface CountryBase {
     name: CountryName;
+    cioc: string;
+}
+
+interface Country2 extends CountryBase {
+    flags: { svg: string; [imgType: string]: string };
     population: number;
     region: string;
     capital: string[];
@@ -30,4 +34,4 @@ interface CountryFullInfo extends Country2 {
     borders: Array<string>;
 }
 
-export type { Country, CountryFullInfo, CountryName };
+export type { Country, CountryBase, CountryFullInfo, CountryName };
