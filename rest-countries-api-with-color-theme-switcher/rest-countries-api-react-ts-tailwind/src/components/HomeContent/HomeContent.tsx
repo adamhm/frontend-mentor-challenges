@@ -1,9 +1,34 @@
 import { useState } from "react";
 import { CountryList, Dropdown, SearchBox } from "@components";
-import testData from "@data/test-data.json";
+import { useQuery } from "@tanstack/react-query";
+import { getCountriesByRegion } from "@api/";
+import countryComparer from "@shared/country-comparer";
 
 function HomeContent() {
     const [region, setRegion] = useState("Filter by Region");
+
+    const {
+        data = [],
+        isError,
+        isLoading,
+    } = useQuery({
+        queryKey:
+            region === "Filter by Region"
+                ? ["countries", "all"]
+                : ["countries", region],
+        queryFn: getCountriesByRegion,
+        select: (countries) => countries.sort(countryComparer),
+    });
+
+    let countryList: React.ReactNode;
+
+    if (isLoading) {
+        countryList = null;
+    } else if (isError) {
+        countryList = <div>Error</div>;
+    } else {
+        countryList = <CountryList countries={data} />;
+    }
 
     return (
         <>
@@ -23,7 +48,7 @@ function HomeContent() {
                     />
                 </div>
             </div>
-            <CountryList countries={testData} />
+            {countryList}
         </>
     );
 }
