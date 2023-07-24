@@ -1,12 +1,3 @@
-interface Country {
-    flag: string;
-    name: string;
-    population: number;
-    region: string;
-    capital?: string;
-    [prop: string]: any;
-}
-
 type CountryName = {
     common: string;
     official: string;
@@ -18,7 +9,7 @@ interface CountryBase {
     cioc: string;
 }
 
-interface Country2 extends CountryBase {
+interface Country extends CountryBase {
     flags: { svg: string; [imgType: string]: string };
     population: number;
     region: string;
@@ -26,7 +17,7 @@ interface Country2 extends CountryBase {
     [prop: string]: any;
 }
 
-interface CountryFullInfo extends Country2 {
+interface CountryFullInfo extends Country {
     subregion: string;
     tld: Array<string>;
     currencies: { [currency: string]: { name: string; symbol: string } };
