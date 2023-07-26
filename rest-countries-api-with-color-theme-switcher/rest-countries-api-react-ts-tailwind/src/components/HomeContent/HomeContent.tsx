@@ -1,22 +1,23 @@
 import { useState } from "react";
 import { CountryList, Dropdown, SearchBox } from "@components";
 import { useQuery } from "@tanstack/react-query";
-import { getCountriesByRegion } from "@api/";
+import { getCountries } from "@api";
 import countryComparer from "@shared/country-comparer";
+import useDebounce from "@hooks/useDebounce";
+import { Region } from "@typedefs";
 
 function HomeContent() {
-    const [region, setRegion] = useState("Filter by Region");
+    const [region, setRegion] = useState<Region | null>(null);
+    const [value, setValue] = useState("");
+    const debouncedValue = useDebounce(value, 500);
 
     const {
         data = [],
         isError,
         isLoading,
     } = useQuery({
-        queryKey:
-            region === "Filter by Region"
-                ? ["countries", "all"]
-                : ["countries", region],
-        queryFn: getCountriesByRegion,
+        queryKey: ["countries", region, debouncedValue],
+        queryFn: getCountries,
         select: (countries) => countries.sort(countryComparer),
     });
 
@@ -33,7 +34,10 @@ function HomeContent() {
     return (
         <>
             <div className="flex">
-                <SearchBox />
+                <SearchBox
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                />
                 <div className="ml-auto">
                     <Dropdown
                         items={[
