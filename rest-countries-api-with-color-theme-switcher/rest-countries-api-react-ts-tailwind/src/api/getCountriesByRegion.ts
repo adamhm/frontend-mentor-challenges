@@ -1,20 +1,11 @@
-import { QueryFunction } from "@tanstack/react-query";
-import { Country } from "@typedefs";
+import { Country, Region } from "@typedefs";
 
-const getCountriesByRegion: QueryFunction<
-    Country[],
-    [string, string]
-> = async ({ queryKey }) => {
-    const [, region] = queryKey;
+async function getCountriesByRegion(region: Region): Promise<Country[]> {
+    const response = await fetch(
+        `https://restcountries.com/v3.1/region/${region}`
+    );
 
-    const url =
-        region === "all"
-            ? "https://restcountries.com/v3.1/all"
-            : `https://restcountries.com/v3.1/region/${region}`;
-
-    const response = await fetch(url);
-
-    return response.json() as Promise<Country[]>;
-};
+    return response.json();
+}
 
 export default getCountriesByRegion;
