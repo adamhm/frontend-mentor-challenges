@@ -1,10 +1,11 @@
 import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { ReactComponent as DownIcon } from "@assets/chevron-down-outline.svg";
+import { Region } from "@typedefs";
 
 type DropdownProps = {
-    selectedItem: string;
+    selectedItem: Region | null;
     items: string[];
-    onChange?: (item: string) => void;
+    onChange?: (item: Region) => void;
 };
 
 function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
@@ -27,7 +28,7 @@ function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
     }, []);
 
     const clickHandler: MouseEventHandler<HTMLButtonElement> = (e) => {
-        onChange?.((e.target as HTMLButtonElement).innerText);
+        onChange?.((e.target as HTMLButtonElement).innerText as Region);
         setIsOpen(false);
     };
 
@@ -38,7 +39,7 @@ function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
                 className="flex h-14 w-[200px] items-center rounded-md border bg-white px-6 text-[14px] font-semibold shadow-[0px_0px_8px_rgba(240,240,240,0.6)]"
                 onClick={() => setIsOpen((open) => !open)}
             >
-                {selectedItem}
+                {selectedItem ?? "Filter by Region"}
                 <DownIcon className="ml-auto h-4 w-4" />
             </button>
             {isOpen && (

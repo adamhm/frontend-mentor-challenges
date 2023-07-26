@@ -25,4 +25,6 @@ interface CountryFullInfo extends Country {
     borders: Array<string>;
 }
 
-export type { Country, CountryBase, CountryFullInfo, CountryName };
+type Region = "Africa" | "America" | "Asia" | "Europe" | "Oceania";
+
+export type { Country, CountryBase, CountryFullInfo, CountryName, Region };
