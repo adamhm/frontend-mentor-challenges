@@ -6,7 +6,7 @@ type CountryName = {
 
 interface CountryBase {
     name: CountryName;
-    cioc: string;
+    cca3: string;
 }
 
 interface Country extends CountryBase {

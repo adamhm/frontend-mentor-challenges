@@ -12,7 +12,7 @@ const getCountryNames: QueryFunction<
     const response = await fetch(
         `https://restcountries.com/v3.1/alpha?codes=${countryCodes.join(
             ","
-        )}&fields=name,cioc`
+        )}&fields=name,cca3`
     );
 
     return response.json() as Promise<CountryBase[]>;

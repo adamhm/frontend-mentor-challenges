@@ -85,9 +85,9 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
                             {borders.map((border) => (
                                 <button
                                     type="button"
-                                    key={border.cioc}
+                                    key={border.cca3}
                                     className="h-8 rounded border-2 border-gray-200 px-7 text-[14px]"
-                                    onClick={() => onChange(border.cioc)}
+                                    onClick={() => onChange(border.cca3)}
                                 >
                                     {border.name.common}
                                 </button>
