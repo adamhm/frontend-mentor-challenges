@@ -19,7 +19,7 @@ interface Country extends CountryBase {
 
 interface CountryFullInfo extends Country {
     subregion: string;
-    tld: Array<string>;
+    tld: Array<string> | undefined;
     currencies: { [currency: string]: { name: string; symbol: string } };
     languages: { [language: string]: string };
     borders: Array<string>;

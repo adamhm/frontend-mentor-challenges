@@ -65,7 +65,7 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
                         <div className="ml-auto">
                             <p>
                                 <strong>Top Level Domain: </strong>
-                                {country.tld.join(", ")}
+                                {country.tld?.join(", ")}
                             </p>
                             <p className="mt-2">
                                 <strong>Currencies: </strong>
