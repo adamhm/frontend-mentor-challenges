@@ -1,4 +1,4 @@
-import { ReactComponent as MoonIcon } from "@assets/moon-outline.svg";
+import { ReactComponent as MoonIcon } from "@assets/moon-sharp.svg";
 import useDarkMode from "@hooks/useDarkMode";
 
 function Header() {
@@ -12,7 +12,13 @@ function Header() {
                 className="ml-auto font-semibold"
                 onClick={toggleDarkMode}
             >
-                <MoonIcon className="mr-3 inline h-4 w-4" aria-hidden />
+                <MoonIcon
+                    stroke-width="40"
+                    stroke="currentcolor"
+                    fill="white"
+                    className="mr-3 inline h-4 w-4"
+                    aria-hidden
+                />
                 Dark Mode
             </button>
         </header>
