@@ -1,4 +1,5 @@
 import useCountryDetails from "@hooks/useCountryDetails";
+import { ReactComponent as ArrowIcon } from "@assets/arrow-back-sharp.svg";
 
 type CountryDetailsProps = {
     countryCode: string;
@@ -22,8 +23,7 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
     if (isCountryError || isBordersError) return <div>Error</div>;
 
     return (
-        <section className="">
-            <button type="button" onClick={() => onChange(null)}>
+                <ArrowIcon className="mr-3 inline h-5 w-5" aria-hidden />
                 Back
             </button>
             <div className="flex items-center">
