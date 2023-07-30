@@ -9,13 +9,13 @@ type SearchBoxProps = {
 
 function SearchBox({ value, onChange }: SearchBoxProps) {
     return (
-        <form className="block bg-white">
-            <div className="flex h-14 w-[30rem] items-center rounded-md border px-8 shadow-[0px_0px_8px_rgba(240,240,240,0.6)]">
+        <form className="block rounded-md bg-white dark:bg-outer-space">
+            <div className="flex h-14 w-[30rem] items-center rounded-md border px-8 shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:border-outer-space dark:shadow-none">
                 <label htmlFor="search" className="sr-only">
                     Search for a country
                 </label>
                 <SearchIcon
-                    className="h-5 w-5 font-bold text-old-silver"
+                    className="h-5 w-5 font-bold text-old-silver dark:text-white"
                     aria-hidden
                 />
                 <input
@@ -24,7 +24,7 @@ function SearchBox({ value, onChange }: SearchBoxProps) {
                     type="search"
                     placeholder="Search for a country..."
                     value={value}
-                    className="ml-6 w-full p-2 text-[14px] font-semibold placeholder-old-silver"
+                    className="ml-6 w-full p-2 text-[14px] font-semibold placeholder-old-silver dark:bg-outer-space dark:text-white dark:placeholder-gray-300"
                     onChange={onChange}
                 />
             </div>

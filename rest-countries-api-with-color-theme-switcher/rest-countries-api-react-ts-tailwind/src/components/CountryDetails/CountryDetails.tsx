@@ -23,10 +23,16 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
     if (isCountryError || isBordersError) return <div>Error</div>;
 
     return (
+        <section className="dark:text-white">
+            <button
+                type="button"
+                className="mt-[30px] h-[40px] w-[136px] rounded-md shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:bg-outer-space dark:shadow-none"
+                onClick={() => onChange(null)}
+            >
                 <ArrowIcon className="mr-3 inline h-5 w-5" aria-hidden />
                 Back
             </button>
-            <div className="flex items-center">
+            <div className="mt-[80px] flex items-center">
                 <img
                     src={country.flags.svg}
                     alt=""
@@ -86,7 +92,7 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
                                 <button
                                     type="button"
                                     key={border.cca3}
-                                    className="h-8 rounded border-2 border-gray-200 px-7 text-[14px]"
+                                    className="h-8 rounded border-2 border-gray-200 px-7 text-[14px] dark:border-none dark:bg-outer-space"
                                     onClick={() => onChange(border.cca3)}
                                 >
                                     {border.name.common}

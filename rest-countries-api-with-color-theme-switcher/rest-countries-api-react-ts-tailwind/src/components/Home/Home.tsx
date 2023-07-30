@@ -10,7 +10,7 @@ function Home() {
     );
 
     return (
-        <main className="mx-auto max-w-[1440px] bg-lotion px-[5rem] py-[3rem]">
+        <main className="mx-auto max-w-[1440px] bg-lotion px-[5rem] py-[3rem] dark:bg-yankees-blue">
             {!detailedCountry && <HomeContent onChange={handleChange} />}
             {detailedCountry && (
                 <CountryDetails
