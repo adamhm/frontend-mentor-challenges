@@ -6,7 +6,11 @@ import countryComparer from "@shared/country-comparer";
 import useDebounce from "@hooks/useDebounce";
 import { Region } from "@typedefs";
 
-function HomeContent() {
+type HomeContentProps = {
+    onChange: (countryCode: string | null) => void;
+};
+
+function HomeContent({ onChange }: HomeContentProps) {
     const [region, setRegion] = useState<Region | null>(null);
     const [value, setValue] = useState("");
     const debouncedValue = useDebounce(value, 500);
@@ -28,7 +32,9 @@ function HomeContent() {
     } else if (isError) {
         countryList = <div>Error</div>;
     } else {
-        countryList = <CountryList countries={data} />;
+        countryList = (
+            <CountryList countries={data} onChange={(cca3) => onChange(cca3)} />
+        );
     }
 
     return (

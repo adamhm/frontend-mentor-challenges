@@ -2,9 +2,7 @@ import { CountryDetails, HomeContent } from "@components";
 import { useCallback, useState } from "react";
 
 function Home() {
-    const [detailedCountry, setDetailedCountry] = useState<string | null>(
-        "BEL"
-    );
+    const [detailedCountry, setDetailedCountry] = useState<string | null>(null);
 
     const handleChange = useCallback(
         (countryCode: string | null) => setDetailedCountry(countryCode),
@@ -13,7 +11,7 @@ function Home() {
 
     return (
         <main className="mx-auto max-w-[1440px] bg-lotion px-[5rem] py-[3rem]">
-            {!detailedCountry && <HomeContent />}
+            {!detailedCountry && <HomeContent onChange={handleChange} />}
             {detailedCountry && (
                 <CountryDetails
                     countryCode={detailedCountry}
