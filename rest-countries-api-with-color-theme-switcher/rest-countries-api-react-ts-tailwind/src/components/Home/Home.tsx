@@ -9,7 +9,7 @@ function Home() {
     const [searchTerm, setSearchTerm] = useState("");
     const debouncedValue = useDebounce(searchTerm, 500);
 
-    const handleChange = useCallback(
+    const handleCountrySelect = useCallback(
         (countryCode: string | null) => setDetailedCountry(countryCode),
         [setDetailedCountry]
     );
@@ -21,7 +21,7 @@ function Home() {
                     debouncedValue={debouncedValue}
                     searchTerm={searchTerm}
                     onSearchTermChange={(value) => setSearchTerm(value)}
-                    onChange={handleChange}
+                    onCountrySelect={handleCountrySelect}
                     region={selectedRegion}
                     onRegionChange={(region) => setSelectedRegion(region)}
                 />
@@ -29,7 +29,7 @@ function Home() {
             {detailedCountry && (
                 <CountryDetails
                     countryCode={detailedCountry}
-                    onChange={handleChange}
+                    onCountrySelect={handleCountrySelect}
                 />
             )}
         </main>

@@ -8,7 +8,7 @@ type HomeContentProps = {
     debouncedValue: string;
     region: Region | null;
     searchTerm: string;
-    onChange: (countryCode: string | null) => void;
+    onCountrySelect: (countryCode: string | null) => void;
     onRegionChange: (region: Region | null) => void;
     onSearchTermChange: (value: string) => void;
 };
@@ -17,7 +17,7 @@ function HomeContent({
     debouncedValue,
     region,
     searchTerm,
-    onChange,
+    onCountrySelect,
     onRegionChange,
     onSearchTermChange,
 }: HomeContentProps) {
@@ -39,7 +39,7 @@ function HomeContent({
         countryList = <div>Error</div>;
     } else {
         countryList = (
-            <CountryList countries={data} onChange={(cca3) => onChange(cca3)} />
+            <CountryList countries={data} onCountrySelect={onCountrySelect} />
         );
     }
 

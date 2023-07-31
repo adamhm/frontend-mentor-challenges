@@ -2,18 +2,18 @@ import { Country } from "@typedefs";
 
 type CountryCardProps = {
     country: Country;
-    onChange: (countryCode: string | null) => void;
+    onCountrySelect: (countryCode: string | null) => void;
 };
 
 function CountryCard({
     country: { capital, cca3, flags, name, population, region },
-    onChange,
+    onCountrySelect,
 }: CountryCardProps) {
     return (
         <button
             type="button"
             className="flex h-[21rem] w-[16.5rem] flex-col rounded-md bg-white shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:bg-outer-space dark:shadow-none"
-            onClick={() => onChange(cca3)}
+            onClick={() => onCountrySelect(cca3)}
         >
             <img
                 src={flags.svg}
