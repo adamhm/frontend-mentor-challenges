@@ -3,10 +3,10 @@ import { ReactComponent as ArrowIcon } from "@assets/arrow-back-sharp.svg";
 
 type CountryDetailsProps = {
     countryCode: string;
-    onChange: (countryCode: string | null) => void;
+    onCountrySelect: (countryCode: string | null) => void;
 };
 
-function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
+function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {
     const {
         country,
         isCountryError,
@@ -27,7 +27,7 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
             <button
                 type="button"
                 className="mt-[30px] h-[40px] w-[136px] rounded-md shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:bg-outer-space dark:shadow-none"
-                onClick={() => onChange(null)}
+                onClick={() => onCountrySelect(null)}
             >
                 <ArrowIcon className="mr-3 inline h-5 w-5" aria-hidden />
                 Back
@@ -93,7 +93,7 @@ function CountryDetails({ countryCode, onChange }: CountryDetailsProps) {
                                     type="button"
                                     key={border.cca3}
                                     className="h-8 rounded border-2 border-gray-200 px-7 text-[14px] dark:border-none dark:bg-outer-space"
-                                    onClick={() => onChange(border.cca3)}
+                                    onClick={() => onCountrySelect(border.cca3)}
                                 >
                                     {border.name.common}
                                 </button>

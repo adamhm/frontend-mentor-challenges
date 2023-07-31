@@ -1,20 +1,26 @@
-import { useState } from "react";
 import { CountryList, Dropdown, SearchBox } from "@components";
 import { useQuery } from "@tanstack/react-query";
 import { getCountries } from "@api";
 import countryComparer from "@shared/country-comparer";
-import useDebounce from "@hooks/useDebounce";
 import { Region } from "@typedefs";
 
 type HomeContentProps = {
-    onChange: (countryCode: string | null) => void;
+    debouncedValue: string;
+    region: Region | null;
+    searchTerm: string;
+    onCountrySelect: (countryCode: string | null) => void;
+    onRegionChange: (region: Region | null) => void;
+    onSearchTermChange: (value: string) => void;
 };
 
-function HomeContent({ onChange }: HomeContentProps) {
-    const [region, setRegion] = useState<Region | null>(null);
-    const [value, setValue] = useState("");
-    const debouncedValue = useDebounce(value, 500);
-
+function HomeContent({
+    debouncedValue,
+    region,
+    searchTerm,
+    onCountrySelect,
+    onRegionChange,
+    onSearchTermChange,
+}: HomeContentProps) {
     const {
         data = [],
         isError,
@@ -33,7 +39,7 @@ function HomeContent({ onChange }: HomeContentProps) {
         countryList = <div>Error</div>;
     } else {
         countryList = (
-            <CountryList countries={data} onChange={(cca3) => onChange(cca3)} />
+            <CountryList countries={data} onCountrySelect={onCountrySelect} />
         );
     }
 
@@ -41,8 +47,8 @@ function HomeContent({ onChange }: HomeContentProps) {
         <>
             <div className="flex">
                 <SearchBox
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    value={searchTerm}
+                    onChange={(e) => onSearchTermChange(e.target.value)}
                 />
                 <div className="ml-auto">
                     <Dropdown
@@ -54,7 +60,7 @@ function HomeContent({ onChange }: HomeContentProps) {
                             "Oceania",
                         ]}
                         selectedItem={region}
-                        onChange={(item) => setRegion(item)}
+                        onChange={(item) => onRegionChange(item)}
                     />
                 </div>
             </div>
