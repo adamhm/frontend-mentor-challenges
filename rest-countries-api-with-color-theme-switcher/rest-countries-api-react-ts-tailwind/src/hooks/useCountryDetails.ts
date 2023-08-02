@@ -7,7 +7,7 @@ function useCountryDetails(countryCode: string) {
         isError: isCountryError,
         isLoading: isCountryLoading,
     } = useQuery({
-        queryKey: ["fullInfo", countryCode],
+        queryKey: [{ type: "fullInfo", countryCode }],
         queryFn: getCountry,
         select: (countries) => countries[0],
     });
@@ -17,7 +17,7 @@ function useCountryDetails(countryCode: string) {
         isError: isBordersError,
         isLoading: isBordersLoading,
     } = useQuery({
-        queryKey: ["borders", country?.borders],
+        queryKey: [{ type: "borders", countryCodes: country?.borders }],
         queryFn: getCountryNames,
         enabled: !!country,
     });

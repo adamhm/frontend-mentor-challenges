@@ -3,9 +3,9 @@ import { CountryBase } from "@typedefs";
 
 const getCountryNames: QueryFunction<
     CountryBase[],
-    [string, string[] | undefined]
+    [{ type: string; countryCodes: string[] | undefined }]
 > = async ({ queryKey }) => {
-    const [, countryCodes] = queryKey;
+    const { countryCodes } = queryKey[0];
 
     if (!countryCodes) return Promise.resolve([]) as Promise<CountryBase[]>;
 

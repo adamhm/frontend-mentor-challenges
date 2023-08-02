@@ -27,9 +27,11 @@ function HomeContent({
         isLoading,
     } = useQuery({
         queryKey: [
-            "countries",
-            debouncedValue.trim() ? null : region,
-            debouncedValue.trim(),
+            {
+                type: "countries",
+                region: debouncedValue.trim() ? null : region,
+                searchTerm: debouncedValue.trim(),
+            },
         ],
         queryFn: getCountries,
         select: (countries) => countries.sort(countryComparer),

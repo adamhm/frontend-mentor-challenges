@@ -8,12 +8,12 @@ import {
 
 const getCountries: QueryFunction<
     Country[],
-    [string, Region | null, string]
+    [{ type: string; region: Region | null; searchTerm: string }]
 > = async ({ queryKey }) => {
-    const [, region, searchString] = queryKey;
+    const { region, searchTerm } = queryKey[0];
 
-    if (searchString.trim()) {
-        return getCountriesByName(searchString);
+    if (searchTerm.trim()) {
+        return getCountriesByName(searchTerm);
     }
 
     if (region) {

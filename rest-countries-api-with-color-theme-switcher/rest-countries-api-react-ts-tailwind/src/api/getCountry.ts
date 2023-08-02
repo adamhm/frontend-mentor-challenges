@@ -1,10 +1,11 @@
 import { QueryFunction } from "@tanstack/react-query";
 import { CountryFullInfo } from "@typedefs";
 
-const getCountry: QueryFunction<CountryFullInfo[], [string, string]> = async ({
-    queryKey,
-}) => {
-    const [, countryCode] = queryKey;
+const getCountry: QueryFunction<
+    CountryFullInfo[],
+    [{ type: string; countryCode: string }]
+> = async ({ queryKey }) => {
+    const { countryCode } = queryKey[0];
     const response = await fetch(
         `https://restcountries.com/v3.1/alpha/${countryCode}`
     );
