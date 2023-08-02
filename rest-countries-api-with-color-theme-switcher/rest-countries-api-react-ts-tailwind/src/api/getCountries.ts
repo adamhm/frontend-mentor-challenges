@@ -13,7 +13,7 @@ const getCountries: QueryFunction<
     const [, region, searchString] = queryKey;
 
     if (searchString.trim()) {
-        return getCountriesByName(searchString.trim());
+        return getCountriesByName(searchString);
     }
 
     if (region) {
