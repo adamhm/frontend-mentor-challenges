@@ -1,8 +1,6 @@
 import { CountryList, Dropdown, SearchBox } from "@components";
-import { useQuery } from "@tanstack/react-query";
-import { getCountries } from "@api";
-import countryComparer from "@shared/country-comparer";
 import { Region } from "@typedefs";
+import useHomeContent from "@hooks/useHomeContent";
 
 type HomeContentProps = {
     debouncedValue: string;
@@ -21,21 +19,7 @@ function HomeContent({
     onRegionChange,
     onSearchTermChange,
 }: HomeContentProps) {
-    const {
-        data = [],
-        isError,
-        isLoading,
-    } = useQuery({
-        queryKey: [
-            {
-                type: "countries",
-                region: debouncedValue.trim() ? null : region,
-                searchTerm: debouncedValue.trim(),
-            },
-        ],
-        queryFn: getCountries,
-        select: (countries) => countries.sort(countryComparer),
-    });
+    const { data, isError, isLoading } = useHomeContent(region, debouncedValue);
 
     let countryList: React.ReactNode;
 
@@ -51,12 +35,12 @@ function HomeContent({
 
     return (
         <>
-            <div className="flex">
+            <div className="flex flex-col md:flex-row">
                 <SearchBox
                     value={searchTerm}
                     onChange={(e) => onSearchTermChange(e.target.value)}
                 />
-                <div className="ml-auto">
+                <div className="mt-[80px] md:ml-auto md:mt-0">
                     <Dropdown
                         items={[
                             "Africa",
