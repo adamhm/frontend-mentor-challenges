@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCountries } from "@api";
 import countryComparer from "@shared/country-comparer";
 
-function useHomeContent(region: Region | null, searchTerm: string) {
+function useHomeContent(region: Nullable<Region>, searchTerm: string) {
     const {
         data = [],
         isError,

@@ -3,7 +3,7 @@ import { CountryCard } from "@components";
 
 type CountryListProps = {
     countries: Array<Country>;
-    onCountrySelect: (countryCode: string | null) => void;
+    onCountrySelect: (countryCode: Nullable<string>) => void;
 };
 
 function CountryList({ countries, onCountrySelect }: CountryListProps) {

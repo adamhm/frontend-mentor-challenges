@@ -2,7 +2,7 @@ import { Country } from "@typedefs";
 
 type CountryCardProps = {
     country: Country;
-    onCountrySelect: (countryCode: string | null) => void;
+    onCountrySelect: (countryCode: Nullable<string>) => void;
 };
 
 function CountryCard({

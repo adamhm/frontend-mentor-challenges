@@ -4,13 +4,15 @@ import useDebounce from "@hooks/useDebounce";
 import { Region } from "@typedefs";
 
 function Home() {
-    const [detailedCountry, setDetailedCountry] = useState<string | null>(null);
-    const [selectedRegion, setSelectedRegion] = useState<Region | null>(null);
+    const [detailedCountry, setDetailedCountry] =
+        useState<Nullable<string>>(null);
+    const [selectedRegion, setSelectedRegion] =
+        useState<Nullable<Region>>(null);
     const [searchTerm, setSearchTerm] = useState("");
     const debouncedValue = useDebounce(searchTerm, 500);
 
     const handleCountrySelect = useCallback(
-        (countryCode: string | null) => setDetailedCountry(countryCode),
+        (countryCode: Nullable<string>) => setDetailedCountry(countryCode),
         [setDetailedCountry]
     );
 

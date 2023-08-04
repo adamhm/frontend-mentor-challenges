@@ -4,10 +4,10 @@ import useHomeContent from "@hooks/useHomeContent";
 
 type HomeContentProps = {
     debouncedValue: string;
-    region: Region | null;
+    region: Nullable<Region>;
     searchTerm: string;
-    onCountrySelect: (countryCode: string | null) => void;
-    onRegionChange: (region: Region | null) => void;
+    onCountrySelect: (countryCode: Nullable<string>) => void;
+    onRegionChange: (region: Nullable<Region>) => void;
     onSearchTermChange: (value: string) => void;
 };
 

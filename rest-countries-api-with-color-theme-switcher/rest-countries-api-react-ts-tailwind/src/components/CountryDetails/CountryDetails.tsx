@@ -3,7 +3,7 @@ import { ReactComponent as ArrowIcon } from "@assets/arrow-back-sharp.svg";
 
 type CountryDetailsProps = {
     countryCode: string;
-    onCountrySelect: (countryCode: string | null) => void;
+    onCountrySelect: (countryCode: Nullable<string>) => void;
 };
 
 function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {

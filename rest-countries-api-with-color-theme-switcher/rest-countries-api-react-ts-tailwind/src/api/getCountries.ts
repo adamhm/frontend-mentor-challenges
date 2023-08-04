@@ -8,7 +8,7 @@ import {
 
 const getCountries: QueryFunction<
     Country[],
-    [{ type: string; region: Region | null; searchTerm: string }]
+    [{ type: string; region: Nullable<Region>; searchTerm: string }]
 > = async ({ queryKey }) => {
     const { region, searchTerm } = queryKey[0];
 

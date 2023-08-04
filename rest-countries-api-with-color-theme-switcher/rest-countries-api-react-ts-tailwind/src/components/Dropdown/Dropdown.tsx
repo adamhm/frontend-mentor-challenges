@@ -3,7 +3,7 @@ import { ReactComponent as DownIcon } from "@assets/chevron-down-outline.svg";
 import { Region } from "@typedefs";
 
 type DropdownProps = {
-    selectedItem: Region | null;
+    selectedItem: Nullable<Region>;
     items: string[];
     onChange?: (item: Region) => void;
 };
