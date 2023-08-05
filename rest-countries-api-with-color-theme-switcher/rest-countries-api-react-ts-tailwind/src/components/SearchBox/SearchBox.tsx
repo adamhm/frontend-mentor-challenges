@@ -10,7 +10,7 @@ type SearchBoxProps = {
 function SearchBox({ value, onChange }: SearchBoxProps) {
     return (
         <form className="block rounded-md bg-white dark:bg-outer-space">
-            <div className="flex h-14 w-[30rem] items-center rounded-md border px-8 shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:border-outer-space dark:shadow-none">
+            <div className="flex h-14 w-full items-center rounded-md border px-8 shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:border-outer-space dark:shadow-none md:w-[30rem]">
                 <label htmlFor="search" className="sr-only">
                     Search for a country
                 </label>

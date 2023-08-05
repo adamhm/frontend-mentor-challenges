@@ -17,7 +17,7 @@ function Home() {
     );
 
     return (
-        <main className="mx-auto max-w-[1440px] bg-lotion px-[5rem] py-[3rem] dark:bg-yankees-blue">
+        <main className="mx-auto max-w-[1440px] bg-lotion px-8 py-12 dark:bg-yankees-blue md:px-[5rem]">
             {!detailedCountry && (
                 <HomeContent
                     debouncedValue={debouncedValue}
