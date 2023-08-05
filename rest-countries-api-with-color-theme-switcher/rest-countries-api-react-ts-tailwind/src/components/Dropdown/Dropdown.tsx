@@ -1,6 +1,6 @@
-import { MouseEventHandler, useEffect, useRef, useState } from "react";
 import { ReactComponent as DownIcon } from "@assets/chevron-down-outline.svg";
 import { Region } from "@typedefs";
+import useDropdown from "@hooks/useDropdown";
 
 type DropdownProps = {
     selectedItem: Nullable<Region>;
@@ -9,28 +9,7 @@ type DropdownProps = {
 };
 
 function Dropdown({ selectedItem, items, onChange }: DropdownProps) {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const menuRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const handleClick = (e: MouseEvent): void => {
-            if (
-                menuRef.current &&
-                !menuRef.current.contains(e.target as HTMLElement)
-            ) {
-                setIsOpen(false);
-            }
-        };
-        document.addEventListener("click", handleClick);
-
-        return () => document.removeEventListener("click", handleClick);
-    }, []);
-
-    const clickHandler: MouseEventHandler<HTMLButtonElement> = (e) => {
-        onChange?.((e.target as HTMLButtonElement).innerText as Region);
-        setIsOpen(false);
-    };
+    const { isOpen, setIsOpen, menuRef, clickHandler } = useDropdown(onChange);
 
     return (
         <div ref={menuRef}>
