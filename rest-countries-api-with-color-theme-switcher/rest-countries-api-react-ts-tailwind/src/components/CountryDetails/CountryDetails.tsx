@@ -46,10 +46,9 @@ function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {
                         <div>
                             <p>
                                 <strong>Native Name: </strong>
-                                {
+                                {country.name.nativeName &&
                                     Object.values(country.name.nativeName)[0]
-                                        .common
-                                }
+                                        .common}
                             </p>
                             <p className="mt-2">
                                 <strong>Population: </strong>
@@ -65,7 +64,7 @@ function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {
                             </p>
                             <p className="mt-2">
                                 <strong>Capital: </strong>
-                                {country.capital.join(", ")}
+                                {country.capital?.join(", ")}
                             </p>
                         </div>
                         <div className="ml-auto">
@@ -75,11 +74,13 @@ function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {
                             </p>
                             <p className="mt-2">
                                 <strong>Currencies: </strong>
-                                {Object.keys(country.currencies).join(", ")}
+                                {country.currencies &&
+                                    Object.keys(country.currencies).join(", ")}
                             </p>
                             <p className="mt-2">
                                 <strong>Languages: </strong>
-                                {Object.values(country.languages).join(", ")}
+                                {country.languages &&
+                                    Object.values(country.languages).join(", ")}
                             </p>
                         </div>
                     </div>
