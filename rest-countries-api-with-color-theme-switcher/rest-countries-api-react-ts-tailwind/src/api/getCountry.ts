@@ -1,5 +1,7 @@
+import { z } from "zod";
 import { QueryFunction } from "@tanstack/react-query";
 import { CountryFullInfo } from "@typedefs";
+import { countryFullInfoSchema } from "@schema";
 
 const getCountry: QueryFunction<
     CountryFullInfo[],
@@ -10,7 +12,7 @@ const getCountry: QueryFunction<
         `https://restcountries.com/v3.1/alpha/${countryCode}`
     );
 
-    return response.json() as Promise<CountryFullInfo[]>;
+    return z.array(countryFullInfoSchema).parse(await response.json());
 };
 
 export default getCountry;

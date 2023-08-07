@@ -1,4 +1,6 @@
 import { QueryFunction } from "@tanstack/react-query";
+import { z } from "zod";
+import { countryBaseSchema } from "@schema";
 import { CountryBase } from "@typedefs";
 
 const getCountryNames: QueryFunction<
@@ -7,7 +9,7 @@ const getCountryNames: QueryFunction<
 > = async ({ queryKey }) => {
     const { countryCodes } = queryKey[0];
 
-    if (!countryCodes) return Promise.resolve([]) as Promise<CountryBase[]>;
+    if (!countryCodes) return Promise.resolve([]);
 
     const response = await fetch(
         `https://restcountries.com/v3.1/alpha?codes=${countryCodes.join(
@@ -15,7 +17,7 @@ const getCountryNames: QueryFunction<
         )}&fields=name,cca3`
     );
 
-    return response.json() as Promise<CountryBase[]>;
+    return z.array(countryBaseSchema).parse(await response.json());
 };
 
 export default getCountryNames;
