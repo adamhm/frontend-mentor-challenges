@@ -8,6 +8,7 @@
             "@contexts": ["contexts/index"],
             "@data/*": ["data/*"],
             "@hooks/*": ["hooks/*"],
+            "@schema": ["schema/index"],
             "@shared/*": ["shared/*"],
             "@state/*": ["state/*"],
             "@typedefs": ["typedefs/index"],
