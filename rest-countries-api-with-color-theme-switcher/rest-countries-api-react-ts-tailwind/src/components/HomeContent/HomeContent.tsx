@@ -1,4 +1,4 @@
-import { CountryList, Dropdown, SearchBox } from "@components";
+import { CountryList, Dropdown, ErrorMessage, SearchBox } from "@components";
 import { Region } from "@typedefs";
 import useHomeContent from "@hooks/useHomeContent";
 
@@ -26,7 +26,7 @@ function HomeContent({
     if (isLoading) {
         countryList = null;
     } else if (isError) {
-        countryList = <div>Error</div>;
+        countryList = <ErrorMessage />;
     } else {
         countryList = (
             <CountryList countries={data} onCountrySelect={onCountrySelect} />
