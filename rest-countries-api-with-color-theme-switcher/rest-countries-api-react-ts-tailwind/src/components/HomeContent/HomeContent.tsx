@@ -1,3 +1,4 @@
+import { ColorRing } from "react-loader-spinner";
 import { CountryList, Dropdown, ErrorMessage, SearchBox } from "@components";
 import { Region } from "@typedefs";
 import useHomeContent from "@hooks/useHomeContent";
@@ -24,7 +25,25 @@ function HomeContent({
     let countryList: React.ReactNode;
 
     if (isLoading) {
-        countryList = null;
+        countryList = (
+            <div className="mt-12 flex justify-center">
+                <ColorRing
+                    visible
+                    height="80"
+                    width="80"
+                    ariaLabel="blocks-loading"
+                    wrapperStyle={{}}
+                    wrapperClass="blocks-wrapper"
+                    colors={[
+                        "#e15b64",
+                        "#f47e60",
+                        "#f8b26a",
+                        "#abbd81",
+                        "#849b87",
+                    ]}
+                />
+            </div>
+        );
     } else if (isError) {
         countryList = (
             <ErrorMessage message="Oops! Something went wrong. Please, try again later." />
