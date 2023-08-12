@@ -26,7 +26,13 @@ function HomeContent({
     if (isLoading) {
         countryList = null;
     } else if (isError) {
-        countryList = <ErrorMessage />;
+        countryList = (
+            <ErrorMessage message="Oops! Something went wrong. Please, try again later." />
+        );
+    } else if (data.length === 0) {
+        countryList = (
+            <ErrorMessage message="Sorry, no results were found for your query." />
+        );
     } else {
         countryList = (
             <CountryList countries={data} onCountrySelect={onCountrySelect} />
