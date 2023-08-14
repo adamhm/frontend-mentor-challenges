@@ -26,8 +26,8 @@ export default defineConfig({
             google: {
                 families: [
                     {
-                        name: "Nunito+Sans",
-                        styles: "wght@300;600;800",
+                        name: "Kumbh+Sans",
+                        styles: "wght@400;700",
                     },
                 ],
             },
