@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "baseUrl": "./src",
+        "paths": {
+            "@assets/*": ["assets/*"],
+            "@components": ["components/index"],
+            "@contexts": ["contexts/index"],
+            "@data/*": ["data/*"],
+            "@hooks/*": ["hooks/*"],
+            "@shared/*": ["shared/*"],
+            "@state/*": ["state/*"],
+            "@typedefs": ["typedefs/index"],
+            "@utils/*": ["utils/*"]
+        }
+    }
+}
