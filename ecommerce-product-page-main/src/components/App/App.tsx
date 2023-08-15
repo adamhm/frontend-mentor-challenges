@@ -1,5 +1,11 @@
+import { Header } from "@components";
+
 function App() {
-    return <div className="text-red-500">App</div>;
+    return (
+        <>
+            <Header />
+        </>
+    );
 }
 
 export default App;
