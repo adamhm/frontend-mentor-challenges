@@ -1,9 +1,10 @@
-import { Header } from "@components";
+import { Header, MainContainer } from "@components";
 
 function App() {
     return (
         <>
             <Header />
+            <MainContainer />
         </>
     );
 }
