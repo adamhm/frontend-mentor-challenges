@@ -3,8 +3,8 @@ import { ReactComponent as CartIcon } from "@assets/icon-cart.svg";
 
 function Header() {
     return (
-        <header className="max-w-[1110px] grow border-b border-gray-200">
-            <nav className="">
+        <header className="flex justify-center">
+            <nav className="max-w-[1110px] grow border-b border-gray-200">
                 <ul className="flex h-28 items-center">
                     <li className="flex h-full items-center border-b-4 border-transparent">
                         <a href="#">
