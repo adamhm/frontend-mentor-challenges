@@ -1,6 +1,5 @@
 import { ReactComponent as Logo } from "@assets/logo.svg";
 import { ReactComponent as CartIcon } from "@assets/icon-cart.svg";
-import avatar from "@assets/image-avatar.png";
 
 function Header() {
     return (
@@ -43,7 +42,7 @@ function Header() {
                     >
                         <a href="#">
                             <img
-                                src={avatar}
+                                src="./images/image-avatar.png"
                                 alt=""
                                 className="h-12 w-12 rounded-full transition-all hover:border-2 hover:border-orange"
                             />
