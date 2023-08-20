@@ -5,27 +5,27 @@ function Header() {
     return (
         <header className="flex justify-center">
             <nav className="max-w-[1110px] grow border-b border-gray-200">
-                <ul className="flex h-28 items-center">
+                <ul className="flex h-28 items-center text-dark-grayish-blue">
                     <li className="flex h-full items-center border-b-4 border-transparent">
                         <a href="#">
                             <Logo />
                         </a>
                     </li>
-                    <li className="ml-14 flex h-full items-center border-b-4 border-transparent text-dark-grayish-blue hover:text-black">
+                    <li className="ml-14 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
                         <a href="#">Collections</a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent text-dark-grayish-blue hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
                         <a href="#">Men</a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-orange text-dark-grayish-blue hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
                         <a href="#" aria-current="page">
                             Women
                         </a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent text-dark-grayish-blue hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
                         <a href="#">About</a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent text-dark-grayish-blue hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
                         <a href="#">Contact</a>
                     </li>
                     <li
