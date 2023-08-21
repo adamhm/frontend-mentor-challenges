@@ -34,7 +34,7 @@ function ImagePanel({ product }: ImagePanelProps) {
                                         idx + 1
                                     }-thumbnail.jpg`}
                                     alt=""
-                                    className={`rounded-xl${
+                                    className={`hover:opacity-30 rounded-xl${
                                         idx + 1 === activeImage
                                             ? " opacity-30"
                                             : ""

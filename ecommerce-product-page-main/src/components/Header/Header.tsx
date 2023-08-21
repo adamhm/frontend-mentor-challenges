@@ -32,7 +32,7 @@ function Header() {
                         className="ml-auto border-b-4 border-transparent"
                         title="Cart"
                     >
-                        <a href="#">
+                        <a href="#" className="hover:text-black">
                             <CartIcon />
                         </a>
                     </li>
