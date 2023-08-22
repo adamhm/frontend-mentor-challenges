@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 
 import type { Product } from "@typedefs";
 import { QuantitySelector } from "@components";
+import useCartContext from "@hooks/useCartContext";
 
 import { ReactComponent as CartIcon } from "@assets/icon-cart.svg";
 
@@ -10,9 +11,12 @@ type InfoPanelProps = {
 };
 
 function InfoPanel({
+    product,
     product: { company, name, description, price, discount },
 }: InfoPanelProps) {
     const [quantity, setQuantity] = useState(0);
+
+    const { dispatch } = useCartContext();
 
     const decreaseQuantity = useCallback(
         () => setQuantity((prevValue) => (prevValue === 0 ? 0 : prevValue - 1)),
@@ -24,6 +28,15 @@ function InfoPanel({
             setQuantity((prevValue) => (prevValue === 99 ? 99 : prevValue + 1)),
         [setQuantity]
     );
+
+    const addButtonClickHandler = () => {
+        dispatch({
+            type: "ADD",
+            payload: { product, quantity },
+        });
+
+        setQuantity(0);
+    };
 
     return (
         <section className="flex w-6/12 flex-col justify-center pl-[62px] pr-12">
@@ -49,7 +62,7 @@ function InfoPanel({
                 />
                 <button
                     type="button"
-                    className="ml-5 flex h-[54px] w-[270px] items-center justify-center rounded-xl bg-orange font-bold text-white shadow-[0px_44px_20px_-12px_hsla(26,100%,55%,15%)] hover:opacity-60"
+                    onClick={addButtonClickHandler}
                 >
                     <CartIcon className="mr-3" fill="white" />
                     Add to cart
