@@ -1,12 +1,14 @@
-import { CartContext } from "@contexts";
 import { useContext } from "react";
+import { CartContext } from "@contexts";
 
 function useCartContext() {
-    if (!CartContext) {
+    const context = useContext(CartContext);
+
+    if (!context) {
         throw new Error("Missing Cart Context");
     }
 
-    return useContext(CartContext)!;
+    return context;
 }
 
 export default useCartContext;
