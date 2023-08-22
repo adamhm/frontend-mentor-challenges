@@ -62,7 +62,9 @@ function InfoPanel({
                 />
                 <button
                     type="button"
+                    disabled={quantity === 0}
                     onClick={addButtonClickHandler}
+                    className="ml-5 flex h-[54px] w-[270px] items-center justify-center rounded-xl bg-orange font-bold text-white shadow-[0px_44px_20px_-12px_hsla(26,100%,55%,15%)] hover:opacity-60 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                     <CartIcon className="mr-3" fill="white" />
                     Add to cart
