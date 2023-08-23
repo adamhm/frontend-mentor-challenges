@@ -15,4 +15,4 @@ type CartContextType = {
     dispatch: React.Dispatch<CartAction>;
 };
 
-export type { CartContextType, CartAction, CartState, Product };
+export type { CartContextType, CartAction, CartState, Product, CartItem };
