@@ -1,7 +1,8 @@
 import type { CartItem } from "@typedefs";
 import { getPrice, getTotal } from "@utils/prices";
 
-import { ReactComponent as DeleteButton } from "@assets/icon-delete.svg";
+import { ReactComponent as DeleteButtonIcon } from "@assets/icon-delete.svg";
+import useCartContext from "@hooks/useCartContext";
 
 type ShoppingCartItemProps = {
     item: CartItem;
@@ -10,6 +11,7 @@ type ShoppingCartItemProps = {
 function ShoppingCartItem({
     item: {
         product: {
+            id,
             name,
             price,
             discount,
@@ -18,6 +20,8 @@ function ShoppingCartItem({
         quantity,
     },
 }: ShoppingCartItemProps) {
+    const { dispatch } = useCartContext();
+
     return (
         <li className="my-6 flex justify-between px-6">
             <img
@@ -38,8 +42,9 @@ function ShoppingCartItem({
                 type="button"
                 aria-label="remove this item from the cart"
                 title="remove"
+                onClick={() => dispatch({ type: "REMOVE", payload: id })}
             >
-                <DeleteButton />
+                <DeleteButtonIcon />
             </button>
         </li>
     );
