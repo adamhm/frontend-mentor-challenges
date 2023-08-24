@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 function useDropdown() {
     const [isOpen, setIsOpen] = useState(false);
 
-    const dropdownRef = useRef<HTMLDivElement>(null);
+    const dropdownRef = useRef<HTMLLIElement>(null);
 
     useEffect(() => {
         const handleClick = (e: MouseEvent): void => {

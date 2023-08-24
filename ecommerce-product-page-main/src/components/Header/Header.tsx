@@ -1,7 +1,18 @@
 import { ReactComponent as Logo } from "@assets/logo.svg";
 import { ReactComponent as CartIcon } from "@assets/icon-cart.svg";
+import { ShoppingCart } from "@components";
+import useCartContext from "@hooks/useCartContext";
+import useDropdown from "@hooks/useDropdown";
 
 function Header() {
+    const { dropdownRef, isOpen, setIsOpen } = useDropdown();
+    const { state } = useCartContext();
+
+    const itemsCount = state.items.reduce(
+        (prev, current) => prev + current.quantity,
+        0
+    );
+
     return (
         <header className="flex justify-center">
             <nav className="max-w-[1110px] grow border-b border-gray-200">
@@ -29,12 +40,27 @@ function Header() {
                         <a href="#">Contact</a>
                     </li>
                     <li
-                        className="ml-auto border-b-4 border-transparent"
+                        className="ml-auto flex border-b-4 border-transparent"
                         title="Cart"
+                        ref={dropdownRef}
                     >
-                        <a href="#" className="hover:text-black">
+                        <button
+                            role="button"
+                            onClick={() => setIsOpen((state) => !state)}
+                            className="h-[22px] hover:text-black"
+                        >
                             <CartIcon />
-                        </a>
+                            {itemsCount > 0 && (
+                                <span
+                                    role="status"
+                                    aria-label={`${itemsCount} items in the shopping cart`}
+                                    className="relative -top-8 left-2 rounded-md bg-orange px-2 py-[1px] text-[10px] text-white"
+                                >
+                                    {itemsCount}
+                                </span>
+                            )}
+                        </button>
+                        {isOpen && <ShoppingCart />}
                     </li>
                     <li
                         className="ml-12 border-b-4 border-transparent"
