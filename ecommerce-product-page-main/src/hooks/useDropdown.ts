@@ -11,7 +11,13 @@ function useDropdown() {
                 dropdownRef.current &&
                 !dropdownRef.current.contains(e.target as HTMLElement)
             ) {
-                setIsOpen(false);
+                const parent = (e.target as HTMLElement).parentElement;
+                const itemRemoveBtnClicked =
+                    parent && parent.dataset.role === "remove-item";
+
+                if (!itemRemoveBtnClicked) {
+                    setIsOpen(false);
+                }
             }
         };
         document.addEventListener("click", handleClick);

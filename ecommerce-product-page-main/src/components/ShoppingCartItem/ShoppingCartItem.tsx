@@ -1,7 +1,7 @@
 import type { CartItem } from "@typedefs";
 import { getPrice, getTotal } from "@utils/prices";
 
-import { ReactComponent as DeleteButtonIcon } from "@assets/icon-delete.svg";
+import deleteIcon from "@assets/icon-delete.svg";
 import useCartContext from "@hooks/useCartContext";
 
 type ShoppingCartItemProps = {
@@ -42,9 +42,10 @@ function ShoppingCartItem({
                 type="button"
                 aria-label="remove this item from the cart"
                 title="remove"
+                data-role="remove-item"
                 onClick={() => dispatch({ type: "REMOVE", payload: id })}
             >
-                <DeleteButtonIcon />
+                <img src={deleteIcon} alt="" />
             </button>
         </li>
     );
