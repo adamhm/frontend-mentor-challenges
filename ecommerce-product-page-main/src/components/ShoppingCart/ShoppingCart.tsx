@@ -18,7 +18,10 @@ function ShoppingCart() {
                 <>
                     <ul>
                         {state.items.map((item) => (
-                            <ShoppingCartItem item={item} />
+                            <ShoppingCartItem
+                                item={item}
+                                key={item.product.id}
+                            />
                         ))}
                     </ul>
                     <button
