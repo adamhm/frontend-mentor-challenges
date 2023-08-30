@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/fm/faq-accordion-card/static/css/main.fa3cbfcb.css",
+    "main.js": "/fm/faq-accordion-card/static/js/main.7f92dd5c.js",
+    "static/js/787.da6c1c20.chunk.js": "/fm/faq-accordion-card/static/js/787.da6c1c20.chunk.js",
+    "static/media/illustration-woman-online-mobile.svg": "/fm/faq-accordion-card/static/media/illustration-woman-online-mobile.fe928f9c476ef6d33267.svg",
+    "static/media/illustration-woman-online-desktop.svg": "/fm/faq-accordion-card/static/media/illustration-woman-online-desktop.843eb114c7213a596ee2.svg",
+    "static/media/illustration-box-desktop.svg": "/fm/faq-accordion-card/static/media/illustration-box-desktop.ec1ba14b853c562a6637.svg",
+    "index.html": "/fm/faq-accordion-card/index.html",
+    "static/media/bg-pattern-desktop.svg": "/fm/faq-accordion-card/static/media/bg-pattern-desktop.f51e07a2f52390c60484.svg",
+    "static/media/bg-pattern-mobile.svg": "/fm/faq-accordion-card/static/media/bg-pattern-mobile.55aee9128a769eedabec.svg",
+    "static/media/icon-arrow-down.svg": "/fm/faq-accordion-card/static/media/icon-arrow-down.852fa301a0e795e07c59.svg",
+    "main.fa3cbfcb.css.map": "/fm/faq-accordion-card/static/css/main.fa3cbfcb.css.map",
+    "main.7f92dd5c.js.map": "/fm/faq-accordion-card/static/js/main.7f92dd5c.js.map",
+    "787.da6c1c20.chunk.js.map": "/fm/faq-accordion-card/static/js/787.da6c1c20.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa3cbfcb.css",
+    "static/js/main.7f92dd5c.js"
+  ]
+}
