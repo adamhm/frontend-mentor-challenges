@@ -14,6 +14,7 @@ export default defineConfig({
             "@typedefs": path.resolve(__dirname, "./src/types"),
         },
     },
+    base: "/fm/todo-app/",
     plugins: [
         react(),
         Unfonts({
