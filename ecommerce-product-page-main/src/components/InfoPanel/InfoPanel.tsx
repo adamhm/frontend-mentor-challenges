@@ -39,7 +39,7 @@ function InfoPanel({
     };
 
     return (
-        <section className="flex w-6/12 flex-col justify-center pl-[62px] pr-12">
+        <>
             <p className="text-[13px] font-bold uppercase text-orange">
                 {company}
             </p>
@@ -70,7 +70,7 @@ function InfoPanel({
                     Add to cart
                 </button>
             </div>
-        </section>
+        </>
     );
 }
 

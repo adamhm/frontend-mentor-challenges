@@ -1,20 +1,58 @@
-import { useState } from "react";
+import { useEffect } from "react";
+
 import type { Product } from "@typedefs";
+import useImagePanel from "@hooks/useImagePanel";
+import { ReactComponent as BackIcon } from "@assets/icon-back.svg";
+import { ReactComponent as ForwardIcon } from "@assets/icon-forward.svg";
 
 type ImagePanelProps = {
+    initial?: number;
+    navigation?: "visible" | "hidden";
     product: Product;
+    onClick?: React.MouseEventHandler<HTMLImageElement>;
+    onActiveChange?(active: number): void;
 };
 
-function ImagePanel({ product }: ImagePanelProps) {
-    const [activeImage, setActiveImage] = useState(1);
+function ImagePanel({
+    initial = 1,
+    navigation = "hidden",
+    product,
+    onClick,
+    onActiveChange,
+}: ImagePanelProps) {
+    const { activeImage, setActiveImage, setPreviousImage, setNextImage } =
+        useImagePanel(product.images.thumbnails.length, initial);
+
+    useEffect(() => onActiveChange?.(activeImage), [activeImage]);
 
     return (
-        <section className="w-6/12 pl-12 pr-[62px]">
-            <img
-                src={`./images/image-product-${activeImage}.jpg`}
-                alt=""
-                className="rounded-xl"
-            />
+        <>
+            <div className="relative">
+                <img
+                    src={`./images/image-product-${activeImage}.jpg`}
+                    alt=""
+                    className="rounded-xl"
+                    onClick={onClick}
+                />
+                {navigation == "visible" && (
+                    <>
+                        <button
+                            aria-label="Previous image"
+                            onClick={setPreviousImage}
+                            className="absolute left-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white hover:text-orange"
+                        >
+                            <BackIcon className="h-7 w-7" aria-hidden />
+                        </button>
+                        <button
+                            aria-label="Next image"
+                            onClick={setNextImage}
+                            className="absolute right-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white hover:text-orange"
+                        >
+                            <ForwardIcon className="h-7 w-7" aria-hidden />
+                        </button>
+                    </>
+                )}
+            </div>
             <section className="mt-8">
                 <ul className="flex gap-8">
                     {product.images.thumbnails.map((_, idx) => (
@@ -22,7 +60,7 @@ function ImagePanel({ product }: ImagePanelProps) {
                             <button
                                 type="button"
                                 aria-label={`product image ${idx + 1}`}
-                                className={`rounded-xl${
+                                className={`bg-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-orange rounded-xl${
                                     idx + 1 === activeImage
                                         ? " border-2 border-orange"
                                         : ""
@@ -45,7 +83,7 @@ function ImagePanel({ product }: ImagePanelProps) {
                     ))}
                 </ul>
             </section>
-        </section>
+        </>
     );
 }
 
