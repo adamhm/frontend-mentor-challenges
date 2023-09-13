@@ -22,21 +22,21 @@ function Header() {
                             <Logo />
                         </a>
                     </li>
-                    <li className="ml-14 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
+                    <li className="ml-14 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
                         <a href="#">Collections</a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
                         <a href="#">Men</a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
                         <a href="#" aria-current="page">
                             Women
                         </a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
                         <a href="#">About</a>
                     </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent hover:border-orange hover:text-black">
+                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
                         <a href="#">Contact</a>
                     </li>
                     <li
@@ -47,7 +47,7 @@ function Header() {
                         <button
                             role="button"
                             onClick={() => setIsOpen((state) => !state)}
-                            className="h-[22px] hover:text-black"
+                            className="h-[22px] transition-colors duration-500 hover:text-black"
                         >
                             <CartIcon />
                             {itemsCount > 0 && (

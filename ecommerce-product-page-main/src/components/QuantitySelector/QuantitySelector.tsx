@@ -17,7 +17,7 @@ function QuantitySelector({
             <button
                 type="button"
                 onClick={onMinusClick}
-                className="hover:opacity-60"
+                className="transition-opacity duration-300 hover:opacity-60"
             >
                 <MinusIcon />
             </button>
@@ -25,7 +25,7 @@ function QuantitySelector({
             <button
                 type="button"
                 onClick={onPlusClick}
-                className="hover:opacity-60"
+                className="transition-opacity duration-300 hover:opacity-60"
             >
                 <PlusIcon />
             </button>

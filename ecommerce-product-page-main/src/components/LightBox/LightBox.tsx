@@ -16,7 +16,7 @@ function LightBox({ initial, onClose }: LightBoxProps) {
             <div className="mx-5 max-w-[550px]">
                 <button
                     aria-label="close"
-                    className="mb-6 ml-auto block text-white hover:text-orange"
+                    className="mb-6 ml-auto block text-white transition-colors duration-500 hover:text-orange"
                     onClick={onClose}
                 >
                     <CloseIcon className="h-8 w-8" aria-hidden />

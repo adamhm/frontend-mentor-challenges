@@ -26,7 +26,7 @@ function ShoppingCart() {
                     </ul>
                     <button
                         type="button"
-                        className="mx-6 mb-8 h-[54px] w-[312px] rounded-xl bg-orange font-bold text-white hover:opacity-60"
+                        className="mx-6 mb-8 h-[54px] w-[312px] rounded-xl bg-orange font-bold text-white transition-opacity duration-300 hover:opacity-60"
                     >
                         Checkout
                     </button>

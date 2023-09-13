@@ -39,14 +39,14 @@ function ImagePanel({
                         <button
                             aria-label="Previous image"
                             onClick={setPreviousImage}
-                            className="absolute left-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white hover:text-orange"
+                            className="absolute left-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white transition-colors duration-500 hover:text-orange"
                         >
                             <BackIcon className="h-7 w-7" aria-hidden />
                         </button>
                         <button
                             aria-label="Next image"
                             onClick={setNextImage}
-                            className="absolute right-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white hover:text-orange"
+                            className="absolute right-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white transition-colors duration-500 hover:text-orange"
                         >
                             <ForwardIcon className="h-7 w-7" aria-hidden />
                         </button>
@@ -72,7 +72,7 @@ function ImagePanel({
                                         idx + 1
                                     }-thumbnail.jpg`}
                                     alt=""
-                                    className={`hover:opacity-30 rounded-xl${
+                                    className={`transition-opacity duration-300 hover:opacity-30 rounded-xl${
                                         idx + 1 === activeImage
                                             ? " opacity-30"
                                             : ""
