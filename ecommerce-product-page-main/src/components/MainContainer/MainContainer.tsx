@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 
 import useKeyDown from "@hooks/useKeyDown";
 import { ImagePanel, InfoPanel, LightBox } from "@components";
@@ -7,16 +8,30 @@ import data from "@data/products.json";
 function MainContainer() {
     const [showLightBox, setShowLightBox] = useState(false);
     const [activeImage, setActiveImage] = useState(1);
+    const dialogRef = useRef<HTMLDialogElement>(null);
 
-    useKeyDown("Escape", () => setShowLightBox(false));
+    useEffect(() => {
+        if (showLightBox) {
+            dialogRef.current?.showModal();
+        } else {
+            dialogRef.current?.close();
+        }
+    });
+
+    const handleClick = () => setShowLightBox(true);
+
+    const handleClose = () => setShowLightBox(false);
+
+    useKeyDown("Escape", handleClose);
 
     return (
         <main className="mt-[90px] flex justify-center">
             <section className="flex max-w-[1110px] grow">
                 <section className="w-6/12 pl-12 pr-[62px]">
                     <ImagePanel
+                        initial={activeImage}
                         product={data.products[0]}
-                        onClick={() => setShowLightBox(true)}
+                        onClick={handleClick}
                         onActiveChange={(active) => setActiveImage(active)}
                     />
                 </section>
@@ -24,12 +39,16 @@ function MainContainer() {
                     <InfoPanel product={data.products[0]} />
                 </section>
             </section>
-            {showLightBox && (
-                <LightBox
-                    initial={activeImage}
-                    onClose={() => setShowLightBox(false)}
-                />
-            )}
+
+            {showLightBox &&
+                createPortal(
+                    <LightBox
+                        initial={activeImage}
+                        ref={dialogRef}
+                        onClose={handleClose}
+                    />,
+                    document.body
+                )}
         </main>
     );
 }

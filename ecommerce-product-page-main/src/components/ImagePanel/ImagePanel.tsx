@@ -6,7 +6,7 @@ import { ReactComponent as BackIcon } from "@assets/icon-back.svg";
 import { ReactComponent as ForwardIcon } from "@assets/icon-forward.svg";
 
 type ImagePanelProps = {
-    initial?: number;
+    initial: number;
     navigation?: "visible" | "hidden";
     product: Product;
     onClick?: React.MouseEventHandler<HTMLImageElement>;
@@ -14,7 +14,7 @@ type ImagePanelProps = {
 };
 
 function ImagePanel({
-    initial = 1,
+    initial,
     navigation = "hidden",
     product,
     onClick,

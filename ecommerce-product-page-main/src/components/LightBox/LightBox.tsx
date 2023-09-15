@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { ImagePanel } from "@components";
 import { ReactComponent as CloseIcon } from "@assets/icon-close.svg";
 import data from "@data/products.json";
@@ -7,13 +8,16 @@ type LightBoxProps = {
     onClose?(): void;
 };
 
-function LightBox({ initial, onClose }: LightBoxProps) {
+const LightBox = forwardRef(function (
+    { initial, onClose }: LightBoxProps,
+    ref: React.ForwardedRef<HTMLDialogElement>
+) {
     return (
-        <div
-            className="fixed bottom-0 left-0 right-0 top-0 flex items-center justify-center bg-black bg-opacity-75"
-            aria-modal
+        <dialog
+            className="bg-transparent backdrop:bg-black backdrop:bg-opacity-75"
+            ref={ref}
         >
-            <div className="mx-5 max-w-[550px]">
+            <div className="max-w-[550px] bg-transparent px-8">
                 <button
                     aria-label="close"
                     className="mb-6 ml-auto block text-white transition-colors duration-500 hover:text-orange"
@@ -27,8 +31,8 @@ function LightBox({ initial, onClose }: LightBoxProps) {
                     initial={initial}
                 />
             </div>
-        </div>
+        </dialog>
     );
-}
+});
 
 export default LightBox;
