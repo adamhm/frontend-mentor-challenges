@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import { AnimatePresence } from "framer-motion";
 
 import useKeyDown from "@hooks/useKeyDown";
 import { ImagePanel, InfoPanel, LightBox } from "@components";
@@ -10,13 +11,13 @@ function MainContainer() {
     const [activeImage, setActiveImage] = useState(1);
     const dialogRef = useRef<HTMLDialogElement>(null);
 
-    useEffect(() => {
-        if (showLightBox) {
-            dialogRef.current?.showModal();
-        } else {
-            dialogRef.current?.close();
-        }
-    });
+    // useEffect(() => {
+    //     if (showLightBox) {
+    //         dialogRef.current?.showModal();
+    //     } else {
+    //         dialogRef.current?.close();
+    //     }
+    // });
 
     const handleClick = () => setShowLightBox(true);
 
@@ -25,7 +26,7 @@ function MainContainer() {
     useKeyDown("Escape", handleClose);
 
     return (
-        <main className="mt-[90px] flex justify-center">
+        <main className="mt-[90px] flex items-center justify-center">
             <section className="flex max-w-[1110px] grow">
                 <section className="w-6/12 pl-12 pr-[62px]">
                     <ImagePanel
@@ -40,15 +41,15 @@ function MainContainer() {
                 </section>
             </section>
 
-            {showLightBox &&
-                createPortal(
+            <AnimatePresence>
+                {showLightBox && (
                     <LightBox
                         initial={activeImage}
                         ref={dialogRef}
                         onClose={handleClose}
-                    />,
-                    document.body
+                    />
                 )}
+            </AnimatePresence>
         </main>
     );
 }
