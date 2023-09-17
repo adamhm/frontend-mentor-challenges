@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 import type { Product } from "@typedefs";
 import useImagePanel from "@hooks/useImagePanel";
@@ -54,9 +55,26 @@ function ImagePanel({
                 )}
             </div>
             <section className="mt-8">
-                <ul className="flex gap-8">
+                <motion.ul
+                    className="flex gap-8"
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: { staggerChildren: 0.1 },
+                        },
+                    }}
+                    initial="hidden"
+                    animate="show"
+                >
                     {product.images.thumbnails.map((_, idx) => (
-                        <li key={idx + 1}>
+                        <motion.li
+                            key={idx + 1}
+                            variants={{
+                                hidden: { opacity: 0, scale: 0.5 },
+                                show: { opacity: 1, scale: 1 },
+                            }}
+                        >
                             <button
                                 type="button"
                                 aria-label={`product image ${idx + 1}`}
@@ -79,9 +97,9 @@ function ImagePanel({
                                     }`}
                                 />
                             </button>
-                        </li>
+                        </motion.li>
                     ))}
-                </ul>
+                </motion.ul>
             </section>
         </>
     );
