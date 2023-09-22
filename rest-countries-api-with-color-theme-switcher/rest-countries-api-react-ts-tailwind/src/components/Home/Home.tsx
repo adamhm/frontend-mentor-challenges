@@ -1,3 +1,5 @@
+import { AnimatePresence } from "framer-motion";
+
 import { CountryDetails, HomeContent } from "@components";
 import { useCallback, useState } from "react";
 import useDebounce from "@hooks/useDebounce";
@@ -28,12 +30,15 @@ function Home() {
                     onRegionChange={(region) => setSelectedRegion(region)}
                 />
             )}
-            {detailedCountry && (
-                <CountryDetails
-                    countryCode={detailedCountry}
-                    onCountrySelect={handleCountrySelect}
-                />
-            )}
+            <AnimatePresence>
+                {detailedCountry && (
+                    <CountryDetails
+                        key="countryDetails"
+                        countryCode={detailedCountry}
+                        onCountrySelect={handleCountrySelect}
+                    />
+                )}
+            </AnimatePresence>
         </main>
     );
 }

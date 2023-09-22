@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import useCountryDetails from "@hooks/useCountryDetails";
 import { ReactComponent as ArrowIcon } from "@assets/arrow-back-sharp.svg";
 
@@ -23,7 +25,16 @@ function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {
     if (isCountryError || isBordersError) return <div>Error</div>;
 
     return (
-        <section className="dark:text-white">
+        <motion.section
+            className="dark:text-white"
+            variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1 },
+            }}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+        >
             <button
                 type="button"
                 className="mt-[30px] h-[40px] w-[136px] rounded-md shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:bg-outer-space dark:shadow-none"
@@ -103,7 +114,7 @@ function CountryDetails({ countryCode, onCountrySelect }: CountryDetailsProps) {
                     </div>
                 </div>
             </div>
-        </section>
+        </motion.section>
     );
 }
 
