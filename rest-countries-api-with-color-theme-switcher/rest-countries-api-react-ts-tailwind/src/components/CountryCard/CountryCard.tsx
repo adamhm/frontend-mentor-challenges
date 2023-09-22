@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 import { Country } from "@typedefs";
 
 type CountryCardProps = {
@@ -10,7 +12,11 @@ function CountryCard({
     onCountrySelect,
 }: CountryCardProps) {
     return (
-        <button
+        <motion.button
+            variants={{
+                hidden: { opacity: 0 },
+                visible: { opacity: 1, transition: { duration: 0.5 } },
+            }}
             type="button"
             className="flex h-[21rem] w-[16.5rem] flex-col rounded-md bg-white shadow-[0px_0px_8px_rgba(240,240,240,0.6)] dark:bg-outer-space dark:shadow-none"
             onClick={() => onCountrySelect(cca3)}
@@ -35,7 +41,7 @@ function CountryCard({
                     <strong>Capital:</strong> {capital}
                 </p>
             </div>
-        </button>
+        </motion.button>
     );
 }
 
