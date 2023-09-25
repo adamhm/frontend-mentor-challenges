@@ -5,9 +5,9 @@ function ShoppingCart() {
     const { state } = useCartContext();
 
     return (
-        <section className="absolute z-20 w-[360px] -translate-x-[calc(100%-22px)] translate-y-8 rounded-xl border bg-white xl:-translate-x-1/2">
+        <section className="absolute inset-x-2 top-[4.75rem] z-20 rounded-xl border bg-white md:inset-x-auto md:top-auto md:w-[360px] md:-translate-x-[calc(100%-22px)] md:translate-y-8 xl:-translate-x-1/2">
             <header className="border-b border-gray-200 px-6">
-                <h2 className="py-7 font-bold text-black">Cart</h2>
+                <h2 className="py-[22px] font-bold text-black md:py-7">Cart</h2>
             </header>
             {state.items.length === 0 && (
                 <p className="flex h-[188px] items-center justify-center font-bold">

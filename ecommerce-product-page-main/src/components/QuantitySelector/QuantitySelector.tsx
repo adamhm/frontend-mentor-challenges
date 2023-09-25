@@ -13,7 +13,7 @@ function QuantitySelector({
     onPlusClick,
 }: QuantitySelectorProps) {
     return (
-        <section className="flex h-[54px] w-[156px] items-center justify-between rounded-lg bg-light-grayish-blue px-4">
+        <section className="flex h-[54px] w-full items-center justify-between rounded-lg bg-light-grayish-blue px-4 md:w-[156px]">
             <button
                 type="button"
                 onClick={onMinusClick}

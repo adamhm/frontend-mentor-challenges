@@ -14,9 +14,9 @@ function Header() {
     );
 
     return (
-        <header className="flex justify-center">
+        <header className="relative flex justify-center">
             <nav className="max-w-[1110px] grow border-b border-gray-200">
-                <ul className="flex h-28 items-center text-dark-grayish-blue">
+                <ul className="flex h-[4.25rem] items-center px-6 text-dark-grayish-blue md:h-28 md:px-0">
                     <li className="mr-6 flex h-full items-center border-b-4 border-transparent">
                         <a href="#">
                             <Logo />
@@ -47,14 +47,14 @@ function Header() {
                         {isOpen && <ShoppingCart />}
                     </li>
                     <li
-                        className="ml-12 border-b-4 border-transparent"
+                        className="ml-6 border-b-4 border-transparent md:ml-12"
                         title="Profile"
                     >
                         <a href="#">
                             <img
                                 src="./images/image-avatar.png"
                                 alt=""
-                                className="h-12 w-12 rounded-full transition-all hover:border-2 hover:border-orange"
+                                className="h-6 rounded-full transition-all hover:border-2 hover:border-orange md:h-12"
                             />
                         </a>
                     </li>

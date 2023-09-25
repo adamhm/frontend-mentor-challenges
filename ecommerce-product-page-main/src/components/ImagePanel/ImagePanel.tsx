@@ -28,11 +28,11 @@ function ImagePanel({
 
     return (
         <>
-            <div className="relative">
+            <div className="relative max-h-[300px] md:max-h-[initial] ">
                 <img
                     src={`./images/image-product-${activeImage}.jpg`}
                     alt=""
-                    className="rounded-xl"
+                    className="h-[300px] w-full object-cover md:h-[auto] md:w-[auto] md:rounded-xl"
                     onClick={onClick}
                 />
                 {navigation == "visible" && (
@@ -40,21 +40,21 @@ function ImagePanel({
                         <button
                             aria-label="Previous image"
                             onClick={setPreviousImage}
-                            className="absolute left-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white transition-colors duration-500 hover:text-orange"
+                            className="absolute left-[1rem] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white transition-colors duration-500 hover:text-orange md:left-[-30px]"
                         >
                             <BackIcon className="h-7 w-7" aria-hidden />
                         </button>
                         <button
                             aria-label="Next image"
                             onClick={setNextImage}
-                            className="absolute right-[-30px] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white transition-colors duration-500 hover:text-orange"
+                            className="absolute right-[1rem] top-1/2 flex h-[60px] w-[60px] items-center justify-center rounded-full bg-white transition-colors duration-500 hover:text-orange md:right-[-30px]"
                         >
                             <ForwardIcon className="h-7 w-7" aria-hidden />
                         </button>
                     </>
                 )}
             </div>
-            <section className="mt-8">
+            <section className="mt-8 hidden md:block">
                 <motion.ul
                     className="flex gap-8"
                     variants={{
