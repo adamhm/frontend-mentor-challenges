@@ -1,0 +1,24 @@
+{
+    "items": [
+        {
+            "name": "Collections",
+            "target": "#"
+        },
+        {
+            "name": "Men",
+            "target": "#"
+        },
+        {
+            "name": "Women",
+            "target": "#"
+        },
+        {
+            "name": "About",
+            "target": "#"
+        },
+        {
+            "name": "Contact",
+            "target": "#"
+        }
+    ]
+}

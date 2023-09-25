@@ -1,6 +1,6 @@
 import { ReactComponent as Logo } from "@assets/logo.svg";
 import { ReactComponent as CartIcon } from "@assets/icon-cart.svg";
-import { ShoppingCart } from "@components";
+import { Menu, ShoppingCart } from "@components";
 import useCartContext from "@hooks/useCartContext";
 import useDropdown from "@hooks/useDropdown";
 
@@ -17,28 +17,12 @@ function Header() {
         <header className="flex justify-center">
             <nav className="max-w-[1110px] grow border-b border-gray-200">
                 <ul className="flex h-28 items-center text-dark-grayish-blue">
-                    <li className="flex h-full items-center border-b-4 border-transparent">
+                    <li className="mr-6 flex h-full items-center border-b-4 border-transparent">
                         <a href="#">
                             <Logo />
                         </a>
                     </li>
-                    <li className="ml-14 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
-                        <a href="#">Collections</a>
-                    </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
-                        <a href="#">Men</a>
-                    </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
-                        <a href="#" aria-current="page">
-                            Women
-                        </a>
-                    </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
-                        <a href="#">About</a>
-                    </li>
-                    <li className="ml-8 flex h-full items-center border-b-4 border-transparent transition-all duration-300 hover:border-orange hover:text-black">
-                        <a href="#">Contact</a>
-                    </li>
+                    <Menu />
                     <li
                         className="ml-auto flex border-b-4 border-transparent"
                         title="Cart"
