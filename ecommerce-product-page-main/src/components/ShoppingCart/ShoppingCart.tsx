@@ -5,7 +5,7 @@ function ShoppingCart() {
     const { state } = useCartContext();
 
     return (
-        <section className="absolute w-[360px] -translate-x-1/2 translate-y-8 rounded-xl border bg-white">
+        <section className="absolute z-20 w-[360px] -translate-x-[calc(100%-22px)] translate-y-8 rounded-xl border bg-white xl:-translate-x-1/2">
             <header className="border-b border-gray-200 px-6">
                 <h2 className="py-7 font-bold text-black">Cart</h2>
             </header>
