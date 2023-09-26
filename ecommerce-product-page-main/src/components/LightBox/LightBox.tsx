@@ -1,4 +1,3 @@
-import { forwardRef } from "react";
 import { motion } from "framer-motion";
 
 import { ImagePanel } from "@components";
@@ -10,20 +9,23 @@ type LightBoxProps = {
     onClose?(): void;
 };
 
-const LightBox = forwardRef(function (
-    { initial, onClose }: LightBoxProps,
-    ref: React.ForwardedRef<HTMLDialogElement>
-) {
+function LightBox({ initial, onClose }: LightBoxProps) {
     return (
         <>
-            <div className="fixed left-0 top-0 z-10 h-full w-full bg-black bg-opacity-75" />
+            <motion.div
+                className="fixed left-0 top-0 z-10 h-full w-full bg-black bg-opacity-75"
+                initial={{
+                    opacity: 0,
+                }}
+                animate={{ opacity: 0.75 }}
+                exit={{ opacity: 0 }}
+            />
             <motion.dialog
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 30 }}
                 transition={{ duration: 0.25 }}
                 className="z-20 bg-transparent"
-                ref={ref}
                 open
             >
                 <div className="max-w-[615px] bg-transparent px-8">
@@ -43,6 +45,6 @@ const LightBox = forwardRef(function (
             </motion.dialog>
         </>
     );
-});
+}
 
 export default LightBox;

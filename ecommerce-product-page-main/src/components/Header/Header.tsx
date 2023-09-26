@@ -5,13 +5,14 @@ import { ReactComponent as MenuIcon } from "@assets/icon-menu.svg";
 import { ReactComponent as Logo } from "@assets/logo.svg";
 import { ReactComponent as CartIcon } from "@assets/icon-cart.svg";
 import { Menu, ShoppingCart, SideMenu } from "@components";
+
 import useCartContext from "@hooks/useCartContext";
 import useDropdown from "@hooks/useDropdown";
 import useMobileView from "@hooks/useMobileView";
 
 function Header() {
     const { dropdownRef, isOpen, setIsOpen } = useDropdown();
-    const [sideMenuVisible, setSideMenuVisible] = useState(true);
+    const [sideMenuVisible, setSideMenuVisible] = useState(false);
     const { state } = useCartContext();
     const isMobileView = useMobileView(768);
 

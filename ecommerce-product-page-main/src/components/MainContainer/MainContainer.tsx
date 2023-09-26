@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
 
 import useKeyDown from "@hooks/useKeyDown";
@@ -10,7 +10,6 @@ function MainContainer() {
     const [showLightBox, setShowLightBox] = useState(false);
     const [activeImage, setActiveImage] = useState(1);
     const isMobileView = useMobileView(768);
-    const dialogRef = useRef<HTMLDialogElement>(null);
 
     const handleClick = () => !isMobileView && setShowLightBox(true);
 
@@ -37,11 +36,7 @@ function MainContainer() {
 
             <AnimatePresence>
                 {showLightBox && (
-                    <LightBox
-                        initial={activeImage}
-                        ref={dialogRef}
-                        onClose={handleClose}
-                    />
+                    <LightBox initial={activeImage} onClose={handleClose} />
                 )}
             </AnimatePresence>
         </main>
