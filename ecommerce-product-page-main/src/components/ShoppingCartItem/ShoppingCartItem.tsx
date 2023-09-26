@@ -23,7 +23,7 @@ function ShoppingCartItem({
     const { dispatch } = useCartContext();
 
     return (
-        <li className="my-6 flex justify-between px-6">
+        <li className="my-6 flex justify-between">
             <img
                 src={`./images/${thumbnails[0]}`}
                 alt=""

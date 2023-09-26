@@ -15,7 +15,7 @@ function ShoppingCart() {
                 </p>
             )}
             {state.items.length > 0 && (
-                <>
+                <div className="px-6">
                     <ul>
                         {state.items.map((item) => (
                             <ShoppingCartItem
@@ -26,11 +26,11 @@ function ShoppingCart() {
                     </ul>
                     <button
                         type="button"
-                        className="mx-6 mb-8 h-[54px] w-[312px] rounded-xl bg-orange font-bold text-white transition-opacity duration-300 hover:opacity-60"
+                        className="mb-8 block h-[54px] w-full rounded-xl bg-orange font-bold text-white transition-opacity duration-300 hover:opacity-60 md:w-[312px]"
                     >
                         Checkout
                     </button>
-                </>
+                </div>
             )}
         </section>
     );
