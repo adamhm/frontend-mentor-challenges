@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 import { ReactComponent as MenuIcon } from "@assets/icon-menu.svg";
 import { ReactComponent as Logo } from "@assets/logo.svg";
@@ -60,15 +60,20 @@ function Header() {
                             className="h-[22px] transition-colors duration-500 hover:text-black"
                         >
                             <CartIcon />
-                            {itemsCount > 0 && (
-                                <span
-                                    role="status"
-                                    aria-label={`${itemsCount} items in the shopping cart`}
-                                    className="relative -top-8 left-2 rounded-md bg-orange px-2 py-[1px] text-[10px] text-white"
-                                >
-                                    {itemsCount}
-                                </span>
-                            )}
+                            <AnimatePresence>
+                                {itemsCount > 0 && (
+                                    <motion.span
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        role="status"
+                                        aria-label={`${itemsCount} items in the shopping cart`}
+                                        className="relative -top-8 left-2 rounded-md bg-orange px-2 py-[1px] text-[10px] text-white"
+                                    >
+                                        {itemsCount}
+                                    </motion.span>
+                                )}
+                            </AnimatePresence>
                         </button>
                         {isOpen && <ShoppingCart />}
                     </li>
