@@ -30,16 +30,18 @@ function SideMenu({ onClose }: SideMenuProps) {
                 >
                     <CloseIcon className="h-6 w-6" aria-hidden />
                 </button>
-                <ul className="ml-4 mt-11 flex flex-col justify-between text-[18px]">
-                    {menu.items.map((item) => (
-                        <li
-                            key={item.name}
-                            className="h-full items-center border-b-4 border-transparent py-2 transition-all duration-300 hover:text-orange"
-                        >
-                            <a href={item.target}>{item.name}</a>
-                        </li>
-                    ))}
-                </ul>
+                <nav className="ml-4 mt-11">
+                    <ul className="flex flex-col justify-between text-[18px]">
+                        {menu.items.map((item) => (
+                            <li
+                                key={item.name}
+                                className="h-full items-center border-b-4 border-transparent py-2 transition-all duration-300 hover:text-orange"
+                            >
+                                <a href={item.target}>{item.name}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
             </motion.dialog>
         </>
     );
