@@ -75,7 +75,9 @@ function Header() {
                                 )}
                             </AnimatePresence>
                         </button>
-                        {isOpen && <ShoppingCart />}
+                        <AnimatePresence key="shopping-cart">
+                            {isOpen && <ShoppingCart />}
+                        </AnimatePresence>
                     </li>
                     <li
                         className="ml-6 border-b-4 border-transparent md:ml-12"
