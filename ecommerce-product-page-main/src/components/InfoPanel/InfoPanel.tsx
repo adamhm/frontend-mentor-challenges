@@ -43,10 +43,10 @@ function InfoPanel({
             <p className="mt-6 text-[13px] font-bold uppercase text-orange md:mt-0">
                 {company}
             </p>
-            <h1 className="mt-3 text-[32px] font-bold leading-[32px] md:mt-6 md:text-[44px] md:leading-[44px]">
+            <h1 className="mt-3 text-[28px] font-bold leading-[28px] md:mt-6 md:text-[44px] md:leading-[44px]">
                 {name}
             </h1>
-            <p className="mb-6 mt-10 text-gray-500">{description}</p>
+            <p className="mb-6 mt-6 text-gray-500 md:mt-10">{description}</p>
             <div className="flex flex-row justify-between md:flex-col">
                 <p className="flex items-center text-[30px] font-bold">
                     ${((price * discount) / 100).toFixed(2)}
