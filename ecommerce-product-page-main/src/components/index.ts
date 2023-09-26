@@ -7,6 +7,7 @@ import Menu from "./Menu/Menu";
 import QuantitySelector from "./QuantitySelector/QuantitySelector";
 import ShoppingCart from "./ShoppingCart/ShoppingCart";
 import ShoppingCartItem from "./ShoppingCartItem/ShoppingCartItem";
+import SideMenu from "./SideMenu/SideMenu";
 
 export {
     Header,
@@ -18,4 +19,5 @@ export {
     QuantitySelector,
     ShoppingCart,
     ShoppingCartItem,
+    SideMenu,
 };
