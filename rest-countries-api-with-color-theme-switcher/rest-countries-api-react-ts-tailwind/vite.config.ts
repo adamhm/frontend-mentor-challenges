@@ -21,6 +21,7 @@ export default defineConfig({
             "@utils": path.resolve(__dirname, "./src/utils"),
         },
     },
+    base: "/fm/rest-countries-api/",
     plugins: [
         react(),
         svgr(),

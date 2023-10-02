@@ -1,5 +1,6 @@
 {
     "name": "rest-countries-api-react-ts-tailwind",
+    "homepage": "https://adamhm.github.io/fm/rest-countries-api/",
     "private": true,
     "version": "0.0.0",
     "type": "module",
