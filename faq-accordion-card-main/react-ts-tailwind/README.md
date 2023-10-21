@@ -1,7 +1,7 @@
 <p align="center">
     <a href="https://www.frontendmentor.io"><img src="https://www.frontendmentor.io/static/images/logo-desktop.svg"></a>
     </p>
-<h1 style="text-align: center">FAQ accordion card solution</h1>
+<h1 style="text-align: center">FAQ accordion card solution (React)</h1>
 
 <br>
 
