@@ -23,8 +23,8 @@ This is a solution to the [QR code component challenge on Frontend Mentor](https
 
 ### Links
 
--   Solution URL: [Add solution URL here](https://github.com/adamhm/frontend-mentor-challenges/tree/main/qr-code-component-main/vanilla-css)
--   Live Site URL: [Add live site URL here](https://adamhm.github.io/fm/qrcode/vanilla-css/)
+-   [Solution URL](https://github.com/adamhm/frontend-mentor-challenges/tree/main/qr-code-component-main/vanilla-css)
+-   [Live Site URL](https://adamhm.github.io/fm/qrcode/vanilla-css/)
 
 ## My process
 
