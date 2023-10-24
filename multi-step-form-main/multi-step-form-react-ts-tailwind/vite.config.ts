@@ -18,6 +18,7 @@ export default defineConfig({
             "@validation": path.resolve(__dirname, "./src/validation"),
         },
     },
+    base: "/fm/multi-step-form/",
     plugins: [
         react(),
         Unfonts({

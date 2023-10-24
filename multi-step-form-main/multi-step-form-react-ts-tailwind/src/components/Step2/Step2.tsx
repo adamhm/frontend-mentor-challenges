@@ -42,7 +42,7 @@ function Step2() {
                     {objectKeys(planData).map((plan) => (
                         <PlanCard
                             key={plan}
-                            image={`/src/assets/images/${planData[plan].image}`}
+                            image={`/fm/multi-step-form/assets/images/${planData[plan].image}`}
                             title={plan}
                             subtitle={`$${planData[plan][billing]}/${priceSuffix}`}
                             note={
