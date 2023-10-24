@@ -19,6 +19,7 @@ export default defineConfig({
             "@utils": path.resolve(__dirname, "./src/utils"),
         },
     },
+    base: "/fm/ecommerce-product-page/",
     plugins: [
         react(),
         svgr(),
